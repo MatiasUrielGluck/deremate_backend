@@ -3,10 +3,13 @@ package com.matiasugluck.deremate_backend.service.impl;
 import com.matiasugluck.deremate_backend.dto.GenericResponseDTO;
 import com.matiasugluck.deremate_backend.dto.auth.LoginResponseDTO;
 import com.matiasugluck.deremate_backend.entity.User;
+import com.matiasugluck.deremate_backend.entity.VerificationToken;
 import com.matiasugluck.deremate_backend.exception.ApiException;
 import com.matiasugluck.deremate_backend.repository.UserRepository;
+import com.matiasugluck.deremate_backend.repository.VerificationTokenRepository;
 import com.matiasugluck.deremate_backend.service.AuthService;
 import com.matiasugluck.deremate_backend.service.JwtService;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,6 +19,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
@@ -23,6 +29,8 @@ public class AuthServiceImpl implements AuthService {
     private final BCryptPasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final VerificationTokenRepository tokenRepository;
+    private final EmailService emailSender;
 
 
     @Override
@@ -56,7 +64,22 @@ public class AuthServiceImpl implements AuthService {
                 .build();
 
         userRepository.save(user);
-        return new GenericResponseDTO("ok");
+        // Generar y guardar el token de verificación
+        String token = UUID.randomUUID().toString();
+        VerificationToken verificationToken = new VerificationToken();
+        verificationToken.setToken(token);
+        verificationToken.setUser(user);
+        verificationToken.setExpiryDate(LocalDateTime.now().plusHours(24));
+        tokenRepository.save(verificationToken);
+
+        // Enviar el email de verificación
+        try {
+            emailSender.sendVerificationEmail(user.getEmail(), token);
+        } catch (MessagingException e) {
+            throw new RuntimeException("Error al enviar el correo de verificación", e);
+        }
+
+        return new GenericResponseDTO("Usuario registrado con éxito. Se ha enviado un email de verificación a " + user.getEmail());
     }
 
     @Override
