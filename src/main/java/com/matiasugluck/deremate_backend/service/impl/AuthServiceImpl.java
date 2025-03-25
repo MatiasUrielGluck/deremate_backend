@@ -5,6 +5,8 @@ import com.matiasugluck.deremate_backend.dto.auth.LoginResponseDTO;
 import com.matiasugluck.deremate_backend.entity.User;
 import com.matiasugluck.deremate_backend.entity.VerificationToken;
 import com.matiasugluck.deremate_backend.exception.ApiException;
+import com.matiasugluck.deremate_backend.exception.BadRequestException;
+import com.matiasugluck.deremate_backend.exception.NotFoundException;
 import com.matiasugluck.deremate_backend.repository.UserRepository;
 import com.matiasugluck.deremate_backend.repository.VerificationTokenRepository;
 import com.matiasugluck.deremate_backend.service.AuthService;
@@ -20,6 +22,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -35,6 +38,16 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public LoginResponseDTO login(String email, String password) {
+        Optional<User> optionalUser = userRepository.findByEmail(email);
+        if (optionalUser.isEmpty()) {
+            throw new NotFoundException("No existe un usuario registrado con el email proporcionado.");
+        }
+
+        User user = optionalUser.get();
+
+        if (!user.isEmailVerified()) {
+            throw new BadRequestException("El email no ha sido verificado.");
+        }
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         email,
@@ -46,6 +59,7 @@ public class AuthServiceImpl implements AuthService {
                 .orElseThrow();
 
         String jwtToken = jwtService.generateToken(customer);
+
         return LoginResponseDTO.builder()
                 .token(jwtToken)
                 .expiresIn(jwtService.getExpirationTime())

@@ -26,35 +26,35 @@ public class VerificationService {
     public GenericResponseDTO verifyEmail(String token, String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         if (optionalUser.isEmpty()) {
-            throw new NotFoundException("No existe un usuario con ese email");
+            throw new NotFoundException("No user exists");
         }
 
         User user = optionalUser.get();
 
         if (user.isEmailVerified()) {
-            throw new BadRequestException("La cuenta ya fue verificada");
+            throw new BadRequestException("Account is already verified");
         }
 
         VerificationToken verificationToken = tokenRepository.findByUser(user);
         if (!verificationToken.getToken().equals(token) || verificationToken.getExpiryDate().isBefore(LocalDateTime.now())) {
-            throw new BadRequestException("Token inválido");
+            throw new BadRequestException("Invalid Token");
         }
 
         user.setEmailVerified(true);
         userRepository.save(user);
-        return new GenericResponseDTO("Email verficiado exitosamente");
+        return new GenericResponseDTO("Email verified");
     }
 
     public GenericResponseDTO resendVerification(String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         if (optionalUser.isEmpty()) {
-            throw new NotFoundException("No existe un usuario con ese email");
+            throw new NotFoundException("No user exists");
         }
 
         User user = optionalUser.get();
 
         if (user.isEmailVerified()) {
-            throw new BadRequestException("La cuenta ya fue verificada");
+            throw new BadRequestException("Account is already verified");
         }
 
         VerificationToken existingToken = tokenRepository.findByUser(user);
@@ -69,8 +69,8 @@ public class VerificationService {
         try {
             emailSender.sendVerificationEmail(user.getEmail(), token);
         } catch (MessagingException e) {
-            throw new RuntimeException("Error al enviar el correo de verificación", e);
+            throw new RuntimeException("Error while sending email", e);
         }
-        return new GenericResponseDTO("Correo de verificación enviado exitosamente.");
+        return new GenericResponseDTO("Verification email sent");
     }
 }
