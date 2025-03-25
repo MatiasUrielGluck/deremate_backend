@@ -1,6 +1,7 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -14,8 +15,11 @@ import java.util.Properties;
 @Service
 public class EmailService {
 
-    private static final String EMAIL_FROM = "wearesoundseekers@gmail.com";
-    private static final String APP_PASSWORD = "znfs hqns fvgq gmyw";
+    @Value("${spring.mail.username}")
+    private String emailFrom;
+
+    @Value("${spring.mail.password}")
+    private String appPassword;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -30,7 +34,7 @@ public class EmailService {
 
         return Session.getInstance(prop, new jakarta.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(EMAIL_FROM, APP_PASSWORD);
+                return new PasswordAuthentication(emailFrom, appPassword);
             }
         });
     }
@@ -38,7 +42,7 @@ public class EmailService {
     public void sendVerificationEmail(String to, String code) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setFrom(EMAIL_FROM);
+        helper.setFrom(emailFrom);
         helper.setTo(to);
         helper.setSubject("Email Verification");
         helper.setText("Your verification code is: " + code, true);
@@ -48,7 +52,7 @@ public class EmailService {
     public void sendPasswordResetEmail(String to, String token) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setFrom(EMAIL_FROM);
+        helper.setFrom(emailFrom);
         helper.setTo(to);
         helper.setSubject("Password Reset");
         helper.setText("Your password reset token is: " + token, true);
