@@ -43,12 +43,16 @@ public class SecurityConfiguration {
                                 .requestMatchers(
                                         "/api/v1/auth/login",
                                         "/api/v1/auth/signup",
+                                        "/v3/api-docs/**",
+                                        "/swagger-ui.html",
+                                        "/swagger-ui/**"
                                         "/api/v1/auth/***"
 
                                 )
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated())
+
 
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
