@@ -4,6 +4,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+## VARIABLES ##
+
+src/main/resources/sensitive.properties
+
 ### STS ###
 .apt_generated
 .classpath
@@ -35,3 +39,4 @@ build/
 .env
 .env.prod
 .DS_Store
+logs/soundseekers.log
