@@ -66,6 +66,8 @@ public class User implements UserDetails {
         return true;
     }
 
+    private boolean isEmailVerified;
+
     public UserDTO toDTO() {
         return UserDTO.builder()
                 .id(id)
