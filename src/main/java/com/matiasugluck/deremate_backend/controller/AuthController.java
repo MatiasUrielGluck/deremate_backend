@@ -32,8 +32,8 @@ public class AuthController {
 
     @Operation(summary = "Authenticate user and return JWT token")
     @ApiResponse(responseCode = "200", description = "Successfully authenticated", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "400", description = "Invalid request or email not verified", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "401", description = "Invalid credentials or user disabled", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "401", description = "Invalid credentials, user disabled, email not verified", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @ApiResponse(responseCode = "404", description = "User not found", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @PostMapping("/login")
     public ResponseEntity<GenericResponseDTO<Object>> login(@RequestBody @Validated LoginRequestDTO loginRequestDTO) {
@@ -43,7 +43,7 @@ public class AuthController {
 
     @Operation(summary = "Register a new user")
     @ApiResponse(responseCode = "201", description = "User registered successfully", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "400", description = "Email already exists", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "500", description = "Email already exists or error sending verification email", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @PostMapping("/signup")
     public ResponseEntity<GenericResponseDTO<String>> signup(@RequestBody @Validated SignupRequestDTO signupRequestDTO) {
         GenericResponseDTO<String> response = authService.signup(signupRequestDTO.getEmail(), signupRequestDTO.getPassword());
@@ -53,6 +53,7 @@ public class AuthController {
     @Operation(summary = "Request a password reset token")
     @ApiResponse(responseCode = "200", description = "Password reset token sent", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @ApiResponse(responseCode = "404", description = "User not found", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "500", description = "Error while sending verification email", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @PostMapping("/forgot-password")
     public ResponseEntity<GenericResponseDTO<String>> forgotPassword(@RequestParam("email") @Parameter(description = "User's email address", required = true) String email) {
         GenericResponseDTO<String> response = passwordResetService.sendPasswordResetToken(email);
@@ -61,7 +62,8 @@ public class AuthController {
 
     @Operation(summary = "Reset the user's password")
     @ApiResponse(responseCode = "200", description = "Password reset successfully", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "400", description = "Invalid or expired token, or invalid password", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "400", description = "Invalid password format", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "401", description = "Invalid or expired token", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @ApiResponse(responseCode = "404", description = "User not found", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @PostMapping("/reset-password")
     public ResponseEntity<GenericResponseDTO<String>> resetPassword(@RequestBody PasswordResetRequestDto request) {
@@ -85,6 +87,7 @@ public class AuthController {
     @ApiResponse(responseCode = "200", description = "Verification email sent", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @ApiResponse(responseCode = "400", description = "Account already verified", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @ApiResponse(responseCode = "404", description = "User not found", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "500", description = "Error while sending the email", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @PostMapping("/resend-verification")
     public ResponseEntity<GenericResponseDTO<String>> resendVerification(@RequestParam("email") @Parameter(description = "User's email address", required = true) String email) {
         GenericResponseDTO<String> response = verificationService.resendVerification(email);
