@@ -8,7 +8,9 @@ import com.matiasugluck.deremate_backend.exception.BadRequestException;
 import com.matiasugluck.deremate_backend.exception.NotFoundException;
 import com.matiasugluck.deremate_backend.repository.UserRepository;
 import com.matiasugluck.deremate_backend.repository.VerificationTokenRepository;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -27,10 +29,10 @@ public class PasswordResetService {
     private final PasswordEncoder passwordEncoder;
 
     // Enviar el token para restablecer la contraseña
-    public GenericResponseDTO sendPasswordResetToken(String email) {
+    public GenericResponseDTO<String> sendPasswordResetToken(String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         if (optionalUser.isEmpty()) {
-            throw new NotFoundException("No user exists with that email.");
+            return new GenericResponseDTO<>("No user exists with that email.", HttpStatus.NOT_FOUND.value());
         }
         User user = optionalUser.get();
 
@@ -49,19 +51,18 @@ public class PasswordResetService {
 
         try {
             emailSender.sendPasswordResetEmail(user.getEmail(), token);
-        } catch (Exception e) {
-            throw new BadRequestException("Error while sending verification email: " + e.getMessage());
+        } catch (MessagingException e) {
+            return new GenericResponseDTO<>("Error while sending verification email: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
 
-
-        return new GenericResponseDTO("Reset password token was succesfully sent.");
+        return new GenericResponseDTO<>("Reset password token was succesfully sent.", HttpStatus.OK.value());
     }
 
     // Restablecer la contraseña
-    public GenericResponseDTO resetPassword(PasswordResetRequestDto request) {
+    public GenericResponseDTO<String> resetPassword(PasswordResetRequestDto request) {
         Optional<User> optionalUser = userRepository.findByEmail(request.getEmail());
         if (optionalUser.isEmpty()) {
-            throw new NotFoundException("No user exists with that email.");
+            return new GenericResponseDTO<>("No user exists with that email.", HttpStatus.NOT_FOUND.value());
         }
 
         User user = optionalUser.get();
@@ -69,12 +70,12 @@ public class PasswordResetService {
         // Validar el token
         VerificationToken verificationToken = tokenRepository.findByUser(user);
         if (verificationToken == null || !verificationToken.getToken().equals(request.getToken()) || verificationToken.getExpiryDate().isBefore(LocalDateTime.now())) {
-            throw new BadRequestException("Invalid or expired token.");
+            return new GenericResponseDTO<>("Invalid or expired token.", HttpStatus.UNAUTHORIZED.value());
         }
 
         // Validar la nueva contraseña
         if (!isValidPassword(request.getPassword())) {
-            throw new BadRequestException("Password must contain at least one uppercase letter and one number.");
+            return new GenericResponseDTO<>("Password must contain at least one uppercase letter and one number.", HttpStatus.BAD_REQUEST.value());
         }
 
         // Actualizar la contraseña del usuario
@@ -82,10 +83,10 @@ public class PasswordResetService {
         try {
             userRepository.save(user);
         } catch (Exception e) {
-            throw new BadRequestException("Error while saving new password: " + e.getMessage());
+            return new GenericResponseDTO<>("Error while saving new password: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
 
-        return new GenericResponseDTO("Password reset succesfully.");
+        return new GenericResponseDTO<>("Password reset succesfully.", HttpStatus.OK.value());
     }
 
     // Metodo para validar la contraseña
