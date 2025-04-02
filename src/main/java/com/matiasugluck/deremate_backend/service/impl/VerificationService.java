@@ -9,6 +9,7 @@ import com.matiasugluck.deremate_backend.repository.UserRepository;
 import com.matiasugluck.deremate_backend.repository.VerificationTokenRepository;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -23,42 +24,44 @@ public class VerificationService {
     private final UserRepository userRepository;
     private final EmailService emailSender;
 
-    public GenericResponseDTO verifyEmail(String token, String email) {
+    public GenericResponseDTO<String> verifyEmail(String token, String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         if (optionalUser.isEmpty()) {
-            throw new NotFoundException("No user exists");
+            return new GenericResponseDTO<>("No user exists", HttpStatus.NOT_FOUND.value());
         }
 
         User user = optionalUser.get();
 
         if (user.isEmailVerified()) {
-            throw new BadRequestException("Account is already verified");
+            return new GenericResponseDTO<>("Account is already verified", HttpStatus.BAD_REQUEST.value());
         }
 
         VerificationToken verificationToken = tokenRepository.findByUser(user);
-        if (!verificationToken.getToken().equals(token) || verificationToken.getExpiryDate().isBefore(LocalDateTime.now())) {
-            throw new BadRequestException("Invalid Token");
+        if (verificationToken == null || !verificationToken.getToken().equals(token) || verificationToken.getExpiryDate().isBefore(LocalDateTime.now())) {
+            return new GenericResponseDTO<>("Invalid Token", HttpStatus.BAD_REQUEST.value());
         }
 
         user.setEmailVerified(true);
         userRepository.save(user);
-        return new GenericResponseDTO("Email verified");
+        return new GenericResponseDTO<>("Email verified", HttpStatus.OK.value());
     }
 
-    public GenericResponseDTO resendVerification(String email) {
+    public GenericResponseDTO<String> resendVerification(String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         if (optionalUser.isEmpty()) {
-            throw new NotFoundException("No user exists");
+            return new GenericResponseDTO<>("No user exists", HttpStatus.NOT_FOUND.value());
         }
 
         User user = optionalUser.get();
 
         if (user.isEmailVerified()) {
-            throw new BadRequestException("Account is already verified");
+            return new GenericResponseDTO<>("Account is already verified", HttpStatus.BAD_REQUEST.value());
         }
 
         VerificationToken existingToken = tokenRepository.findByUser(user);
-        tokenRepository.delete(existingToken);
+        if (existingToken != null) {
+            tokenRepository.delete(existingToken);
+        }
 
         String token = UUID.randomUUID().toString();
         VerificationToken verificationToken = new VerificationToken();
@@ -69,8 +72,8 @@ public class VerificationService {
         try {
             emailSender.sendVerificationEmail(user.getEmail(), token);
         } catch (MessagingException e) {
-            throw new RuntimeException("Error while sending email", e);
+            return new GenericResponseDTO<>("Error while sending email", HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
-        return new GenericResponseDTO("Verification email sent");
+        return new GenericResponseDTO<>("Verification email sent", HttpStatus.OK.value());
     }
 }

@@ -24,38 +24,38 @@ public class AuthController {
     private final VerificationService verificationService;
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponseDTO> login(@RequestBody @Validated LoginRequestDTO loginRequestDTO) {
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(authService.login(loginRequestDTO.getEmail(), loginRequestDTO.getPassword()));
+    public ResponseEntity<GenericResponseDTO<Object>> login(@RequestBody @Validated LoginRequestDTO loginRequestDTO) {
+        GenericResponseDTO<Object> response = authService.login(loginRequestDTO.getEmail(), loginRequestDTO.getPassword());
+        return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<GenericResponseDTO> signup(@RequestBody @Validated SignupRequestDTO signupRequestDTO) {
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(authService.signup(signupRequestDTO.getEmail(), signupRequestDTO.getPassword()));
+    public ResponseEntity<GenericResponseDTO<String>> signup(@RequestBody @Validated SignupRequestDTO signupRequestDTO) {
+        GenericResponseDTO<String> response = authService.signup(signupRequestDTO.getEmail(), signupRequestDTO.getPassword());
+        return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
     @PostMapping("/forgot-password")
-    public ResponseEntity<GenericResponseDTO> forgotPassword(@RequestParam("email") String email) {
-        GenericResponseDTO response = passwordResetService.sendPasswordResetToken(email);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<GenericResponseDTO<String>> forgotPassword(@RequestParam("email") String email) {
+        GenericResponseDTO<String> response = passwordResetService.sendPasswordResetToken(email);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
     @PostMapping("/reset-password")
-    public ResponseEntity<GenericResponseDTO> resetPassword(@RequestBody PasswordResetRequestDto request) {
-        GenericResponseDTO response = passwordResetService.resetPassword(request);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<GenericResponseDTO<String>> resetPassword(@RequestBody PasswordResetRequestDto request) {
+        GenericResponseDTO<String> response = passwordResetService.resetPassword(request);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
     @PostMapping("/verify")
-    public GenericResponseDTO verifyEmail(@RequestParam("token") String token, @RequestParam("email") String email) {
-        return verificationService.verifyEmail(token, email);
+    public ResponseEntity<GenericResponseDTO<String>> verifyEmail(@RequestParam("token") String token, @RequestParam("email") String email) {
+        GenericResponseDTO<String> response = verificationService.verifyEmail(token, email);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
     @PostMapping("/resend-verification")
-    public GenericResponseDTO resendVerification(@RequestParam("email") String email) {
-        return verificationService.resendVerification(email);
+    public ResponseEntity<GenericResponseDTO<String>> resendVerification(@RequestParam("email") String email) {
+        GenericResponseDTO<String> response = verificationService.resendVerification(email);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 }
