@@ -1,5 +1,6 @@
 package com.matiasugluck.deremate_backend.entity;
 
+import com.matiasugluck.deremate_backend.dto.RouteDTO;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import lombok.*;
@@ -38,4 +39,17 @@ public class Route {
 
 
     // Getters y Setters
+    public RouteDTO toDto() {
+        return RouteDTO.builder()
+                .id(id)
+                .origin(origin)
+                .destination(destination)
+                .packageLocation(packageLocation)
+                .status(status)
+                .completedAt(completedAt)
+                .createdAt(createdAt)
+                .qrCode(qrCode)
+                .assignedToEmail(assignedTo.getEmail())
+                .build();
+    }
 }

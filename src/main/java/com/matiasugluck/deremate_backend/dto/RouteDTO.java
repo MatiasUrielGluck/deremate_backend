@@ -1,9 +1,11 @@
 package com.matiasugluck.deremate_backend.dto;
 
 import com.matiasugluck.deremate_backend.entity.Route;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
 
+@Builder
 public class RouteDTO {
 
     private Long id;
