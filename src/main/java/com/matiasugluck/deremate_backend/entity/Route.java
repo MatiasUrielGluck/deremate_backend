@@ -23,6 +23,8 @@ public class Route {
     private String destination;
     private String packageLocation; // ej: Estante A2
     private String status = "pendiente"; // pendiente, en_curso, completada
+    private LocalDateTime completedAt;
+
 
     private LocalDateTime createdAt = LocalDateTime.now();
     @JsonIgnoreProperties({"authorities", "password", "enabled"})
