@@ -8,9 +8,13 @@ import jakarta.validation.constraints.Size;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
 @Builder
+@Getter
+@Setter
 public class SignupRequestDTO {
     @Email @NotNull @NotEmpty
     private String email;
@@ -23,4 +27,12 @@ public class SignupRequestDTO {
             message = "Password must contain at least one uppercase letter and one number"
     )
     private String password;
+
+    @NotNull
+    @NotEmpty
+    private String firstName;
+
+    @NotNull
+    @NotEmpty
+    private String lastName;
 }

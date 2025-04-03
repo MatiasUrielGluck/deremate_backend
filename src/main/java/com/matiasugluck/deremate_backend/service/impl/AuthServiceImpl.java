@@ -73,7 +73,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public GenericResponseDTO<Void> signup(String email, String password) {
+    public GenericResponseDTO<Void> signup(String email, String password, String firstName, String lastName) {
         if (userRepository.existsByEmail(email)) {
             return new GenericResponseDTO<>("Email already exists.",  HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
@@ -81,6 +81,8 @@ public class AuthServiceImpl implements AuthService {
         User user = User.builder()
                 .email(email)
                 .password(passwordEncoder.encode(password))
+                .firstname(firstName)
+                .lastname(lastName)
                 .build();
 
         userRepository.save(user);
