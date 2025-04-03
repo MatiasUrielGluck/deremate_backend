@@ -6,7 +6,7 @@ import com.matiasugluck.deremate_backend.entity.User;
 public interface AuthService {
     GenericResponseDTO<Object> login(String email, String password);
 
-    GenericResponseDTO signup(String email, String password);
+    GenericResponseDTO signup(String email, String password, String firstName, String lastName);
 
     User getAuthenticatedUser();
 }

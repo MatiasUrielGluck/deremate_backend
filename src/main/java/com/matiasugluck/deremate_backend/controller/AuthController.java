@@ -46,7 +46,7 @@ public class AuthController {
     @ApiResponse(responseCode = "500", description = "Email already exists or error sending verification email", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @PostMapping("/signup")
     public ResponseEntity<GenericResponseDTO<String>> signup(@RequestBody @Validated SignupRequestDTO signupRequestDTO) {
-        GenericResponseDTO<String> response = authService.signup(signupRequestDTO.getEmail(), signupRequestDTO.getPassword());
+        GenericResponseDTO<String> response = authService.signup(signupRequestDTO.getEmail(), signupRequestDTO.getPassword(), SignupRequestDTO.getFirstName(),SignupRequestDTO.getLastName());
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
