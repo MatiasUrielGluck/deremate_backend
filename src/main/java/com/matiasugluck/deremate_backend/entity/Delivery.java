@@ -1,5 +1,6 @@
 package com.matiasugluck.deremate_backend.entity;
 
+import com.matiasugluck.deremate_backend.dto.delivery.DeliveryDTO;
 import com.matiasugluck.deremate_backend.enums.DeliveryStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -38,4 +39,14 @@ public class Delivery {
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
     private List<Product> products;
+
+    public DeliveryDTO toDto() {
+        return DeliveryDTO.builder()
+                .id(id)
+                .status(status)
+                .user(user.toDTO())
+                .route(route.toDto())
+                .products(products.stream().map(Product::toDto).toList())
+                .build();
+    }
 }
