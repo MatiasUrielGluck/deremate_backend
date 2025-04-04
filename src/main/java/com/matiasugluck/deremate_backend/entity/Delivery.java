@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -24,9 +25,25 @@ public class Delivery {
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @Column(name = "destination")
+    private String destination;
+
+    private String packageLocation; // ej: Estante A2
+
+    @Column(name = "created_date")
+    private Timestamp createdDate;
+
+    @Column(name = "delivery_start_date")
+    private Timestamp deliveryStartDate;
+
+    @Column(name = "delivery_end_date")
+    private Timestamp deliveryEndDate;
+
+    @Column(name = "qr_code", unique = true, length = 500)
+    private String qrCode; // Este es el string que representa el QR en BASE64
+
+    @Column(name = "pin", nullable = false)
+    private String pin;
 
     @OneToOne
     @JoinColumn(name = "route_id", nullable = false)
@@ -44,9 +61,15 @@ public class Delivery {
         return DeliveryDTO.builder()
                 .id(id)
                 .status(status)
-                .user(user.toDTO())
-                .route(route.toDto())
+                .destination(destination)
+                .packageLocation(packageLocation)
+                .createdDate(createdDate)
+                .deliveryStartDate(deliveryStartDate)
+                .deliveryEndDate(deliveryEndDate)
                 .products(products.stream().map(Product::toDto).toList())
+                .qrCode(qrCode)
+                .pin(pin)
+                .route(route.toDto())
                 .build();
     }
 }

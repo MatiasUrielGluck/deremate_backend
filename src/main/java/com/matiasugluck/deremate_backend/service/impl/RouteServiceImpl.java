@@ -1,109 +1,90 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
+import com.matiasugluck.deremate_backend.dto.RouteDTO;
+import com.matiasugluck.deremate_backend.dto.route.CreateRouteDTO;
 import com.matiasugluck.deremate_backend.entity.Route;
 import com.matiasugluck.deremate_backend.entity.User;
+import com.matiasugluck.deremate_backend.enums.RouteStatus;
+import com.matiasugluck.deremate_backend.exception.ApiException;
 import com.matiasugluck.deremate_backend.repository.RouteRepository;
 import com.matiasugluck.deremate_backend.repository.UserRepository;
 import com.matiasugluck.deremate_backend.service.RouteService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
-import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class RouteServiceImpl implements RouteService {
 
     private final RouteRepository routeRepository;
     private final UserRepository userRepository;
 
-    public RouteServiceImpl(RouteRepository routeRepository, UserRepository userRepository) {
-        this.routeRepository = routeRepository;
-        this.userRepository = userRepository;
+    @Override
+    public List<RouteDTO> getAllRoutes() {
+        return routeRepository.findAll().stream().map(Route::toDto).toList();
     }
 
     @Override
-    public List<Route> getAllRoutes() {
-        return routeRepository.findAll();
+    public RouteDTO createRoute(CreateRouteDTO createRouteDTO) {
+        Route route = Route.builder()
+                .origin("coordenadas de origen")
+                .destination(createRouteDTO.getDestination())
+                .status(RouteStatus.PENDING)
+                .build();
+        return routeRepository.save(route).toDto();
     }
 
     @Override
-    public Route createRoute(Route route) {
-        if (route.getQrCode() == null || route.getQrCode().isEmpty()) {
-            route.setQrCode("RUTA-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase());
-        }
-        return routeRepository.save(route);
-    }
-
-    @Override
-    public Route assignRouteToUser(Long routeId, Long userId) {
+    public RouteDTO assignRouteToUser(Long routeId, Long userId) {
         Route route = routeRepository.findById(routeId)
-                .orElseThrow(() -> new RuntimeException("Ruta no encontrada"));
+                .orElseThrow(() -> new ApiException("ROUTE_NOT_FOUND", "Ruta no encontrada", HttpStatus.NOT_FOUND.value()));
 
-        if (!"pendiente".equals(route.getStatus())) {
-            throw new IllegalStateException("Solo se pueden asignar rutas con estado 'pendiente'");
+        if (!route.getStatus().equals(RouteStatus.PENDING)) {
+            throw new ApiException("INVALID_ROUTE_REQUEST", "Solo se pueden asignar rutas con estado 'pendiente'", HttpStatus.BAD_REQUEST.value());
         }
 
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(() -> new ApiException("USER_NOT_FOUND", "Usuario no encontrado", HttpStatus.BAD_REQUEST.value()));
 
-        boolean hasActiveRoute = routeRepository.findByAssignedToIdAndStatus(userId, "en_curso").size() > 0;
+        boolean hasActiveRoute = !routeRepository.findByAssignedToIdAndStatus(userId, RouteStatus.INITIATED).isEmpty();
         if (hasActiveRoute) {
-            throw new IllegalStateException("El usuario ya tiene una ruta en curso");
+            throw new ApiException("INVALID_ROUTE_REQUEST", "User already has active routes", HttpStatus.BAD_REQUEST.value());
         }
 
         route.setAssignedTo(user);
-        route.setStatus("en_curso");
+        route.setStatus(RouteStatus.INITIATED);
 
-        return routeRepository.save(route);
+        return routeRepository.save(route).toDto();
     }
 
     @Override
-    public Route assignRouteByQrCode(String qrCode, Long userId) {
-        Route route = routeRepository.findByQrCode(qrCode)
-                .orElseThrow(() -> new RuntimeException("Ruta no encontrada con código QR"));
-
-        if (!"pendiente".equals(route.getStatus())) {
-            throw new IllegalStateException("Solo se pueden asignar rutas con estado 'pendiente'");
-        }
-
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-
-        boolean hasActiveRoute = routeRepository.findByAssignedToIdAndStatus(userId, "en_curso").size() > 0;
-        if (hasActiveRoute) {
-            throw new IllegalStateException("El usuario ya tiene una ruta en curso");
-        }
-
-        route.setAssignedTo(user);
-        route.setStatus("en_curso");
-
-        return routeRepository.save(route);
+    public List<RouteDTO> getRoutesByUser(Long userId) {
+        return routeRepository.findByAssignedToId(userId).stream().map(Route::toDto).toList();
     }
 
     @Override
-    public List<Route> getRoutesByUser(Long userId) {
-        return routeRepository.findByAssignedToId(userId);
+    public List<RouteDTO> getRoutesByUserAndStatus(Long userId, RouteStatus status) {
+        return routeRepository.findByAssignedToIdAndStatus(userId, status).stream().map(Route::toDto).toList();
     }
 
     @Override
-    public List<Route> getRoutesByUserAndStatus(Long userId, String status) {
-        return routeRepository.findByAssignedToIdAndStatus(userId, status);
-    }
-
-    @Override
-    public Route completeRoute(Long routeId) {
+    public RouteDTO completeRoute(Long routeId) {
         Route route = routeRepository.findById(routeId)
                 .orElseThrow(() -> new RuntimeException("Ruta no encontrada"));
 
-        if (!"en_curso".equals(route.getStatus())) {
+        if (!route.getStatus().equals(RouteStatus.INITIATED)) {
             throw new IllegalStateException("Solo se pueden completar rutas en estado 'en_curso'");
         }
 
-        route.setStatus("completada");
-        route.setCompletedAt(LocalDateTime.now());
+        route.setStatus(RouteStatus.COMPLETED);
+        route.setCompletedAt(Timestamp.from(Instant.now()));
 
-        return routeRepository.save(route);
+        return routeRepository.save(route).toDto();
     }
 
 }
