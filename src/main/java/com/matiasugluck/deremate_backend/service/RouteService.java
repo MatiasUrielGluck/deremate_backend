@@ -1,16 +1,17 @@
 package com.matiasugluck.deremate_backend.service;
 
-import com.matiasugluck.deremate_backend.entity.Route;
+import com.matiasugluck.deremate_backend.dto.RouteDTO;
+import com.matiasugluck.deremate_backend.dto.route.CreateRouteDTO;
+import com.matiasugluck.deremate_backend.enums.RouteStatus;
 
 import java.util.List;
 
 public interface RouteService {
-    List<Route> getAllRoutes();
-    Route createRoute(Route route);
-    Route assignRouteToUser(Long routeId, Long userId);
-    Route assignRouteByQrCode(String qrCode, Long userId);
-    List<Route> getRoutesByUser(Long userId);
-    List<Route> getRoutesByUserAndStatus(Long userId, String status);
-    Route completeRoute(Long routeId);
+    List<RouteDTO> getAllRoutes();
+    RouteDTO createRoute(CreateRouteDTO createRouteDTO);
+    RouteDTO assignRouteToUser(Long routeId, Long userId);
+    List<RouteDTO> getRoutesByUser(Long userId);
+    List<RouteDTO> getRoutesByUserAndStatus(Long userId, RouteStatus status);
+    RouteDTO completeRoute(Long routeId);
 
 }

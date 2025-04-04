@@ -1,19 +1,19 @@
 package com.matiasugluck.deremate_backend.entity;
 
 import com.matiasugluck.deremate_backend.dto.RouteDTO;
+import com.matiasugluck.deremate_backend.enums.RouteStatus;
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+
+import java.sql.Timestamp;
+
 import lombok.*;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
-
+@Table(name = "route")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Route {
 
     @Id
@@ -21,35 +21,28 @@ public class Route {
     private Long id;
 
     private String origin;
+
     private String destination;
-    private String packageLocation; // ej: Estante A2
-    private String status = "pendiente"; // pendiente, en_curso, completada
-    private LocalDateTime completedAt;
 
+    @Enumerated(EnumType.STRING)
+    private RouteStatus status;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
-    @JsonIgnoreProperties({"authorities", "password", "enabled"})
+    @Column(name = "completed_at")
+    private Timestamp completedAt;
+
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = true)
     private User assignedTo;
-
-    @Column(unique = true)
-    private String qrCode; // Este es el string que representa el QR
-
-
 
     // Getters y Setters
     public RouteDTO toDto() {
         return RouteDTO.builder()
                 .id(id)
-                .origin(origin)
-                .destination(destination)
-                .packageLocation(packageLocation)
+                .origin(origin != null ? origin : "")
+                .destination(destination != null ? destination : "")
                 .status(status)
+                .assignedToEmail(assignedTo != null ? assignedTo.getEmail() : "")
                 .completedAt(completedAt)
-                .createdAt(createdAt)
-                .qrCode(qrCode)
-                .assignedToEmail(assignedTo.getEmail())
                 .build();
     }
 }
