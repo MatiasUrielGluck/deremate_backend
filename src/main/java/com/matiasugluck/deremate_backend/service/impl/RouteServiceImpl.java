@@ -1,6 +1,7 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
 import com.matiasugluck.deremate_backend.dto.RouteDTO;
+import com.matiasugluck.deremate_backend.dto.route.AvailableRouteDTO;
 import com.matiasugluck.deremate_backend.dto.route.CreateRouteDTO;
 import com.matiasugluck.deremate_backend.entity.Route;
 import com.matiasugluck.deremate_backend.entity.User;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -85,6 +87,29 @@ public class RouteServiceImpl implements RouteService {
         route.setCompletedAt(Timestamp.from(Instant.now()));
 
         return routeRepository.save(route).toDto();
+    }
+
+    @Override
+    public List<AvailableRouteDTO> getAvailableRoutes(
+            String originNeighborhood,
+            String destinationNeighborhood
+    ) {
+        List<Route> routes = routeRepository.findByAssignedToIsNullAndStatus(RouteStatus.PENDING);
+        return routes.stream()
+                .filter(route ->
+                        (originNeighborhood == null
+                                || route.getOrigin().toLowerCase().contains(originNeighborhood.toLowerCase()))
+                        && (destinationNeighborhood == null
+                                || route.getDestination().toLowerCase().contains(destinationNeighborhood.toLowerCase()))
+                )
+                .map(r -> AvailableRouteDTO.builder()
+                        .id(r.getId())
+                        .origin(r.getOrigin())
+                        .destination(r.getDestination())
+                        .status(r.getStatus())
+                        .build()
+                )
+                .collect(Collectors.toList());
     }
 
 }
