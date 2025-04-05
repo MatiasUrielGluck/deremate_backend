@@ -1,6 +1,7 @@
 package com.matiasugluck.deremate_backend.controller;
 
 import com.matiasugluck.deremate_backend.dto.RouteDTO;
+import com.matiasugluck.deremate_backend.dto.route.AvailableRouteDTO;
 import com.matiasugluck.deremate_backend.dto.route.CreateRouteDTO;
 import com.matiasugluck.deremate_backend.enums.RouteStatus;
 import com.matiasugluck.deremate_backend.service.RouteService;
@@ -56,6 +57,18 @@ public class RouteController {
     public ResponseEntity<List<RouteDTO>> getCompletedRoutesByUser(@PathVariable Long userId) {
         return ResponseEntity.ok(routeService.getRoutesByUserAndStatus(userId, RouteStatus.COMPLETED));
     }
+
+    @GetMapping("/available")
+    public ResponseEntity<List<AvailableRouteDTO>> getAvailableRoutes(
+            @RequestParam(required = false) String originBarrio,
+            @RequestParam(required = false) String destinationBarrio) {
+        List<AvailableRouteDTO> availableRoutes =
+                routeService.getAvailableRoutes(originBarrio, destinationBarrio);
+        return ResponseEntity.ok(availableRoutes);
+    }
+
+
+
 
 
 
