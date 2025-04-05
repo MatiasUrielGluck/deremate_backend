@@ -1,5 +1,6 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
+import com.matiasugluck.deremate_backend.constants.PasswordResetApiMessages;
 import com.matiasugluck.deremate_backend.dto.GenericResponseDTO;
 import com.matiasugluck.deremate_backend.dto.auth.PasswordResetRequestDto;
 import com.matiasugluck.deremate_backend.entity.User;
@@ -32,7 +33,7 @@ public class PasswordResetService {
     public GenericResponseDTO<String> sendPasswordResetToken(String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         if (optionalUser.isEmpty()) {
-            return new GenericResponseDTO<>("No user exists with that email.", HttpStatus.NOT_FOUND.value());
+            return new GenericResponseDTO<>(PasswordResetApiMessages.EMAIL_NOT_FOUND, HttpStatus.NOT_FOUND.value());
         }
         User user = optionalUser.get();
 
@@ -52,17 +53,17 @@ public class PasswordResetService {
         try {
             emailSender.sendPasswordResetEmail(user.getEmail(), token);
         } catch (MessagingException e) {
-            return new GenericResponseDTO<>("Error while sending verification email: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
+            return new GenericResponseDTO<>(PasswordResetApiMessages.VERIFICATION_EMAIL_ERROR + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
 
-        return new GenericResponseDTO<>("Reset password token was succesfully sent.", HttpStatus.OK.value());
+        return new GenericResponseDTO<>(PasswordResetApiMessages.PASSWORD_RESET_SUCCESS, HttpStatus.OK.value());
     }
 
     // Restablecer la contraseña
     public GenericResponseDTO<String> resetPassword(PasswordResetRequestDto request) {
         Optional<User> optionalUser = userRepository.findByEmail(request.getEmail());
         if (optionalUser.isEmpty()) {
-            return new GenericResponseDTO<>("No user exists with that email.", HttpStatus.NOT_FOUND.value());
+            return new GenericResponseDTO<>(PasswordResetApiMessages.EMAIL_NOT_FOUND, HttpStatus.NOT_FOUND.value());
         }
 
         User user = optionalUser.get();
@@ -70,12 +71,12 @@ public class PasswordResetService {
         // Validar el token
         VerificationToken verificationToken = tokenRepository.findByUser(user);
         if (verificationToken == null || !verificationToken.getToken().equals(request.getToken()) || verificationToken.getExpiryDate().isBefore(LocalDateTime.now())) {
-            return new GenericResponseDTO<>("Invalid or expired token.", HttpStatus.UNAUTHORIZED.value());
+            return new GenericResponseDTO<>(PasswordResetApiMessages.TOKEN_INVALID_OR_EXPIRED, HttpStatus.UNAUTHORIZED.value());
         }
 
         // Validar la nueva contraseña
         if (!isValidPassword(request.getPassword())) {
-            return new GenericResponseDTO<>("Password must contain at least one uppercase letter and one number.", HttpStatus.BAD_REQUEST.value());
+            return new GenericResponseDTO<>(PasswordResetApiMessages.PASSWORD_REQUIREMENTS, HttpStatus.BAD_REQUEST.value());
         }
 
         // Actualizar la contraseña del usuario
@@ -83,10 +84,10 @@ public class PasswordResetService {
         try {
             userRepository.save(user);
         } catch (Exception e) {
-            return new GenericResponseDTO<>("Error while saving new password: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
+            return new GenericResponseDTO<>(PasswordResetApiMessages.PASSWORD_SAVE_ERROR + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
 
-        return new GenericResponseDTO<>("Password reset succesfully.", HttpStatus.OK.value());
+        return new GenericResponseDTO<>(PasswordResetApiMessages.PASSWORD_RESET_SUCCESSFULLY, HttpStatus.OK.value());
     }
 
     // Metodo para validar la contraseña

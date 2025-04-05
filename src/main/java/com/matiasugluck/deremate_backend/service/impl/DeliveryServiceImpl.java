@@ -1,5 +1,6 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
+import com.matiasugluck.deremate_backend.constants.DeliveryApiMessages;
 import com.matiasugluck.deremate_backend.dto.delivery.CreateDeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.DeliveryDTO;
 import com.matiasugluck.deremate_backend.entity.Delivery;
@@ -37,7 +38,11 @@ public class DeliveryServiceImpl implements DeliveryService {
         // Validate the product ids
         List<Product> products = new ArrayList<>();
         for (Long id : createDeliveryDTO.getProductIds()) {
-            products.add(productRepository.findById(id).orElseThrow(() -> new ApiException("INVALID_PRODUCTS", "Lista inválida.", HttpStatus.BAD_REQUEST.value())));
+            products.add(productRepository.findById(id).orElseThrow(() -> new ApiException(
+                    DeliveryApiMessages.INVALID_PRODUCTS_CODE,
+                    DeliveryApiMessages.INVALID_PRODUCTS_DESC,
+                    HttpStatus.BAD_REQUEST.value()))
+            );
         }
 
         try {
@@ -65,7 +70,11 @@ public class DeliveryServiceImpl implements DeliveryService {
 
             return resultDelivery.toDto();
         } catch (Exception e) {
-            throw new ApiException("INTERNAL_ERROR", "Error al crear el delivery.", HttpStatus.INTERNAL_SERVER_ERROR.value());
+            throw new ApiException(
+                    DeliveryApiMessages.INTERNAL_ERROR_CODE,
+                    DeliveryApiMessages.INTERNAL_ERROR_DESC,
+                    HttpStatus.INTERNAL_SERVER_ERROR.value()
+            );
         }
     }
 
@@ -73,7 +82,11 @@ public class DeliveryServiceImpl implements DeliveryService {
     public void confirmDelivery(Long id, String pin) {
         Delivery delivery = findDeliveryById(id);
         if (!pin.equals(delivery.getPin())) {
-            throw new ApiException("INVALID_PIN", "El pin incorrecto.", HttpStatus.BAD_REQUEST.value());
+            throw new ApiException(
+                    DeliveryApiMessages.INVALID_PIN_CODE,
+                    DeliveryApiMessages.INVALID_PIN_DESC,
+                    HttpStatus.BAD_REQUEST.value()
+            );
         }
         delivery.setStatus(DeliveryStatus.DELIVERED);
     }
@@ -95,8 +108,9 @@ public class DeliveryServiceImpl implements DeliveryService {
     private Delivery findDeliveryById(Long id) {
         return deliveryRepository.findById(id)
                 .orElseThrow(() -> new ApiException(
-                        "DELIVERY_NOT_FOUND",
-                        "Delivery not found",
-                        HttpStatus.NOT_FOUND.value()));
+                        DeliveryApiMessages.DELIVERY_NOT_FOUND_CODE,
+                        DeliveryApiMessages.DELIVERY_NOT_FOUND_DESC,
+                        HttpStatus.NOT_FOUND.value())
+                );
     }
 }

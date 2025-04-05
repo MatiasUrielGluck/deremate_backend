@@ -1,5 +1,6 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
+import com.matiasugluck.deremate_backend.constants.RouteApiMessages;
 import com.matiasugluck.deremate_backend.dto.RouteDTO;
 import com.matiasugluck.deremate_backend.dto.route.CreateRouteDTO;
 import com.matiasugluck.deremate_backend.entity.Route;
@@ -42,10 +43,18 @@ public class RouteServiceImpl implements RouteService {
     @Override
     public RouteDTO assignRouteToUser(Long routeId, Long userId) {
         Route route = routeRepository.findById(routeId)
-                .orElseThrow(() -> new ApiException("ROUTE_NOT_FOUND", "Ruta no encontrada", HttpStatus.NOT_FOUND.value()));
+                .orElseThrow(() -> new ApiException(
+                        RouteApiMessages.ROUTE_NOT_FOUND_CODE,
+                        RouteApiMessages.ROUTE_NOT_FOUND_DESC,
+                        HttpStatus.NOT_FOUND.value())
+                );
 
         if (!route.getStatus().equals(RouteStatus.PENDING)) {
-            throw new ApiException("INVALID_ROUTE_REQUEST", "Solo se pueden asignar rutas con estado 'pendiente'", HttpStatus.BAD_REQUEST.value());
+            throw new ApiException(
+                    RouteApiMessages.INVALID_ROUTE_REQUEST_CODE,
+                    RouteApiMessages.NOT_POSSIBLE_TO_ASSIGN,
+                    HttpStatus.BAD_REQUEST.value()
+            );
         }
 
         User user = userRepository.findById(userId)
@@ -53,7 +62,11 @@ public class RouteServiceImpl implements RouteService {
 
         boolean hasActiveRoute = !routeRepository.findByAssignedToIdAndStatus(userId, RouteStatus.INITIATED).isEmpty();
         if (hasActiveRoute) {
-            throw new ApiException("INVALID_ROUTE_REQUEST", "User already has active routes", HttpStatus.BAD_REQUEST.value());
+            throw new ApiException(
+                    RouteApiMessages.INVALID_ROUTE_REQUEST_CODE,
+                    RouteApiMessages.ALREADY_ACTIVE_ROUTE,
+                    HttpStatus.BAD_REQUEST.value()
+            );
         }
 
         route.setAssignedTo(user);
@@ -75,10 +88,10 @@ public class RouteServiceImpl implements RouteService {
     @Override
     public RouteDTO completeRoute(Long routeId) {
         Route route = routeRepository.findById(routeId)
-                .orElseThrow(() -> new RuntimeException("Ruta no encontrada"));
+                .orElseThrow(() -> new RuntimeException(RouteApiMessages.ROUTE_NOT_FOUND_CODE));
 
         if (!route.getStatus().equals(RouteStatus.INITIATED)) {
-            throw new IllegalStateException("Solo se pueden completar rutas en estado 'en_curso'");
+            throw new IllegalStateException(RouteApiMessages.NOT_POSSIBLE_TO_COMPLETE);
         }
 
         route.setStatus(RouteStatus.COMPLETED);

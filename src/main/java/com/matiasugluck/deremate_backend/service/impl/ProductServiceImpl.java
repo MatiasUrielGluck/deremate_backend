@@ -1,5 +1,6 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
+import com.matiasugluck.deremate_backend.constants.ProductApiMessages;
 import com.matiasugluck.deremate_backend.dto.GenericResponseDTO;
 import com.matiasugluck.deremate_backend.dto.product.ProductDTO;
 import com.matiasugluck.deremate_backend.entity.Product;
@@ -28,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
         Product savedProduct = productRepository.save(product);
         GenericResponseDTO<ProductDTO> response = new GenericResponseDTO<>();
         response.setData(savedProduct.toDto());
-        response.setMessage("Product created");
+        response.setMessage(ProductApiMessages.PRODUCT_CREATED);
         return response;
     }
 
@@ -37,9 +38,10 @@ public class ProductServiceImpl implements ProductService {
         Product product = productRepository
                 .findById(id)
                 .orElseThrow(() -> new ApiException(
-                        "PRODUCT_NOT_FOUND",
-                        "Product not found",
-                        HttpStatus.NOT_FOUND.value()));
+                        ProductApiMessages.PRODUCT_NOT_FOUND_CODE,
+                        ProductApiMessages.PRODUCT_NOT_FOUND_DESC,
+                        HttpStatus.NOT_FOUND.value())
+                );
 
         product.setName(productDTO.getName() != null ? productDTO.getName() : product.getName());
         product.setDescription(productDTO.getDescription() != null ? productDTO.getDescription() : product.getDescription());
@@ -63,8 +65,8 @@ public class ProductServiceImpl implements ProductService {
         Product product = productRepository
                 .findById(id)
                 .orElseThrow(() -> new ApiException(
-                        "PRODUCT_NOT_FOUND",
-                        "Product not found",
+                        ProductApiMessages.PRODUCT_NOT_FOUND_CODE,
+                        ProductApiMessages.PRODUCT_NOT_FOUND_DESC,
                         HttpStatus.NOT_FOUND.value()));
         GenericResponseDTO<ProductDTO> response = new GenericResponseDTO<>();
         response.setData(product.toDto());
@@ -76,12 +78,12 @@ public class ProductServiceImpl implements ProductService {
         Product product = productRepository
                 .findById(id)
                 .orElseThrow(() -> new ApiException(
-                        "PRODUCT_NOT_FOUND",
-                        "Product not found",
+                        ProductApiMessages.PRODUCT_NOT_FOUND_CODE,
+                        ProductApiMessages.PRODUCT_NOT_FOUND_DESC,
                         HttpStatus.NOT_FOUND.value()));
         productRepository.delete(product);
         GenericResponseDTO<String> response = new GenericResponseDTO<>();
-        response.setMessage("PRODUCT DELETED");
+        response.setMessage(ProductApiMessages.PRODUCT_DELETED);
         return response;
     }
 }
