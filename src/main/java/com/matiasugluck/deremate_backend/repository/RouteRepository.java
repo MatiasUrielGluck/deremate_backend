@@ -12,4 +12,7 @@ public interface RouteRepository extends JpaRepository<Route, Long> {
 
     // Rutas asignadas a un usuario con estado específico
     List<Route> findByAssignedToIdAndStatus(Long userId, RouteStatus status);
+
+    // Busca rutas disponibles para un repartidor
+    List<Route> findByAssignedToIsNullAndStatus(RouteStatus status);
 }
