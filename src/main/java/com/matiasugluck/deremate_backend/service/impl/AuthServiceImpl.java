@@ -1,5 +1,6 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
+import com.matiasugluck.deremate_backend.constants.AuthApiMessages;
 import com.matiasugluck.deremate_backend.dto.GenericResponseDTO;
 import com.matiasugluck.deremate_backend.dto.auth.LoginResponseDTO;
 import com.matiasugluck.deremate_backend.entity.User;
@@ -38,13 +39,13 @@ public class AuthServiceImpl implements AuthService {
     public GenericResponseDTO<Object> login(String email, String password) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         if (optionalUser.isEmpty()) {
-            return new GenericResponseDTO<>("No user exists with the provided email.", HttpStatus.NOT_FOUND.value());
+            return new GenericResponseDTO<>(AuthApiMessages.NOT_EXISTING_USER, HttpStatus.NOT_FOUND.value());
         }
 
         User user = optionalUser.get();
 
         if (!user.isEmailVerified()) {
-            return new GenericResponseDTO<>("The email has not been verified.", HttpStatus.UNAUTHORIZED.value());
+            return new GenericResponseDTO<>(AuthApiMessages.EMAIL_NOT_VERIFIED, HttpStatus.UNAUTHORIZED.value());
         }
 
         try {
@@ -55,9 +56,9 @@ public class AuthServiceImpl implements AuthService {
                     )
             );
         } catch (BadCredentialsException e) {
-            return new GenericResponseDTO<>("Invalid credentials.", HttpStatus.UNAUTHORIZED.value());
+            return new GenericResponseDTO<>(AuthApiMessages.INVALID_CREDENTIALS, HttpStatus.UNAUTHORIZED.value());
         } catch (DisabledException e) {
-            return new GenericResponseDTO<>("User is disabled.", HttpStatus.UNAUTHORIZED.value());
+            return new GenericResponseDTO<>(AuthApiMessages.USER_DISABLED, HttpStatus.UNAUTHORIZED.value());
         }
 
         User customer = userRepository.findByEmail(email).orElseThrow();
@@ -69,13 +70,13 @@ public class AuthServiceImpl implements AuthService {
                 .expiresIn(jwtService.getExpirationTime())
                 .build();
 
-        return new GenericResponseDTO<>(loginResponseDTO, "Login successful.", HttpStatus.OK.value());
+        return new GenericResponseDTO<>(loginResponseDTO, AuthApiMessages.LOGIN_SUCCESSFUL, HttpStatus.OK.value());
     }
 
     @Override
     public GenericResponseDTO<Void> signup(String email, String password, String firstName, String lastName) {
         if (userRepository.existsByEmail(email)) {
-            return new GenericResponseDTO<>("Email already exists.",  HttpStatus.INTERNAL_SERVER_ERROR.value());
+            return new GenericResponseDTO<>(AuthApiMessages.ALREADY_EXISTING_EMAIL,  HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
 
         User user = User.builder()
@@ -97,10 +98,10 @@ public class AuthServiceImpl implements AuthService {
         try {
             emailSender.sendVerificationEmail(user.getEmail(), token);
         } catch (MessagingException e) {
-            return new GenericResponseDTO<>("Error sending verification email: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
+            return new GenericResponseDTO<>(AuthApiMessages.ERROR_SENDING_VERIFICATION_EMAIL + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
 
-        return new GenericResponseDTO<>("User registered successfully. A verification email has been sent to " + user.getEmail(), HttpStatus.CREATED.value());
+        return new GenericResponseDTO<>(AuthApiMessages.USER_REGISTERED_SUCCESSFULLY + user.getEmail(), HttpStatus.CREATED.value());
     }
 
     @Override
