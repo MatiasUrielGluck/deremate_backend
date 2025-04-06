@@ -1,5 +1,6 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
+import com.matiasugluck.deremate_backend.constants.EmailApiMessages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -44,8 +45,8 @@ public class EmailService {
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
         helper.setFrom(emailFrom);
         helper.setTo(to);
-        helper.setSubject("Email Verification");
-        helper.setText("Your verification code is: " + code, true);
+        helper.setSubject(EmailApiMessages.EMAIL_VERIFICATION);
+        helper.setText(EmailApiMessages.YOUR_VERIFICATION_CODE_IS + code, true);
         mailSender.send(message);
     }
 
@@ -54,8 +55,8 @@ public class EmailService {
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
         helper.setFrom(emailFrom);
         helper.setTo(to);
-        helper.setSubject("Password Reset");
-        helper.setText("Your password reset token is: " + token, true);
+        helper.setSubject(EmailApiMessages.PASSWORD_RESET);
+        helper.setText(EmailApiMessages.YOUR_PASSWORD_RESET_TOKEN_IS + token, true);
         mailSender.send(message);
     }
 }
