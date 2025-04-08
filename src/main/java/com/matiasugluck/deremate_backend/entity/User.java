@@ -74,6 +74,7 @@ public class User implements UserDetails {
                 .email(email)
                 .firstname(firstname)
                 .lastname(lastname)
+                .isEmailVerified(isEmailVerified)
                 .build();
     }
 }
