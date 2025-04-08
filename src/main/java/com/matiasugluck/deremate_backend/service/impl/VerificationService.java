@@ -64,7 +64,7 @@ public class VerificationService {
             tokenRepository.delete(existingToken);
         }
 
-        String token = UUID.randomUUID().toString();
+        String token = String.format("%04d", (int)(Math.random() * 10000));
         VerificationToken verificationToken = new VerificationToken();
         verificationToken.setToken(token);
         verificationToken.setUser(user);
