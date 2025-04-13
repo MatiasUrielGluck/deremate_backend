@@ -23,11 +23,11 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
+
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
     private final JwtService jwtService;
@@ -50,10 +50,7 @@ public class AuthServiceImpl implements AuthService {
 
         try {
             authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(
-                            email,
-                            password
-                    )
+                    new UsernamePasswordAuthenticationToken(email, password)
             );
         } catch (BadCredentialsException e) {
             return new GenericResponseDTO<>(AuthApiMessages.INVALID_CREDENTIALS, HttpStatus.UNAUTHORIZED.value());
@@ -61,9 +58,8 @@ public class AuthServiceImpl implements AuthService {
             return new GenericResponseDTO<>(AuthApiMessages.USER_DISABLED, HttpStatus.UNAUTHORIZED.value());
         }
 
-        User customer = userRepository.findByEmail(email).orElseThrow();
-
-        String jwtToken = jwtService.generateToken(customer);
+        // Generar token para el usuario autenticado
+        String jwtToken = jwtService.generateToken(user);
 
         LoginResponseDTO loginResponseDTO = LoginResponseDTO.builder()
                 .token(jwtToken)
@@ -76,7 +72,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public GenericResponseDTO<Void> signup(String email, String password, String firstName, String lastName) {
         if (userRepository.existsByEmail(email)) {
-            return new GenericResponseDTO<>(AuthApiMessages.ALREADY_EXISTING_EMAIL,  HttpStatus.INTERNAL_SERVER_ERROR.value());
+            return new GenericResponseDTO<>(AuthApiMessages.ALREADY_EXISTING_EMAIL, HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
 
         User user = User.builder()
@@ -88,7 +84,9 @@ public class AuthServiceImpl implements AuthService {
 
         userRepository.save(user);
 
+        // Generar código de verificación de 4 dígitos
         String token = String.format("%04d", (int)(Math.random() * 10000));
+
         VerificationToken verificationToken = new VerificationToken();
         verificationToken.setToken(token);
         verificationToken.setUser(user);
@@ -98,10 +96,16 @@ public class AuthServiceImpl implements AuthService {
         try {
             emailSender.sendVerificationEmail(user.getEmail(), token);
         } catch (MessagingException e) {
-            return new GenericResponseDTO<>(AuthApiMessages.ERROR_SENDING_VERIFICATION_EMAIL + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
+            return new GenericResponseDTO<>(
+                    AuthApiMessages.ERROR_SENDING_VERIFICATION_EMAIL + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR.value()
+            );
         }
 
-        return new GenericResponseDTO<>(AuthApiMessages.USER_REGISTERED_SUCCESSFULLY + user.getEmail(), HttpStatus.CREATED.value());
+        return new GenericResponseDTO<>(
+                AuthApiMessages.USER_REGISTERED_SUCCESSFULLY + user.getEmail(),
+                HttpStatus.CREATED.value()
+        );
     }
 
     @Override
