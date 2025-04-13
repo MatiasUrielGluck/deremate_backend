@@ -40,3 +40,4 @@ build/
 .env.prod
 .DS_Store
 logs/soundseekers.log
+logs/soundseekers.log
