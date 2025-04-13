@@ -2,12 +2,15 @@ package com.matiasugluck.deremate_backend.controller;
 
 import com.matiasugluck.deremate_backend.dto.delivery.CreateDeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.DeliveryDTO;
+import com.matiasugluck.deremate_backend.dto.delivery.PackageInWarehouseDTO;
 import com.matiasugluck.deremate_backend.service.DeliveryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "${base-path-v1}/delivery", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -36,4 +39,9 @@ public class DeliveryController {
     public ResponseEntity<DeliveryDTO> getDeliveryById(@PathVariable Long id) {
         return ResponseEntity.ok().body(deliveryService.getDeliveryById(id));
     }
+    @GetMapping("/warehouse")
+    public ResponseEntity<List<PackageInWarehouseDTO>> getPackagesInWarehouse() {
+        return ResponseEntity.ok(deliveryService.getPackagesInWarehouse());
+    }
+
 }
