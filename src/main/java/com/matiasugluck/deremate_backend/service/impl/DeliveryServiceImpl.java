@@ -3,6 +3,7 @@ package com.matiasugluck.deremate_backend.service.impl;
 import com.matiasugluck.deremate_backend.constants.DeliveryApiMessages;
 import com.matiasugluck.deremate_backend.dto.delivery.CreateDeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.DeliveryDTO;
+import com.matiasugluck.deremate_backend.dto.delivery.PackageInWarehouseDTO;
 import com.matiasugluck.deremate_backend.entity.Delivery;
 import com.matiasugluck.deremate_backend.entity.Product;
 import com.matiasugluck.deremate_backend.entity.Route;
@@ -24,6 +25,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -113,4 +115,16 @@ public class DeliveryServiceImpl implements DeliveryService {
                         HttpStatus.NOT_FOUND.value())
                 );
     }
+    @Override
+    public List<PackageInWarehouseDTO> getPackagesInWarehouse() {
+        return deliveryRepository.findAll().stream()
+                .filter(delivery -> delivery.getStatus() == DeliveryStatus.NOT_DELIVERED)
+                .map(delivery -> new PackageInWarehouseDTO(
+                        delivery.getId(),
+                        delivery.getStatus().name(),
+                        delivery.getPackageLocation()
+                ))
+                .collect(Collectors.toList());
+    }
+
 }
