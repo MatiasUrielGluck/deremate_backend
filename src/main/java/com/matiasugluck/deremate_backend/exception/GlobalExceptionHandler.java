@@ -26,17 +26,5 @@ public class GlobalExceptionHandler {
         );
     }
 
-    @ExceptionHandler(CustomNotFoundException.class)
-    public ResponseEntity<GenericResponseDTO<Object>> handleCustomNotFound(CustomNotFoundException ex) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                new GenericResponseDTO<>(ex.getMessage(), null, HttpStatus.NOT_FOUND.value())
-        );
-    }
-
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<GenericResponseDTO<Object>> handleGenericException(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-                new GenericResponseDTO<>("Ocurrió un error inesperado", null, HttpStatus.INTERNAL_SERVER_ERROR.value())
-        );
-    }
+    // Puedes agregar más handlers para otras excepciones personalizadas si las necesitas
 }
