@@ -44,4 +44,9 @@ public class DeliveryController {
         return ResponseEntity.ok(deliveryService.getPackagesInWarehouse());
     }
 
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<DeliveryDTO>> getPackagesByUserId(@PathVariable Long id) {
+        return ResponseEntity.ok(deliveryService.getDeliveriesByUserId(id));
+    }
+
 }

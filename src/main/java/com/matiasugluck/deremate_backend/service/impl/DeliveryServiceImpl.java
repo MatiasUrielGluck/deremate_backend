@@ -127,4 +127,15 @@ public class DeliveryServiceImpl implements DeliveryService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<DeliveryDTO> getDeliveriesByUserId(Long userId) {
+        return deliveryRepository.findByUserId(userId).stream()
+                .map(delivery -> {
+                    DeliveryDTO dto = delivery.toDto();
+                    dto.setRoute(delivery.getRoute().toDto());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
+
 }

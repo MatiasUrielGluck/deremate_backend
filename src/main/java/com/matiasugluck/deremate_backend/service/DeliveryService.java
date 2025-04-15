@@ -3,6 +3,7 @@ package com.matiasugluck.deremate_backend.service;
 import com.matiasugluck.deremate_backend.dto.delivery.CreateDeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.DeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.PackageInWarehouseDTO;
+import com.matiasugluck.deremate_backend.entity.Delivery;
 
 import java.util.List;
 
@@ -12,6 +13,5 @@ public interface DeliveryService {
     void cancelDelivery(Long id);
     DeliveryDTO getDeliveryById(Long id);
     List<PackageInWarehouseDTO> getPackagesInWarehouse();
-
-
+    List<DeliveryDTO> getDeliveriesByUserId(Long userId);
 }
