@@ -14,4 +14,8 @@ public interface DeliveryRepository extends JpaRepository<Delivery, Long> {
 
     @Query("SELECT d FROM Delivery d JOIN d.route r WHERE r.assignedTo.id = :userId")
     List<Delivery> findByUserId(@Param("userId") Long userId);
+
+
+    @Query("SELECT CASE WHEN COUNT(d) > 0 THEN true ELSE false END FROM Delivery d WHERE d.route.id = :routeId")
+    boolean existsByRoute_Id(@Param("routeId") Long routeId);
 }

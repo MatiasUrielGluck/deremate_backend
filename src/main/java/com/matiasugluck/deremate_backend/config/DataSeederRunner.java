@@ -86,8 +86,11 @@ public class DataSeederRunner {
             List<User> allUsers = userRepository.findAll();
             List<Route> routes = new ArrayList<>();
             for (int i = 0; i < 15; i++) {
-                User assignedUser = allUsers.get(ThreadLocalRandom.current().nextInt(allUsers.size()));
+                // Lista de usuarios hardcodeados
+                List<User> hardcodedUsers = List.of(user1, user2);
 
+                // Asignamos aleatoriamente un usuario de la lista hardcodeada
+                User assignedUser = hardcodedUsers.get(ThreadLocalRandom.current().nextInt(hardcodedUsers.size()));
                 // Determinar aleatoriamente el estado de la ruta
                 RouteStatus routeStatus = RouteStatus.PENDING;
                 if (i % 3 == 0) {
@@ -115,9 +118,17 @@ public class DataSeederRunner {
             DeliveryStatus[] estados = DeliveryStatus.values();
             List<Delivery> deliveries = new ArrayList<>();
 
+            // Usamos un índice para asignar las rutas secuencialmente
+            int routeIndex = 0;
+
             // Primero, crear y guardar sin QR para obtener IDs
-            for (int i = 0; i < 50; i++) {
-                Route route = routes.get(ThreadLocalRandom.current().nextInt(routes.size()));
+            for (int i = 0; i < 15; i++) {
+                // Asignamos la ruta secuencialmente
+                Route route = routes.get(routeIndex);
+
+                // Avanzamos al siguiente índice de ruta
+                routeIndex = (routeIndex + 1) % routes.size();  // Vuelve al principio si se alcanzan todas las rutas
+
                 List<Product> randomProducts = ThreadLocalRandom.current().ints(3, 0, products.size())
                         .distinct()
                         .mapToObj(products::get)

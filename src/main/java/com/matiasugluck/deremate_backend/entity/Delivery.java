@@ -46,7 +46,7 @@ public class Delivery {
     private String pin;
 
     @OneToOne
-    @JoinColumn(name = "route_id", nullable = false)
+    @JoinColumn(name = "route_id", nullable = false, referencedColumnName = "id")
     private Route route;
 
     @ManyToMany
