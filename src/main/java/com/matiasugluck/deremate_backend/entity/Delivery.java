@@ -39,14 +39,14 @@ public class Delivery {
     @Column(name = "delivery_end_date")
     private Timestamp deliveryEndDate;
 
-    @Column(name = "qr_code", unique = true, length = 500)
+    @Column(name = "qr_code", length = 500)
     private String qrCode; // Este es el string que representa el QR en BASE64
 
     @Column(name = "pin", nullable = false)
     private String pin;
 
     @OneToOne
-    @JoinColumn(name = "route_id", nullable = false)
+    @JoinColumn(name = "route_id", nullable = false, referencedColumnName = "id")
     private Route route;
 
     @ManyToMany
