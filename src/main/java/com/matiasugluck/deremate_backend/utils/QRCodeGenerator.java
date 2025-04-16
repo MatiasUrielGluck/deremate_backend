@@ -17,7 +17,7 @@ public class QRCodeGenerator {
         int height = 300;
 
         // Convertimos la información en una cadena, por ejemplo: "deliveryId=123,productIds=[1,2,3]"
-        String data = "deliveryId=" + deliveryId;
+        String data = deliveryId.toString();
 
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix bitMatrix = qrCodeWriter.encode(data, BarcodeFormat.QR_CODE, width, height);
