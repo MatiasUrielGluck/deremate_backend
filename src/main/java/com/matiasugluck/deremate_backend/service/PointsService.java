@@ -6,4 +6,44 @@ public interface PointsService {
     void addPointsForCompletedDelivery(Long userId);
     UserPointsDTO getUserPointsInfo(Long userId);
     double getProgressPercentage(Long userId);
+    void subtractPoints(Long userId, int points);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

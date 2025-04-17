@@ -20,6 +20,12 @@ public class PointsController {
         return ResponseEntity.ok("Puntos añadidos correctamente.");
     }
 
+    @PostMapping("/{userId}/subtract")
+    public ResponseEntity<String> subtractPoints(@PathVariable Long userId, @RequestParam int points) {
+        pointsService.subtractPoints(userId, points);
+        return ResponseEntity.ok("Puntos descontados correctamente.");
+    }
+
     @GetMapping("/{userId}")
     public ResponseEntity<UserPointsDTO> getUserPoints(@PathVariable Long userId) {
         return ResponseEntity.ok(pointsService.getUserPointsInfo(userId));
