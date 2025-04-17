@@ -16,8 +16,7 @@ public class PointsServiceImpl implements PointsService {
 
     private final UserRepository userRepository;
 
-    @Override
-    public void addPointsForCompletedDelivery(Long userId) {
+    public void addCustomPoints(Long userId, int earnedPoints) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ApiException(
                         "USER_NOT_FOUND",
@@ -25,7 +24,6 @@ public class PointsServiceImpl implements PointsService {
                         404
                 ));
 
-        int earnedPoints = 10;
         int newPoints = user.getPoints() + earnedPoints;
         int newLevel = calculateLevel(newPoints);
 
@@ -33,6 +31,17 @@ public class PointsServiceImpl implements PointsService {
         user.setLevel(newLevel);
 
         userRepository.save(user);
+    }
+
+    @Override
+    public void addPointsForCompletedDelivery(Long userId) {
+        addCustomPoints(userId, 10);
+    }
+
+    @Override
+    public void boostPoints(Long userId, int multiplier) {
+        int basePoints = 10;
+        addCustomPoints(userId, basePoints * multiplier);
     }
 
     @Override
@@ -64,6 +73,7 @@ public class PointsServiceImpl implements PointsService {
         user.setLevel(1);
         userRepository.save(user);
     }
+
 
     @Override
     public UserPointsDTO getUserPointsInfo(Long userId) {
