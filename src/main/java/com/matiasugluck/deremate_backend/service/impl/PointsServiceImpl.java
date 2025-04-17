@@ -1,6 +1,6 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
-import com.matiasugluck.deremate_backend.constants.VerificationApiMessages;
+import com.matiasugluck.deremate_backend.constants.PointsApiMessages;
 import com.matiasugluck.deremate_backend.dto.points.UserPointsDTO;
 import com.matiasugluck.deremate_backend.entity.User;
 import com.matiasugluck.deremate_backend.exception.ApiException;
@@ -19,8 +19,8 @@ public class PointsServiceImpl implements PointsService {
     public void addCustomPoints(Long userId, int earnedPoints) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ApiException(
-                        "USER_NOT_FOUND",
-                        VerificationApiMessages.NOT_EXISTING_USER,
+                        PointsApiMessages.USER_NOT_FOUND_CODE,
+                        PointsApiMessages.USER_NOT_FOUND_DESC,
                         404
                 ));
 
@@ -39,6 +39,12 @@ public class PointsServiceImpl implements PointsService {
     }
 
     @Override
+    public void addPointsByDistance(Long userId, double kilometers) {
+        int earnedPoints = (int) Math.floor(kilometers * 2);
+        addCustomPoints(userId, earnedPoints);
+    }
+
+    @Override
     public void boostPoints(Long userId, int multiplier) {
         int basePoints = 10;
         addCustomPoints(userId, basePoints * multiplier);
@@ -48,8 +54,8 @@ public class PointsServiceImpl implements PointsService {
     public void subtractPoints(Long userId, int points) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ApiException(
-                        "USER_NOT_FOUND",
-                        VerificationApiMessages.NOT_EXISTING_USER,
+                        PointsApiMessages.USER_NOT_FOUND_CODE,
+                        PointsApiMessages.USER_NOT_FOUND_DESC,
                         404
                 ));
 
@@ -64,8 +70,8 @@ public class PointsServiceImpl implements PointsService {
     public void resetPoints(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ApiException(
-                        "USER_NOT_FOUND",
-                        VerificationApiMessages.NOT_EXISTING_USER,
+                        PointsApiMessages.USER_NOT_FOUND_CODE,
+                        PointsApiMessages.USER_NOT_FOUND_DESC,
                         404
                 ));
 
@@ -79,8 +85,8 @@ public class PointsServiceImpl implements PointsService {
     public UserPointsDTO getUserPointsInfo(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ApiException(
-                        "USER_NOT_FOUND",
-                        VerificationApiMessages.NOT_EXISTING_USER,
+                        PointsApiMessages.USER_NOT_FOUND_CODE,
+                        PointsApiMessages.USER_NOT_FOUND_DESC,
                         404
                 ));
 
@@ -105,8 +111,8 @@ public class PointsServiceImpl implements PointsService {
     public double getProgressPercentage(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ApiException(
-                        "USER_NOT_FOUND",
-                        VerificationApiMessages.NOT_EXISTING_USER,
+                        PointsApiMessages.USER_NOT_FOUND_CODE,
+                        PointsApiMessages.USER_NOT_FOUND_DESC,
                         404
                 ));
 

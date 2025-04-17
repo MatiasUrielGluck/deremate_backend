@@ -1,5 +1,6 @@
 package com.matiasugluck.deremate_backend.controller;
 
+import com.matiasugluck.deremate_backend.constants.PointsApiMessages;
 import com.matiasugluck.deremate_backend.dto.points.UserPointsDTO;
 import com.matiasugluck.deremate_backend.service.PointsService;
 import lombok.*;
@@ -17,13 +18,19 @@ public class PointsController {
     @PostMapping("/add/{userId}")
     public ResponseEntity<String> addPoints(@PathVariable Long userId) {
         pointsService.addPointsForCompletedDelivery(userId);
-        return ResponseEntity.ok("Puntos añadidos correctamente.");
+        return ResponseEntity.ok(PointsApiMessages.POINTS_ADDED_DESC);
+    }
+
+    @PostMapping("/add/{userId}/distance")
+    public ResponseEntity<String> addPointsByDistance(@PathVariable Long userId, @RequestParam double kilometers) {
+        pointsService.addPointsByDistance(userId, kilometers);
+        return ResponseEntity.ok(PointsApiMessages.POINTS_ADDED_BY_DISTANCE_DESC + ": " + kilometers + " km.");
     }
 
     @PostMapping("/{userId}/subtract")
     public ResponseEntity<String> subtractPoints(@PathVariable Long userId, @RequestParam int points) {
         pointsService.subtractPoints(userId, points);
-        return ResponseEntity.ok("Puntos descontados correctamente.");
+        return ResponseEntity.ok(PointsApiMessages.POINTS_SUBTRACTED_DESC);
     }
 
     @GetMapping("/{userId}")
@@ -39,13 +46,13 @@ public class PointsController {
     @PostMapping("/{userId}/reset")
     public ResponseEntity<String> resetPoints(@PathVariable Long userId) {
         pointsService.resetPoints(userId);
-        return ResponseEntity.ok("Puntos reiniciados correctamente.");
+        return ResponseEntity.ok(PointsApiMessages.POINTS_RESET_DESC);
     }
 
     @PostMapping("/{userId}/boost")
     public ResponseEntity<String> boostPoints(@PathVariable Long userId, @RequestParam int multiplier) {
         pointsService.boostPoints(userId, multiplier);
-        return ResponseEntity.ok("Puntos potenciados x" + multiplier + " correctamente.");
+        return ResponseEntity.ok(PointsApiMessages.POINTS_BOOSTED_DESC + " x" + multiplier);
     }
 
 
