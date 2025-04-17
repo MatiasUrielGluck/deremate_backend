@@ -14,4 +14,6 @@ public class UserPointsDTO {
     private int points;
     private int level;
     private int pointsToNextLevel;
+    private String tier;
+    private double progressPercentage;
 }
