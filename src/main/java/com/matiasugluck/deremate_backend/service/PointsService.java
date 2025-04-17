@@ -8,6 +8,7 @@ public interface PointsService {
     double getProgressPercentage(Long userId);
     void subtractPoints(Long userId, int points);
     void resetPoints(Long userId);
+    void boostPoints(Long userId, int multiplier);
 }
 
 

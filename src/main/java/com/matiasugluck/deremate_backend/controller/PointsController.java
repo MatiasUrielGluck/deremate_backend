@@ -42,6 +42,12 @@ public class PointsController {
         return ResponseEntity.ok("Puntos reiniciados correctamente.");
     }
 
+    @PostMapping("/{userId}/boost")
+    public ResponseEntity<String> boostPoints(@PathVariable Long userId, @RequestParam int multiplier) {
+        pointsService.boostPoints(userId, multiplier);
+        return ResponseEntity.ok("Puntos potenciados x" + multiplier + " correctamente.");
+    }
+
 
 }
 
