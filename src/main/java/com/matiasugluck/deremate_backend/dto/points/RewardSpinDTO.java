@@ -1,14 +1,17 @@
 package com.matiasugluck.deremate_backend.dto.points;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PointsTransferDTO {
-    private Long fromUserId;
-    private Long toUserId;
-    private int amount;
+@Builder
+public class RewardSpinDTO {
+    private String rewardName;
+    private int rewardPoints;
+    private boolean jackpot;
+    private String message;
 }
