@@ -23,6 +23,12 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    private int points = 0;
+
+    @Column(nullable = false)
+    private int level = 1;
+
     // Basic info
     @Column(name = "firstname")
     private String firstname;
