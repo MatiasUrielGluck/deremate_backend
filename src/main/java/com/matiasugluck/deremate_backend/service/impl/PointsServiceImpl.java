@@ -1,6 +1,8 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
 import com.matiasugluck.deremate_backend.constants.PointsApiMessages;
+import com.matiasugluck.deremate_backend.dto.points.RewardSpinDTO;
+import com.matiasugluck.deremate_backend.dto.points.RewardSpinOption;
 import com.matiasugluck.deremate_backend.dto.points.UserPointsDTO;
 import com.matiasugluck.deremate_backend.entity.User;
 import com.matiasugluck.deremate_backend.exception.ApiException;
@@ -9,12 +11,23 @@ import com.matiasugluck.deremate_backend.service.PointsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Random;
+
 
 @Service
 @RequiredArgsConstructor
 public class PointsServiceImpl implements PointsService {
 
     private final UserRepository userRepository;
+
+    private final List<RewardSpinOption> wheelOptions = List.of(
+            new RewardSpinOption("Nada", 0, false),
+            new RewardSpinOption("Pequeño premio", 5, false),
+            new RewardSpinOption("Premio medio", 15, false),
+            new RewardSpinOption("Gran premio", 30, false),
+            new RewardSpinOption("Jackpot", 100, true)
+    );
 
     public void addCustomPoints(Long userId, int earnedPoints) {
         User user = userRepository.findById(userId)
@@ -121,6 +134,40 @@ public class PointsServiceImpl implements PointsService {
 
         double progress = (double)(user.getPoints() - previousLevelThreshold) / (nextLevelThreshold - previousLevelThreshold);
         return Math.min(100.0, Math.max(0.0, progress * 100));
+    }
+
+    @Override
+    public RewardSpinDTO spinRewardWheel(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ApiException(
+                        PointsApiMessages.USER_NOT_FOUND_CODE,
+                        PointsApiMessages.USER_NOT_FOUND_DESC,
+                        404
+                ));
+        /*
+        if (!user.isCanSpinWheel()) {
+            return RewardSpinResultDTO.builder()
+                    .rewardName("Bloqueado")
+                    .rewardPoints(0)
+                    .jackpot(false)
+                    .message("Ya has girado la ruleta hoy. Inténtalo mañana.")
+                    .build();
+        }
+        */
+
+        Random random = new Random();
+        RewardSpinOption option = wheelOptions.get(random.nextInt(wheelOptions.size()));
+
+        addCustomPoints(userId, option.getPoints());
+        // user.setCanSpinWheel(false);
+        // userRepository.save(user);
+
+        return RewardSpinDTO.builder()
+                .rewardName(option.getName())
+                .rewardPoints(option.getPoints())
+                .jackpot(option.isJackpot())
+                .message("Has ganado: " + option.getName() + " (" + option.getPoints() + " puntos)")
+                .build();
     }
 
     private int calculateLevel(int points) {
