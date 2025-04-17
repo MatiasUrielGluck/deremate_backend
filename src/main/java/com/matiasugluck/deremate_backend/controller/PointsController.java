@@ -36,6 +36,12 @@ public class PointsController {
         return ResponseEntity.ok(pointsService.getProgressPercentage(userId));
     }
 
+    @PostMapping("/{userId}/reset")
+    public ResponseEntity<String> resetPoints(@PathVariable Long userId) {
+        pointsService.resetPoints(userId);
+        return ResponseEntity.ok("Puntos reiniciados correctamente.");
+    }
+
 
 }
 

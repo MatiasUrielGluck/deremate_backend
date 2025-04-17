@@ -52,6 +52,20 @@ public class PointsServiceImpl implements PointsService {
     }
 
     @Override
+    public void resetPoints(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ApiException(
+                        "USER_NOT_FOUND",
+                        VerificationApiMessages.NOT_EXISTING_USER,
+                        404
+                ));
+
+        user.setPoints(0);
+        user.setLevel(1);
+        userRepository.save(user);
+    }
+
+    @Override
     public UserPointsDTO getUserPointsInfo(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ApiException(
