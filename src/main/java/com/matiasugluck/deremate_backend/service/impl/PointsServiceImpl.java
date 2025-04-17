@@ -1,5 +1,6 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
+import com.matiasugluck.deremate_backend.constants.VerificationApiMessages;
 import com.matiasugluck.deremate_backend.dto.points.UserPointsDTO;
 import com.matiasugluck.deremate_backend.entity.User;
 import com.matiasugluck.deremate_backend.exception.ApiException;
@@ -33,17 +34,43 @@ public class PointsServiceImpl implements PointsService {
     @Override
     public UserPointsDTO getUserPointsInfo(Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ApiException("USER_NOT_FOUND", "Usuario no encontrado", 404));
+                .orElseThrow(() -> new ApiException(
+                        "USER_NOT_FOUND",
+                        VerificationApiMessages.NOT_EXISTING_USER,
+                        404
+                ));
 
         int nextLevelThreshold = getNextLevelThreshold(user.getLevel());
+        int previousLevelThreshold = getPreviousLevelThreshold(user.getLevel());
         int pointsToNext = Math.max(0, nextLevelThreshold - user.getPoints());
+
+        double progress = (double)(user.getPoints() - previousLevelThreshold) / (nextLevelThreshold - previousLevelThreshold);
+        double progressPercentage = Math.min(100.0, Math.max(0.0, progress * 100));
 
         return UserPointsDTO.builder()
                 .userId(user.getId())
                 .points(user.getPoints())
                 .level(user.getLevel())
                 .pointsToNextLevel(pointsToNext)
+                .tier(getTier(user.getPoints()))
+                .progressPercentage(progressPercentage)
                 .build();
+    }
+
+    @Override
+    public double getProgressPercentage(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ApiException(
+                        "USER_NOT_FOUND",
+                        VerificationApiMessages.NOT_EXISTING_USER,
+                        404
+                ));
+
+        int nextLevelThreshold = getNextLevelThreshold(user.getLevel());
+        int previousLevelThreshold = getPreviousLevelThreshold(user.getLevel());
+
+        double progress = (double)(user.getPoints() - previousLevelThreshold) / (nextLevelThreshold - previousLevelThreshold);
+        return Math.min(100.0, Math.max(0.0, progress * 100));
     }
 
     private int calculateLevel(int points) {
@@ -64,5 +91,21 @@ public class PointsServiceImpl implements PointsService {
             threshold += i * 100;
         }
         return threshold + (currentLevel + 1) * 100;
+    }
+
+    private int getPreviousLevelThreshold(int currentLevel) {
+        int threshold = 0;
+        for (int i = 1; i < currentLevel; i++) {
+            threshold += i * 100;
+        }
+        return threshold;
+    }
+
+    private String getTier(int points) {
+        if (points >= 3000) return "Diamante";
+        if (points >= 2000) return "Platino";
+        if (points >= 1000) return "Oro";
+        if (points >= 500) return "Plata";
+        return "Bronce";
     }
 }
