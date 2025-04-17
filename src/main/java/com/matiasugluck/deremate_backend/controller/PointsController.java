@@ -1,6 +1,7 @@
 package com.matiasugluck.deremate_backend.controller;
 
 import com.matiasugluck.deremate_backend.constants.PointsApiMessages;
+import com.matiasugluck.deremate_backend.dto.points.RewardSpinDTO;
 import com.matiasugluck.deremate_backend.dto.points.UserPointsDTO;
 import com.matiasugluck.deremate_backend.service.PointsService;
 import lombok.*;
@@ -53,6 +54,11 @@ public class PointsController {
     public ResponseEntity<String> boostPoints(@PathVariable Long userId, @RequestParam int multiplier) {
         pointsService.boostPoints(userId, multiplier);
         return ResponseEntity.ok(PointsApiMessages.POINTS_BOOSTED_DESC + " x" + multiplier);
+    }
+
+    @PostMapping("/{userId}/spin")
+    public ResponseEntity<RewardSpinDTO> spinWheel(@PathVariable Long userId) {
+        return ResponseEntity.ok(pointsService.spinRewardWheel(userId));
     }
 
 
