@@ -57,6 +57,9 @@ public class ProductController {
         return ResponseEntity.ok(productService.deleteProduct(id));
     }
 
+    @Operation(summary = "Actualizar un producto por ID", description = "Actualiza los datos de un producto existente usando su ID.")
+    @ApiResponse(responseCode = "200", description = "Producto actualizado exitosamente", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "404", description = "Producto no encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class)))
     @PutMapping("/{id}")
     public ResponseEntity<GenericResponseDTO<String>> updateProduct(@PathVariable Long id, @RequestBody ProductDTO productDTO) {
         return ResponseEntity.ok(productService.updateProduct(id, productDTO));
