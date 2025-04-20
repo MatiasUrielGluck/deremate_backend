@@ -17,6 +17,8 @@ public interface JwtService {
 
     String generateToken(Map<String, Object> extraClaims, UserDetails userDetails);
 
+    String generateTokenWithUserId(UserDetails userDetails, Long userId);
+
     long getExpirationTime();
 
     String buildToken(
