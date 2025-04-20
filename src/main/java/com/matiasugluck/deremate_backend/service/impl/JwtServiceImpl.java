@@ -41,6 +41,12 @@ public class JwtServiceImpl implements JwtService {
         return buildToken(extraClaims, userDetails, jwtExpiration);
     }
 
+    public String generateTokenWithUserId(UserDetails userDetails, Long userId) {
+        Map<String, Object> extraClaims = new HashMap<>();
+        extraClaims.put("userId", userId);
+        return buildToken(extraClaims, userDetails, jwtExpiration);
+    }
+
     public long getExpirationTime() {
         return jwtExpiration;
     }
