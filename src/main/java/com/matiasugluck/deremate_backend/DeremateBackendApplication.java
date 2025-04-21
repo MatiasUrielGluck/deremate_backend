@@ -15,8 +15,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
+ feature/fixdatabase
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 
 import java.io.IOException;
+
 import java.util.Random;
 import java.util.stream.IntStream;
 
@@ -38,22 +43,21 @@ public class DeremateBackendApplication {
                 IntStream.rangeClosed(1, 10).forEach(i -> {
                     String sector = sectores[random.nextInt(sectores.length)];
                     int estante = 1 + random.nextInt(5);
-                    String codigo = String.format("PKG%03d", i);
-                    String pin = PinGenerator.generatePin();
+                    String codigo = String.format("iVBORw0KGgoAAAANSUhEUgAAASwAAAEsAQAAAABRBrPYAAABLUlEQVR4Xu3WPW6EMBQEYG/FMXxUfFQfIeVWIZ555kdPK+1GSoZmpgDD+6hGBsr2Sb5KvvMyZilmKWYpZilmKWYpv2PPMlNj9djavPEw07G42lodq3m4DsxErLEiiP0Bdmd2CxvDspjdy45LszsYw+HaWdZ1YCZhZaY+2RO7Y8x07JLvc3jGLN38F4aNwsbqYNwyW18uD5hJ2N7OOcRq7WZChopwGu8sqFFWw3l0FzFTMJaFA9pp2DfzQ2KmZKxmDxuDaNw8ZiJ2hhUdDI0hZgp2lIUhL1cu+sKTmYZFJ9HTirdXfMTjrpmMNbykYo+gojbbi+fNtAw/VR3DVz+0Zkp2lFU5NZMxhluGtnBVFjMhYzVohwyXFU+hQDMVexezFLMUsxSzFLMUs5Q/Zj/qmgpsnUNaZwAAAABJRU5ErkJggg==", i);
+                    String pin = String.format("%04d", random.nextInt(10000)); // pin fijo de 6 dígitos
 
-                    // 1. Crear y guardar Route primero
                     Route route = Route.builder()
                             .origin("Depósito Central")
-                            .destination("Destino " + i)
+                            .destination("Destino Entrega " + i)
                             .status(RouteStatus.PENDING)
                             .build();
                     Route savedRoute = routeRepository.save(route);
 
-                    // 2. Crear y guardar Delivery con Route asociada
                     Delivery d = Delivery.builder()
                             .status(DeliveryStatus.NOT_DELIVERED)
                             .packageLocation(sector + " - Estante " + estante)
-                            .destination("Destino " + i)
+                            .destination("Destino Entrega " + i)
+                            .createdDate(Timestamp.valueOf(LocalDateTime.now()))
                             .qrCode(codigo)
                             .pin(pin)
                             .route(savedRoute)
@@ -74,5 +78,4 @@ public class DeremateBackendApplication {
             }
         };
     }
-
 }

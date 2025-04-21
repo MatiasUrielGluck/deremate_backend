@@ -86,22 +86,14 @@ public class DataSeederRunner {
             List<User> allUsers = userRepository.findAll();
             List<Route> routes = new ArrayList<>();
             for (int i = 0; i < 15; i++) {
-                // Lista de usuarios hardcodeados
                 List<User> hardcodedUsers = List.of(user1, user2);
-
-                // Asignamos aleatoriamente un usuario de la lista hardcodeada
                 User assignedUser = hardcodedUsers.get(ThreadLocalRandom.current().nextInt(hardcodedUsers.size()));
-                // Determinar aleatoriamente el estado de la ruta
                 RouteStatus routeStatus = RouteStatus.PENDING;
-                if (i % 3 == 0) {
-                    routeStatus = RouteStatus.INITIATED;
-                } else if (i % 3 == 1) {
-                    routeStatus = RouteStatus.COMPLETED;
-                }
+                if (i % 3 == 0) routeStatus = RouteStatus.INITIATED;
+                else if (i % 3 == 1) routeStatus = RouteStatus.COMPLETED;
 
                 LocalDateTime completedAt = (routeStatus == RouteStatus.COMPLETED)
-                        ? LocalDateTime.now().minusDays(ThreadLocalRandom.current().nextInt(1, 10))
-                        : null;
+                        ? LocalDateTime.now().minusDays(ThreadLocalRandom.current().nextInt(1, 10)) : null;
 
                 routes.add(Route.builder()
                         .origin("Origen " + i)
@@ -114,38 +106,35 @@ public class DataSeederRunner {
             routeRepository.saveAll(routes);
             System.out.println("✅ Rutas creadas y asignadas con estado aleatorio.");
 
-            // 5. Crear entregas con distintos estados
+            // 5. Crear entregas con sector y estante en packageLocation
             DeliveryStatus[] estados = DeliveryStatus.values();
             List<Delivery> deliveries = new ArrayList<>();
-
-            // Usamos un índice para asignar las rutas secuencialmente
+            String[] sectores = {"Sector A", "Sector B", "Sector C", "Sector D", "Sector E"};
+            Random random = new Random();
             int routeIndex = 0;
 
-            // Primero, crear y guardar sin QR para obtener IDs
             for (int i = 0; i < 15; i++) {
-                // Asignamos la ruta secuencialmente
                 Route route = routes.get(routeIndex);
-
-                // Avanzamos al siguiente índice de ruta
-                routeIndex = (routeIndex + 1) % routes.size();  // Vuelve al principio si se alcanzan todas las rutas
+                routeIndex = (routeIndex + 1) % routes.size();
 
                 List<Product> randomProducts = ThreadLocalRandom.current().ints(3, 0, products.size())
                         .distinct()
                         .mapToObj(products::get)
                         .toList();
 
-                DeliveryStatus estado = estados[i % estados.length]; // rotar entre estados
-
+                DeliveryStatus estado = estados[i % estados.length];
                 Timestamp createdDate = Timestamp.valueOf(LocalDateTime.now().minusDays(i));
                 Timestamp deliveryStartDate = Timestamp.valueOf(LocalDateTime.now().minusDays(i + 1));
+                Timestamp deliveryEndDate = estado == DeliveryStatus.DELIVERED ? Timestamp.valueOf(LocalDateTime.now()) : null;
 
-                Timestamp deliveryEndDate = estado == DeliveryStatus.DELIVERED
-                        ? Timestamp.valueOf(LocalDateTime.now()) : null;
+                String sector = sectores[random.nextInt(sectores.length)];
+                int estante = 1 + random.nextInt(5);
+                String location = sector + " - Estante " + estante;
 
                 Delivery delivery = Delivery.builder()
                         .status(estado)
                         .destination("Destino Entrega " + i)
-                        .packageLocation("Estante B" + i)
+                        .packageLocation(location)
                         .createdDate(createdDate)
                         .deliveryStartDate(deliveryStartDate)
                         .deliveryEndDate(deliveryEndDate)
@@ -157,19 +146,16 @@ public class DataSeederRunner {
                 deliveries.add(delivery);
             }
 
-            deliveryRepository.saveAll(deliveries); // guardar primero para obtener los IDs
+            deliveryRepository.saveAll(deliveries);
 
-            // Ahora, generar los códigos QR y actualizar las entregas
             for (Delivery delivery : deliveries) {
                 String qrCodeBase64 = QRCodeGenerator.generateQRCodeBase64(delivery.getId());
                 delivery.setQrCode(qrCodeBase64);
             }
 
-            deliveryRepository.saveAll(deliveries); // actualizar con QR
-
+            deliveryRepository.saveAll(deliveries);
             System.out.println("✅ Entregas creadas: " + deliveries.size());
 
-            // 6. Logs por estado
             Map<DeliveryStatus, Long> cantidadPorEstado = deliveries.stream()
                     .collect(Collectors.groupingBy(Delivery::getStatus, Collectors.counting()));
 
