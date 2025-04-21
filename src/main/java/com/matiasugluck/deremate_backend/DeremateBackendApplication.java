@@ -1,5 +1,6 @@
 package com.matiasugluck.deremate_backend;
 
+import com.google.zxing.WriterException;
 import com.matiasugluck.deremate_backend.entity.Delivery;
 import com.matiasugluck.deremate_backend.entity.Route;
 import com.matiasugluck.deremate_backend.enums.DeliveryStatus;
@@ -7,6 +8,7 @@ import com.matiasugluck.deremate_backend.enums.RouteStatus;
 import com.matiasugluck.deremate_backend.repository.DeliveryRepository;
 import com.matiasugluck.deremate_backend.repository.RouteRepository;
 import com.matiasugluck.deremate_backend.utils.PinGenerator;
+import com.matiasugluck.deremate_backend.utils.QRCodeGenerator;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.stream.IntStream;
 
@@ -55,6 +58,16 @@ public class DeremateBackendApplication {
                             .pin(pin)
                             .route(savedRoute)
                             .build();
+
+                    String qrCodeBase64 = null;
+                    try {
+                        qrCodeBase64 = QRCodeGenerator.generateQRCodeBase64((long) i);
+                    } catch (WriterException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    d.setQrCode(qrCodeBase64);
 
                     deliveryRepository.save(d);
                 });

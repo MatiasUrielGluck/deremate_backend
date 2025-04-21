@@ -60,7 +60,7 @@ public class AuthServiceImpl implements AuthService {
 
         // Generar token para el usuario autenticado
         String jwtToken = jwtService.generateTokenWithUserId(user,user.getId());
-        
+
         LoginResponseDTO loginResponseDTO = LoginResponseDTO.builder()
                 .token(jwtToken)
                 .expiresIn(jwtService.getExpirationTime())
