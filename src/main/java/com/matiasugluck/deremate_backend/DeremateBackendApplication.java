@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
- feature/fixdatabase
+
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
