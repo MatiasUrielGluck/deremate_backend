@@ -1,10 +1,7 @@
 package com.matiasugluck.deremate_backend.controller;
 
 import com.matiasugluck.deremate_backend.dto.GenericResponseDTO;
-import com.matiasugluck.deremate_backend.dto.auth.ForgotPasswordRequestDto;
-import com.matiasugluck.deremate_backend.dto.auth.LoginRequestDTO;
-import com.matiasugluck.deremate_backend.dto.auth.PasswordResetRequestDto;
-import com.matiasugluck.deremate_backend.dto.auth.SignupRequestDTO;
+import com.matiasugluck.deremate_backend.dto.auth.*;
 import com.matiasugluck.deremate_backend.service.AuthService;
 import com.matiasugluck.deremate_backend.service.impl.PasswordResetService;
 import com.matiasugluck.deremate_backend.service.impl.VerificationService;
@@ -84,28 +81,31 @@ public class AuthController {
     }
 
     // VERIFY EMAIL
-    @Operation(summary = "Verify user's email")
+    @Operation(summary = "Verify user's email using token and email")
     @ApiResponse(responseCode = "200", description = "Email verified successfully", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "400", description = "Invalid token or account already verified", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "404", description = "User not found", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @PostMapping("/verify")
+    @ApiResponse(responseCode = "400", description = "Invalid request (e.g., invalid token, email format, or account already verified)", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    // 404 for "User not found" might be covered by the service logic if the token/email doesn't match an existing user or token record.
+    // The service might return a 400/401 for "invalid token" in such cases to avoid user enumeration.
+    // Adjust based on your VerificationService's response for non-existent users during token validation.
+    @ApiResponse(responseCode = "401", description = "Invalid or expired token", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @PostMapping("/verify") // Changed endpoint to be more descriptive, e.g., /verify-email
     public ResponseEntity<GenericResponseDTO<String>> verifyEmail(
-            @RequestParam("token") @Parameter(description = "Verification token", required = true) String token,
-            @RequestParam("email") @Parameter(description = "User's email address", required = true) String email) {
-        GenericResponseDTO<String> response = verificationService.verifyEmail(token, email);
+            @RequestBody @Valid EmailVerificationRequestDto requestDto) {
+        // Call the service method, passing the token and email from the DTO
+        GenericResponseDTO<String> response = verificationService.verifyEmail(requestDto.getToken(), requestDto.getEmail());
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
     // RESEND VERIFICATION EMAIL
     @Operation(summary = "Resend the email verification token")
-    @ApiResponse(responseCode = "200", description = "Verification email sent", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "400", description = "Account already verified", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "200", description = "Verification email sent successfully", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "400", description = "Invalid request (e.g., email format, or account already verified)", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @ApiResponse(responseCode = "404", description = "User not found", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "500", description = "Error while sending the email", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @PostMapping("/resend-verification")
+    @ApiResponse(responseCode = "500", description = "Error while sending the email or processing request", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @PostMapping("/resend-verification") // Endpoint name updated for clarity
     public ResponseEntity<GenericResponseDTO<String>> resendVerification(
-            @RequestParam("email") @Parameter(description = "User's email address", required = true) String email) {
-        GenericResponseDTO<String> response = verificationService.resendVerification(email);
+            @RequestBody @Valid ResendVerificationRequestDto requestDto) { // Changed to use RequestBody and ResendVerificationRequestDto
+        GenericResponseDTO<String> response = verificationService.resendVerification(requestDto.getEmail());
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 }
