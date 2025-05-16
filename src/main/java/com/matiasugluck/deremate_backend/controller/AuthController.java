@@ -1,6 +1,7 @@
 package com.matiasugluck.deremate_backend.controller;
 
 import com.matiasugluck.deremate_backend.dto.GenericResponseDTO;
+import com.matiasugluck.deremate_backend.dto.auth.ForgotPasswordRequestDto;
 import com.matiasugluck.deremate_backend.dto.auth.LoginRequestDTO;
 import com.matiasugluck.deremate_backend.dto.auth.PasswordResetRequestDto;
 import com.matiasugluck.deremate_backend.dto.auth.SignupRequestDTO;
@@ -56,23 +57,26 @@ public class AuthController {
     }
 
     // FORGOT PASSWORD
-    @Operation(summary = "Request a password reset token")
-    @ApiResponse(responseCode = "200", description = "Password reset token sent", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "404", description = "User not found", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "500", description = "Error while sending verification email", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @Operation(summary = "Request a password reset token (4-digit code via email)")
+    @ApiResponse(responseCode = "200", description = "Password reset token instructions sent", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "400", description = "Invalid request (e.g., malformed email)", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "404", description = "User not found or other request issue", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "429", description = "Too many requests", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class))) // For rate limiting
+    @ApiResponse(responseCode = "500", description = "Error while processing request or sending email", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @PostMapping("/forgot-password")
     public ResponseEntity<GenericResponseDTO<String>> forgotPassword(
-            @RequestParam("email") @Parameter(description = "User's email address", required = true) String email) {
-        GenericResponseDTO<String> response = passwordResetService.sendPasswordResetToken(email);
+            @RequestBody @Valid ForgotPasswordRequestDto forgotPasswordRequestDto) {
+        GenericResponseDTO<String> response = passwordResetService.sendPasswordResetToken(forgotPasswordRequestDto.getEmail());
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
     // RESET PASSWORD
-    @Operation(summary = "Reset the user's password")
+    @Operation(summary = "Reset the user's password using the 4-digit code and new password")
     @ApiResponse(responseCode = "200", description = "Password reset successfully", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "400", description = "Invalid password format", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "401", description = "Invalid or expired token", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
-    @ApiResponse(responseCode = "404", description = "User not found", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "400", description = "Invalid request (e.g., password format, missing fields)", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "401", description = "Invalid, expired, or maxed attempts for token", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "429", description = "Too many attempts", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class))) // For rate limiting
+    @ApiResponse(responseCode = "500", description = "Error while resetting password", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @PostMapping("/reset-password")
     public ResponseEntity<GenericResponseDTO<String>> resetPassword(@RequestBody @Valid PasswordResetRequestDto request) {
         GenericResponseDTO<String> response = passwordResetService.resetPassword(request);
