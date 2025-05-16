@@ -14,6 +14,9 @@ public class VerificationToken {
     public static final int DEFAULT_MAX_ATTEMPTS = 3; // Max attempts for guessing this specific token instance
     public static final String PURPOSE_PASSWORD_RESET = "PASSWORD_RESET";
     public static final int EXPIRY_MINUTES_PASSWORD_RESET = 5; // Very short expiry
+    public static final String PURPOSE_EMAIL_VERIFICATION = "EMAIL_VERIFICATION";
+    public static final int EXPIRY_HOURS_EMAIL_VERIFICATION = 24; // Or a shorter duration like 1 hour
+    public static final int MAX_ATTEMPTS_EMAIL_VERIFICATION = 5; // Max attempts for this specific token
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,6 +44,15 @@ public class VerificationToken {
         this.purpose = purpose;
         this.expiryDate = LocalDateTime.now().plusMinutes(expiryMinutes);
         this.attemptCount = initialAttemptCount;
+    }
+
+    // Adjust constructor or add a new one for email verification tokens
+    public VerificationToken(String token, User user, String purpose, int expiryHours) {
+        this.token = token;
+        this.user = user;
+        this.purpose = purpose;
+        this.expiryDate = LocalDateTime.now().plusHours(expiryHours);
+        this.attemptCount = 0; // Initialize attempt count
     }
 
     // Convenience constructor for password reset
