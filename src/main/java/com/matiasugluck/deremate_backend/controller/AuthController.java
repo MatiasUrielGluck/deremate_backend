@@ -4,6 +4,7 @@ import com.matiasugluck.deremate_backend.dto.GenericResponseDTO;
 import com.matiasugluck.deremate_backend.dto.auth.LoginRequestDTO;
 import com.matiasugluck.deremate_backend.dto.auth.PasswordResetRequestDto;
 import com.matiasugluck.deremate_backend.dto.auth.SignupRequestDTO;
+import com.matiasugluck.deremate_backend.dto.auth.VerifyRequestDTO;
 import com.matiasugluck.deremate_backend.service.AuthService;
 import com.matiasugluck.deremate_backend.service.impl.PasswordResetService;
 import com.matiasugluck.deremate_backend.service.impl.VerificationService;
@@ -85,10 +86,8 @@ public class AuthController {
     @ApiResponse(responseCode = "400", description = "Invalid token or account already verified", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @ApiResponse(responseCode = "404", description = "User not found", content = @Content(schema = @Schema(implementation = GenericResponseDTO.class)))
     @PostMapping("/verify")
-    public ResponseEntity<GenericResponseDTO<String>> verifyEmail(
-            @RequestParam("token") @Parameter(description = "Verification token", required = true) String token,
-            @RequestParam("email") @Parameter(description = "User's email address", required = true) String email) {
-        GenericResponseDTO<String> response = verificationService.verifyEmail(token, email);
+    public ResponseEntity<GenericResponseDTO<String>> verifyEmail(@RequestBody VerifyRequestDTO request) {
+        GenericResponseDTO<String> response = verificationService.verifyEmail(request.getToken(), request.getEmail());
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
