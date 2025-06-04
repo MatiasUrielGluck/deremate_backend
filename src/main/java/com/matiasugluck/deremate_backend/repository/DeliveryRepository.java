@@ -2,6 +2,7 @@ package com.matiasugluck.deremate_backend.repository;
 
 import com.matiasugluck.deremate_backend.dto.delivery.DeliveryDTO;
 import com.matiasugluck.deremate_backend.entity.Delivery;
+import com.matiasugluck.deremate_backend.enums.DeliveryStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,4 +19,8 @@ public interface DeliveryRepository extends JpaRepository<Delivery, Long> {
 
     @Query("SELECT CASE WHEN COUNT(d) > 0 THEN true ELSE false END FROM Delivery d WHERE d.route.id = :routeId")
     boolean existsByRoute_Id(@Param("routeId") Long routeId);
+
+    @Query("SELECT d from Delivery d join d.route r where r.assignedTo IS null AND d.status = :excludedStatus")
+    List<Delivery> findUnassignedDeliveries(@Param("excludedStatus") DeliveryStatus excludedStatus);
+
 }
