@@ -117,8 +117,7 @@ public class DeliveryServiceImpl implements DeliveryService {
     }
     @Override
     public List<PackageInWarehouseDTO> getPackagesInWarehouse() {
-        return deliveryRepository.findAll().stream()
-                .filter(delivery -> delivery.getStatus() == DeliveryStatus.NOT_DELIVERED)
+        return deliveryRepository.findUnassignedDeliveries(DeliveryStatus.NOT_DELIVERED).stream()
                 .map(delivery -> new PackageInWarehouseDTO(
                         delivery.getId(),
                         delivery.getStatus().name(),
