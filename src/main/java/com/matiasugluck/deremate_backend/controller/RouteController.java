@@ -3,8 +3,10 @@ package com.matiasugluck.deremate_backend.controller;
 import com.matiasugluck.deremate_backend.dto.RouteDTO;
 import com.matiasugluck.deremate_backend.dto.route.AvailableRouteDTO;
 import com.matiasugluck.deremate_backend.dto.route.CreateRouteDTO;
+import com.matiasugluck.deremate_backend.entity.User;
 import com.matiasugluck.deremate_backend.enums.RouteStatus;
 import com.matiasugluck.deremate_backend.exception.ApiError;
+import com.matiasugluck.deremate_backend.service.AuthService;
 import com.matiasugluck.deremate_backend.service.RouteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -26,9 +28,11 @@ import java.util.List;
 public class RouteController {
 
     private final RouteService routeService;
+    private final AuthService authService;
 
-    public RouteController(RouteService routeService) {
+    public RouteController(RouteService routeService, AuthService authService) {
         this.routeService = routeService;
+        this.authService = authService;
     }
 
     @Operation(summary = "Obtener todas las rutas", description = "Devuelve una lista de todas las rutas registradas en el sistema.")
@@ -56,12 +60,12 @@ public class RouteController {
 
     @Operation(summary = "Obtener rutas por usuario", description = "Devuelve las rutas asignadas a un usuario, opcionalmente filtradas por estado.")
     @ApiResponse(responseCode = "200", description = "Lista de rutas del usuario obtenida exitosamente", content = @Content(mediaType = "application/json", schema = @Schema(implementation = RouteDTO.class)))
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<RouteDTO>> getRoutesByUser(@PathVariable Long userId,
-                                          @RequestParam(required = false) RouteStatus status) {
+    @GetMapping("/")
+    public ResponseEntity<List<RouteDTO>> getRoutesByUser(@RequestParam(required = false) RouteStatus status) {
+        User user = authService.getAuthenticatedUser();
         List<RouteDTO> routes = (status != null)
-                ? routeService.getRoutesByUserAndStatus(userId, status)
-                : routeService.getRoutesByUser(userId);
+                ? routeService.getRoutesByUserAndStatus(user.getId(), status)
+                : routeService.getRoutesByUser(user.getId());
         return ResponseEntity.ok(routes);
     }
 
@@ -77,9 +81,10 @@ public class RouteController {
 
     @Operation(summary = "Obtener rutas completadas por usuario", description = "Devuelve una lista de todas las rutas completadas asignadas a un usuario específico.")
     @ApiResponse(responseCode = "200", description = "Lista de rutas completadas obtenida exitosamente", content = @Content(mediaType = "application/json", schema = @Schema(implementation = RouteDTO.class)))
-    @GetMapping("/user/{userId}/completed")
-    public ResponseEntity<List<RouteDTO>> getCompletedRoutesByUser(@PathVariable Long userId) {
-        return ResponseEntity.ok(routeService.getRoutesByUserAndStatus(userId, RouteStatus.COMPLETED));
+    @GetMapping("/completed")
+    public ResponseEntity<List<RouteDTO>> getCompletedRoutesByUser() {
+        User user = authService.getAuthenticatedUser();
+        return ResponseEntity.ok(routeService.getRoutesByUserAndStatus(user.getId(), RouteStatus.COMPLETED));
     }
 
     @Operation(summary = "Obtener rutas disponibles para asignar", description = "Devuelve una lista de rutas pendientes que no han sido asignadas, opcionalmente filtradas por barrio de origen y/o destino.")
