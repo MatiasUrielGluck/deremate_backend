@@ -3,7 +3,9 @@ package com.matiasugluck.deremate_backend.controller;
 import com.matiasugluck.deremate_backend.dto.delivery.CreateDeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.DeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.PackageInWarehouseDTO;
+import com.matiasugluck.deremate_backend.entity.User;
 import com.matiasugluck.deremate_backend.exception.ApiError;
+import com.matiasugluck.deremate_backend.service.AuthService;
 import com.matiasugluck.deremate_backend.service.DeliveryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -25,6 +27,7 @@ import java.util.List;
 @Tag(name = "Delivery", description = "Endpoints para gestionar entregas")
 public class DeliveryController {
     private final DeliveryService deliveryService;
+    private final AuthService authService;
 
     @Operation(summary = "Crear una nueva entrega", description = "Registra una nueva solicitud de entrega con los productos asociados.")
     @ApiResponse(responseCode = "201", description = "Entrega creada exitosamente", content = @Content(mediaType = "application/json", schema = @Schema(implementation = DeliveryDTO.class)))
@@ -70,9 +73,10 @@ public class DeliveryController {
 
     @Operation(summary = "Obtener entregas por ID de usuario asignado", description = "Devuelve una lista de entregas asignadas a un usuario específico (p. ej., repartidor).")
     @ApiResponse(responseCode = "200", description = "Lista de entregas para el usuario especificado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = DeliveryDTO.class)))
-    @GetMapping("/user/{id}")
-    public ResponseEntity<List<DeliveryDTO>> getPackagesByUserId(@PathVariable Long id) {
-        return ResponseEntity.ok(deliveryService.getDeliveriesByUserId(id));
+    @GetMapping("/")
+    public ResponseEntity<List<DeliveryDTO>> getPackagesByUserId() {
+        User user = authService.getAuthenticatedUser();
+        return ResponseEntity.ok(deliveryService.getDeliveriesByUserId(user.getId()));
     }
 
 }
