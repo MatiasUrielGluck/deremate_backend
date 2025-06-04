@@ -122,7 +122,8 @@ public class DeliveryServiceImpl implements DeliveryService {
                 .map(delivery -> new PackageInWarehouseDTO(
                         delivery.getId(),
                         delivery.getStatus().name(),
-                        delivery.getPackageLocation()
+                        delivery.getPackageLocation(),
+                        delivery.getCreatedDate()
                 ))
                 .collect(Collectors.toList());
     }
