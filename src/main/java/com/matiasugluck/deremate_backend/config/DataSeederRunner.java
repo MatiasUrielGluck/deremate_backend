@@ -1,9 +1,6 @@
 package com.matiasugluck.deremate_backend.config;
 
-import com.matiasugluck.deremate_backend.entity.Delivery;
-import com.matiasugluck.deremate_backend.entity.Route;
-import com.matiasugluck.deremate_backend.entity.User;
-import com.matiasugluck.deremate_backend.entity.Product;
+import com.matiasugluck.deremate_backend.entity.*;
 import com.matiasugluck.deremate_backend.repository.DeliveryRepository;
 import com.matiasugluck.deremate_backend.repository.RouteRepository;
 import com.matiasugluck.deremate_backend.repository.ProductRepository;
@@ -11,6 +8,8 @@ import com.matiasugluck.deremate_backend.repository.UserRepository;
 import com.matiasugluck.deremate_backend.enums.DeliveryStatus;
 import com.matiasugluck.deremate_backend.enums.RouteStatus;
 import com.matiasugluck.deremate_backend.utils.QRCodeGenerator;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +24,13 @@ import java.util.stream.Collectors;
 
 @Configuration
 public class DataSeederRunner {
+
+    @Getter
+    @AllArgsConstructor
+    private static class LocationData {
+        private final String address;
+        private final Coordinates coords;
+    }
 
     @Bean
     public CommandLineRunner initData(UserRepository userRepository,
@@ -82,11 +88,29 @@ public class DataSeederRunner {
             productRepository.saveAll(products);
             System.out.println("✅ Productos creados: " + products.size());
 
-            // 4. Crear rutas con estado asignado, completado o en progreso
-            List<User> allUsers = userRepository.findAll();
+            // 4. <<< CAMBIO PRINCIPAL: Crear rutas con datos reales de CABA >>>
+
+            // Lista de ubicaciones reales en CABA para usar en las rutas
+            List<LocationData> cabaLocations = List.of(
+                    new LocationData("Obelisco, Av. 9 de Julio s/n, CABA", new Coordinates(-34.6037, -58.3816)),
+                    new LocationData("Plaza de Mayo, Bolívar 65, CABA", new Coordinates(-34.6083, -58.3722)),
+                    new LocationData("Museo MALBA, Av. Figueroa Alcorta 3415, CABA", new Coordinates(-34.5801, -58.4063)),
+                    new LocationData("Congreso de la Nación, Av. Rivadavia 1864, CABA", new Coordinates(-34.6096, -58.3925)),
+                    new LocationData("Estadio Monumental, Av. Pres. Figueroa Alcorta 7597, CABA", new Coordinates(-34.5453, -58.4497)),
+                    new LocationData("Caminito, La Boca, CABA", new Coordinates(-34.6383, -58.3633)),
+                    new LocationData("Jardín Japonés, Av. Casares 2966, CABA", new Coordinates(-34.5770, -58.4121)),
+                    new LocationData("Teatro Colón, Cerrito 628, CABA", new Coordinates(-34.6010, -58.3831)),
+                    new LocationData("Puente de la Mujer, Puerto Madero, CABA", new Coordinates(-34.6094, -58.3640))
+            );
+
             List<Route> routes = new ArrayList<>();
+            List<User> hardcodedUsers = List.of(user1, user2); // Solo asignamos a los admins
+
             for (int i = 0; i < 15; i++) {
-                List<User> hardcodedUsers = List.of(user1, user2);
+                // Seleccionamos una ubicación de la lista de forma cíclica
+                LocationData location = cabaLocations.get(i % cabaLocations.size());
+
+                // Tu lógica original para asignar usuario y estado
                 User assignedUser = hardcodedUsers.get(ThreadLocalRandom.current().nextInt(hardcodedUsers.size()));
                 RouteStatus routeStatus = RouteStatus.PENDING;
                 if (i % 3 == 0) routeStatus = RouteStatus.INITIATED;
@@ -96,17 +120,18 @@ public class DataSeederRunner {
                         ? LocalDateTime.now().minusDays(ThreadLocalRandom.current().nextInt(1, 10)) : null;
 
                 routes.add(Route.builder()
-                        .origin("Origen " + i)
-                        .destination("Destino " + i)
+                        .description(location.getAddress()) // Usamos la descripción textual
+                        .destination(location.getCoords())  // Usamos el objeto Coordinates
                         .status(routeStatus)
                         .assignedTo(assignedUser)
                         .completedAt(completedAt != null ? Timestamp.valueOf(completedAt) : null)
                         .build());
             }
             routeRepository.saveAll(routes);
-            System.out.println("✅ Rutas creadas y asignadas con estado aleatorio.");
+            System.out.println("✅ Rutas realistas creadas y asignadas.");
 
-            // 5. Crear entregas con sector y estante en packageLocation
+
+            // 5. Crear entregas (con una pequeña mejora para mayor coherencia)
             DeliveryStatus[] estados = DeliveryStatus.values();
             List<Delivery> deliveries = new ArrayList<>();
             String[] sectores = {"Sector A", "Sector B", "Sector C", "Sector D", "Sector E"};
@@ -131,9 +156,12 @@ public class DataSeederRunner {
                 int estante = 1 + random.nextInt(5);
                 String location = sector + " - Estante " + estante;
 
+                // <<< MEJORA >>> Hacemos que el destino de la entrega sea coherente con la ruta
+                String deliveryDestination = "Oficina/Depto " + (i+1) + " en " + route.getDescription();
+
                 Delivery delivery = Delivery.builder()
                         .status(estado)
-                        .destination("Destino Entrega " + i)
+                        .destination(deliveryDestination) // Usamos el destino mejorado
                         .packageLocation(location)
                         .createdDate(createdDate)
                         .deliveryStartDate(deliveryStartDate)
@@ -147,6 +175,7 @@ public class DataSeederRunner {
             }
 
             deliveryRepository.saveAll(deliveries);
+
 
             for (Delivery delivery : deliveries) {
                 String qrCodeBase64 = QRCodeGenerator.generateQRCodeBase64(delivery.getId());

@@ -4,6 +4,7 @@ import com.matiasugluck.deremate_backend.constants.DeliveryApiMessages;
 import com.matiasugluck.deremate_backend.dto.delivery.CreateDeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.DeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.PackageInWarehouseDTO;
+import com.matiasugluck.deremate_backend.entity.Coordinates;
 import com.matiasugluck.deremate_backend.entity.Delivery;
 import com.matiasugluck.deremate_backend.entity.Product;
 import com.matiasugluck.deremate_backend.entity.Route;
@@ -49,15 +50,13 @@ public class DeliveryServiceImpl implements DeliveryService {
 
         try {
             Route route = Route.builder()
-                    .origin("DeRemate - Main Facility")
-                    .destination(createDeliveryDTO.getDestination())
+                    .destination(new Coordinates(createDeliveryDTO.getDestinationLatitude(),createDeliveryDTO.getDestinationLongitude()))
                     .status(RouteStatus.PENDING)
                     .build();
 
             Route savedRoute = routeRepository.save(route);
 
             Delivery delivery = Delivery.builder()
-                .destination(createDeliveryDTO.getDestination())
                 .packageLocation(createDeliveryDTO.getPackageLocation())
                 .createdDate(Timestamp.from(Instant.now()))
                 .status(DeliveryStatus.NOT_DELIVERED)

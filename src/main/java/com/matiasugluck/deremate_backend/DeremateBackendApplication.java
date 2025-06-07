@@ -1,6 +1,7 @@
 package com.matiasugluck.deremate_backend;
 
 import com.google.zxing.WriterException;
+import com.matiasugluck.deremate_backend.entity.Coordinates;
 import com.matiasugluck.deremate_backend.entity.Delivery;
 import com.matiasugluck.deremate_backend.entity.Route;
 import com.matiasugluck.deremate_backend.enums.DeliveryStatus;
@@ -47,8 +48,7 @@ public class DeremateBackendApplication {
                     String pin = String.format("%04d", random.nextInt(10000)); // pin fijo de 6 dígitos
 
                     Route route = Route.builder()
-                            .origin("Depósito Central")
-                            .destination("Destino Entrega " + i)
+                            .destination(new Coordinates(-34.6383, -58.3633))
                             .status(RouteStatus.PENDING)
                             .build();
                     Route savedRoute = routeRepository.save(route);
