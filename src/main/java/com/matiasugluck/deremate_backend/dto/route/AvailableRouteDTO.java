@@ -8,7 +8,8 @@ import lombok.Data;
 @Builder
 public class AvailableRouteDTO {
     private Long id;
-    private String origin;
-    private String destination;
+    private Double destinationLongitude;
+    private Double destinationLatitude;
     private RouteStatus status;
+    private String description;
 }

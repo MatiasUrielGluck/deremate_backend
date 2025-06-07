@@ -20,9 +20,14 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String origin;
+    private String description;
 
-    private String destination;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "latitude", column = @Column(name = "destination_latitude")),
+            @AttributeOverride(name = "longitude", column = @Column(name = "destination_longitude"))
+    })
+    private Coordinates destination;
 
     @Enumerated(EnumType.STRING)
     private RouteStatus status;
@@ -35,11 +40,13 @@ public class Route {
     private User assignedTo;
 
     // Getters y Setters
+
     public RouteDTO toDto() {
         return RouteDTO.builder()
                 .id(id)
-                .origin(origin != null ? origin : "")
-                .destination(destination != null ? destination : "")
+                .description(description != null ? description : "")
+                .destinationLatitude(destination != null ? destination.getLatitude() : null)
+                .destinationLongitude(destination != null ? destination.getLongitude() : null)
                 .status(status)
                 .assignedToEmail(assignedTo != null ? assignedTo.getEmail() : "")
                 .completedAt(completedAt)
