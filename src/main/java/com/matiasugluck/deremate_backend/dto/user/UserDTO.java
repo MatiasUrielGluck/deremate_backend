@@ -11,4 +11,5 @@ public class UserDTO {
     private String firstname;
     private String lastname;
     private Boolean isEmailVerified;
+    private int deliveriesCompleted;
 }
