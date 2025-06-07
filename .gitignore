@@ -39,7 +39,5 @@ build/
 .env
 .env.prod
 .DS_Store
-logs/soundseekers.log
-logs/soundseekers.log
 *.log
 logs/soundseekers.log
