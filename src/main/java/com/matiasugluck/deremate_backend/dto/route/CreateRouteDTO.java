@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class CreateRouteDTO {
-    private String destination;
+    private String destinationLatitude;
+    private String destinationLongitude;
     private Long userId;
 }

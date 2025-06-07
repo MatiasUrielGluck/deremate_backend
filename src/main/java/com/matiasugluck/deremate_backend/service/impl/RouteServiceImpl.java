@@ -4,6 +4,7 @@ import com.matiasugluck.deremate_backend.constants.RouteApiMessages;
 import com.matiasugluck.deremate_backend.dto.RouteDTO;
 import com.matiasugluck.deremate_backend.dto.route.AvailableRouteDTO;
 import com.matiasugluck.deremate_backend.dto.route.CreateRouteDTO;
+import com.matiasugluck.deremate_backend.entity.Coordinates;
 import com.matiasugluck.deremate_backend.entity.Route;
 import com.matiasugluck.deremate_backend.entity.User;
 import com.matiasugluck.deremate_backend.enums.RouteStatus;
@@ -35,8 +36,14 @@ public class RouteServiceImpl implements RouteService {
     @Override
     public RouteDTO createRoute(CreateRouteDTO createRouteDTO) {
         Route route = Route.builder()
-                .origin("coordenadas de origen")
-                .destination(createRouteDTO.getDestination())
+                .description("coordenadas de origen")
+                .destination(
+                        new Coordinates(
+                                createRouteDTO.getDestinationLatitude(),
+                                createRouteDTO.getDestinationLongitude()
+                        )
+                )
+
                 .status(RouteStatus.PENDING)
                 .build();
         return routeRepository.save(route).toDto();
@@ -109,16 +116,11 @@ public class RouteServiceImpl implements RouteService {
     ) {
         List<Route> routes = routeRepository.findByAssignedToIsNullAndStatus(RouteStatus.PENDING);
         return routes.stream()
-                .filter(route ->
-                        (originNeighborhood == null
-                                || route.getOrigin().toLowerCase().contains(originNeighborhood.toLowerCase()))
-                        && (destinationNeighborhood == null
-                                || route.getDestination().toLowerCase().contains(destinationNeighborhood.toLowerCase()))
-                )
                 .map(r -> AvailableRouteDTO.builder()
                         .id(r.getId())
-                        .origin(r.getOrigin())
-                        .destination(r.getDestination())
+                        .description(r.getDescription())
+                        .destinationLatitude(r.getDestination().getLatitude())
+                        .destinationLongitude(r.getDestination().getLongitude())
                         .status(r.getStatus())
                         .build()
                 )

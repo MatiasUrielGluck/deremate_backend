@@ -10,8 +10,9 @@ import java.sql.Timestamp;
 @Data
 public class RouteDTO {
     private Long id;
-    private String origin;
-    private String destination;
+    private String description;
+    private Double destinationLatitude;
+    private Double destinationLongitude;
     private RouteStatus status;
     private Timestamp completedAt;
     private String assignedToEmail;

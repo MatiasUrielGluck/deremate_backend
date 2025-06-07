@@ -8,7 +8,9 @@ import java.util.List;
 @Data
 @Builder
 public class CreateDeliveryDTO {
-    private String destination;
+    private Double destinationLatitude;
+
+    private Double destinationLongitude;
 
     private String packageLocation;
 
