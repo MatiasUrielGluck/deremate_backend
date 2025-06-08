@@ -54,8 +54,9 @@ public class RouteController {
     @ApiResponse(responseCode = "400", description = "Solicitud inválida (p. ej., usuario no encontrado, ruta no pendiente, usuario ya tiene ruta activa)", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class)))
     @ApiResponse(responseCode = "404", description = "Ruta no encontrada", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ApiError.class)))
     @PutMapping("/{routeId}/assign")
-    public ResponseEntity<RouteDTO> assignRouteToUser(@PathVariable Long routeId, @RequestParam Long userId) {
-        return ResponseEntity.ok(routeService.assignRouteToUser(routeId, userId));
+    public ResponseEntity<RouteDTO> assignRouteToUser(@PathVariable Long routeId) {
+        User user = authService.getAuthenticatedUser();
+        return ResponseEntity.ok(routeService.assignRouteToUser(routeId, user.getId()));
     }
 
     @Operation(summary = "Obtener rutas por usuario", description = "Devuelve las rutas asignadas a un usuario, opcionalmente filtradas por estado.")
