@@ -69,14 +69,14 @@ public class RouteServiceImpl implements RouteService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ApiException("USER_NOT_FOUND", "Usuario no encontrado", HttpStatus.BAD_REQUEST.value()));
 
-        boolean hasActiveRoute = !routeRepository.findByAssignedToIdAndStatus(userId, RouteStatus.INITIATED).isEmpty();
-        if (hasActiveRoute) {
-            throw new ApiException(
-                    RouteApiMessages.INVALID_ROUTE_REQUEST_CODE,
-                    RouteApiMessages.ALREADY_ACTIVE_ROUTE,
-                    HttpStatus.BAD_REQUEST.value()
-            );
-        }
+//        boolean hasActiveRoute = !routeRepository.findByAssignedToIdAndStatus(userId, RouteStatus.INITIATED).isEmpty();
+//        if (hasActiveRoute) {
+//            throw new ApiException(
+//                    RouteApiMessages.INVALID_ROUTE_REQUEST_CODE,
+//                    RouteApiMessages.ALREADY_ACTIVE_ROUTE,
+//                    HttpStatus.BAD_REQUEST.value()
+//            );
+//        }
 
         route.setAssignedTo(user);
         route.setStatus(RouteStatus.INITIATED);
