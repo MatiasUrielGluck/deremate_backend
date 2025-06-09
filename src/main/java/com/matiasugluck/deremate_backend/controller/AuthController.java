@@ -1,10 +1,7 @@
 package com.matiasugluck.deremate_backend.controller;
 
 import com.matiasugluck.deremate_backend.dto.GenericResponseDTO;
-import com.matiasugluck.deremate_backend.dto.auth.LoginRequestDTO;
-import com.matiasugluck.deremate_backend.dto.auth.PasswordResetRequestDto;
-import com.matiasugluck.deremate_backend.dto.auth.SignupRequestDTO;
-import com.matiasugluck.deremate_backend.dto.auth.VerifyRequestDTO;
+import com.matiasugluck.deremate_backend.dto.auth.*;
 import com.matiasugluck.deremate_backend.service.AuthService;
 import com.matiasugluck.deremate_backend.service.impl.PasswordResetService;
 import com.matiasugluck.deremate_backend.service.impl.VerificationService;
