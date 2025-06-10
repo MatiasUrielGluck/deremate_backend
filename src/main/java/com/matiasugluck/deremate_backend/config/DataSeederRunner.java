@@ -44,7 +44,7 @@ public class DataSeederRunner {
             User user1 = User.builder()
                     .firstname("Tomas")
                     .lastname("Admin")
-                    .email("test@test.com")
+                    .email("deberardistomas@gmail.com")
                     .password(encoder.encode("Hola1234."))
                     .isEmailVerified(true)
                     .build();

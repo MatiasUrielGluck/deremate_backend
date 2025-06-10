@@ -41,3 +41,5 @@ build/
 .DS_Store
 *.log
 logs/soundseekers.log
+src/main/java/com/matiasugluck/deremate_backend/config/DataSeederRunner.java
+src/main/java/com/matiasugluck/deremate_backend/config/DataSeederRunner.java
