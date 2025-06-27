@@ -90,6 +90,8 @@ public class DeliveryServiceImpl implements DeliveryService {
             );
         }
         delivery.setStatus(DeliveryStatus.DELIVERED);
+        delivery.getRoute().setStatus(RouteStatus.COMPLETED);
+        deliveryRepository.save(delivery);
     }
 
     @Override
