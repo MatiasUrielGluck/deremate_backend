@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 import lombok.*;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "route")
@@ -37,6 +38,11 @@ public class Route {
 
     @Column(name = "completed_at")
     private Timestamp completedAt;
+
+    @Column(name = "last_updated_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    @UpdateTimestamp
+    private Timestamp lastUpdatedAt;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)

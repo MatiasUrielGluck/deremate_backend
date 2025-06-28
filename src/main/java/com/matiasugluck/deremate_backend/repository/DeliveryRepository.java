@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface DeliveryRepository extends JpaRepository<Delivery, Long> {
 
-    @Query("SELECT d FROM Delivery d JOIN d.route r WHERE r.assignedTo.id = :userId")
+    @Query("SELECT d FROM Delivery d JOIN d.route r WHERE r.assignedTo.id = :userId ORDER BY r.lastUpdatedAt DESC")
     List<Delivery> findByUserId(@Param("userId") Long userId);
 
 
