@@ -14,6 +14,7 @@ public class RouteDTO {
     private Double destinationLatitude;
     private Double destinationLongitude;
     private RouteStatus status;
+    private Timestamp startedAt;
     private Timestamp completedAt;
     private String assignedToEmail;
 }
