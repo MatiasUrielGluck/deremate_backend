@@ -216,13 +216,28 @@ public class DataSeederRunner {
 			List<Product> selectedProducts = baseProducts.subList(0, Math.min(3, baseProducts.size()));
 
 // ➕ Crear 10 entregas, cada una con una de las nuevas rutas
+
+			List<String> neighborhood = List.of(
+							"Palermo",
+							"Villa Crespo",
+							"Villa Urquiza",
+							"Villa Ortuzar",
+							"Villa del Parque",
+							"San Nicolás",
+							"Puerto Madero",
+							"La Boca",
+							"Villa Crepos",
+							"Villa Crespo",
+							"Villa Crespo"
+			);
+
 			List<Delivery> newDeliveries = new ArrayList<>();
 			for (int i = 0; i < savedNewRoutes.size(); i++) {
 				Route route = savedNewRoutes.get(i);
 				boolean isDelivered = route.getStatus() == RouteStatus.COMPLETED;
 
 				Delivery.DeliveryBuilder deliveryBuilder = Delivery.builder()
-								.destination("Destino " + (i + 1))
+								.destination(neighborhood.get(i))
 								.packageLocation("Sector A - Estante " + (i))
 								.createdDate(Timestamp.valueOf(LocalDateTime.now().minusDays(5 - i)))
 								.deliveryStartDate(isDelivered ? Timestamp.valueOf(LocalDateTime.now().minusDays(4 - i)) : null)
