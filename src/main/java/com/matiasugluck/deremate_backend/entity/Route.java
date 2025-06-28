@@ -32,6 +32,9 @@ public class Route {
     @Enumerated(EnumType.STRING)
     private RouteStatus status;
 
+    @Column(name = "started_at")
+    private Timestamp startedAt;
+
     @Column(name = "completed_at")
     private Timestamp completedAt;
 
@@ -49,6 +52,7 @@ public class Route {
                 .destinationLongitude(destination != null ? destination.getLongitude() : null)
                 .status(status)
                 .assignedToEmail(assignedTo != null ? assignedTo.getEmail() : "")
+                .startedAt(startedAt)
                 .completedAt(completedAt)
                 .build();
     }

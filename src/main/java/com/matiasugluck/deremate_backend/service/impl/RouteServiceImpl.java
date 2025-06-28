@@ -78,6 +78,7 @@ public class RouteServiceImpl implements RouteService {
 //            );
 //        }
 
+        route.setStartedAt(Timestamp.from(Instant.now()));
         route.setAssignedTo(user);
         route.setStatus(RouteStatus.INITIATED);
 

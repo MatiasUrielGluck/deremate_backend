@@ -90,7 +90,7 @@ public class DeliveryServiceImpl implements DeliveryService {
             );
         }
         delivery.setStatus(DeliveryStatus.DELIVERED);
-        delivery.getRoute().setStatus(RouteStatus.COMPLETED);
+        delivery.getRoute().setCompletedAt(Timestamp.from(Instant.now()));
         deliveryRepository.save(delivery);
     }
 

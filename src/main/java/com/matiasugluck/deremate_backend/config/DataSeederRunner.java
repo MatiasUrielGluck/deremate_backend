@@ -20,177 +20,230 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
 
 @Configuration
 public class DataSeederRunner {
 
-    @Getter
-    @AllArgsConstructor
-    private static class LocationData {
-        private final String address;
-        private final Coordinates coords;
-    }
+	@Getter
+	@AllArgsConstructor
+	private static class LocationData {
+		private final String address;
+		private final Coordinates coords;
+	}
 
-    @Bean
-    public CommandLineRunner initData(UserRepository userRepository,
-                                      ProductRepository productRepository,
-                                      RouteRepository routeRepository,
-                                      DeliveryRepository deliveryRepository) {
-        return args -> {
-            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+	@Bean
+	public CommandLineRunner initData(UserRepository userRepository,
+																		ProductRepository productRepository,
+																		RouteRepository routeRepository,
+																		DeliveryRepository deliveryRepository) {
+		return args -> {
+			// 1. Crear usuarios hardcodeados
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-            // 1. Crear usuarios hardcodeados
-            User user1 = User.builder()
-                    .firstname("Tomas")
-                    .lastname("Admin")
-                    .email("deberardistomas@gmail.com")
-                    .password(encoder.encode("Hola1234."))
-                    .isEmailVerified(true)
-                    .build();
+			User user1 = User.builder()
+							.firstname("Test")
+							.lastname("Uno")
+							.email("user1@test.com")
+							.password(encoder.encode("pwd1"))
+							.isEmailVerified(true)
+							.build();
 
-            User user2 = User.builder()
-                    .firstname("Tomas")
-                    .lastname("Admin2")
-                    .email("xxxxx")
-                    .password(encoder.encode("lucia456"))
-                    .isEmailVerified(true)
-                    .build();
+			User user2 = User.builder()
+							.firstname("Tomas")
+							.lastname("Admin")
+							.email("deberardistomas@gmail.com")
+							.password(encoder.encode("Hola1234."))
+							.isEmailVerified(true)
+							.build();
 
-            userRepository.saveAll(List.of(user1, user2));
-            System.out.println("✅ Usuarios hardcodeados creados.");
+			userRepository.saveAll(List.of(user1, user2));
+			System.out.println("✅ Usuarios actualizados con user1@test.com");
 
-            // 2. Crear usuarios aleatorios
-            List<User> randomUsers = new ArrayList<>();
-            for (int i = 0; i < 8; i++) {
-                User u = User.builder()
-                        .firstname("User" + i)
-                        .lastname("Test" + i)
-                        .email("user" + i + "@test.com")
-                        .password(encoder.encode("pwd" + i))
-                        .isEmailVerified(true)
-                        .build();
-                randomUsers.add(u);
-            }
+// Crear rutas específicas para user1
+			Route completedRoute1 = Route.builder()
+							.description("Entrega completada 1 - CABA")
+							.destination(new Coordinates(-34.60, -58.38))
+							.status(RouteStatus.COMPLETED)
+							.startedAt(Timestamp.valueOf(LocalDateTime.now().minusDays(3)))
+							.completedAt(Timestamp.valueOf(LocalDateTime.now().minusDays(1)))
+							.assignedTo(user1)
+							.build();
 
-            userRepository.saveAll(randomUsers);
-            System.out.println("✅ Usuarios aleatorios creados: " + randomUsers.size());
+			Route completedRoute2 = Route.builder()
+							.description("Entrega completada 2 - CABA")
+							.destination(new Coordinates(-34.61, -58.39))
+							.status(RouteStatus.COMPLETED)
+							.startedAt(Timestamp.valueOf(LocalDateTime.now().minusDays(5)))
+							.completedAt(Timestamp.valueOf(LocalDateTime.now().minusDays(2)))
+							.assignedTo(user1)
+							.build();
 
-            // 3. Crear productos
-            List<Product> products = new ArrayList<>();
-            for (int i = 0; i < 20; i++) {
-                products.add(Product.builder()
-                        .name("Producto " + i)
-                        .description("Descripción producto " + i)
-                        .price(BigDecimal.valueOf(ThreadLocalRandom.current().nextDouble(10, 500)))
-                        .build());
-            }
-            productRepository.saveAll(products);
-            System.out.println("✅ Productos creados: " + products.size());
+// Ruta PENDING sin usuario asignado, para delivery ID = 1
+			Route availableRoute = Route.builder()
+							.description("Plaza de Mayo, Bolívar 65, CABA")
+							.destination(new Coordinates(-34.62, -58.40))
+							.status(RouteStatus.PENDING)
+							.build();
 
-            // 4. <<< CAMBIO PRINCIPAL: Crear rutas con datos reales de CABA >>>
+			List<Route> savedRoutes = routeRepository.saveAll(List.of(availableRoute, completedRoute1, completedRoute2));
 
-            // Lista de ubicaciones reales en CABA para usar en las rutas
-            List<LocationData> cabaLocations = List.of(
-                    new LocationData("Obelisco, Av. 9 de Julio s/n, CABA", new Coordinates(-34.6037, -58.3816)),
-                    new LocationData("Plaza de Mayo, Bolívar 65, CABA", new Coordinates(-34.6083, -58.3722)),
-                    new LocationData("Museo MALBA, Av. Figueroa Alcorta 3415, CABA", new Coordinates(-34.5801, -58.4063)),
-                    new LocationData("Congreso de la Nación, Av. Rivadavia 1864, CABA", new Coordinates(-34.6096, -58.3925)),
-                    new LocationData("Estadio Monumental, Av. Pres. Figueroa Alcorta 7597, CABA", new Coordinates(-34.5453, -58.4497)),
-                    new LocationData("Caminito, La Boca, CABA", new Coordinates(-34.6383, -58.3633)),
-                    new LocationData("Jardín Japonés, Av. Casares 2966, CABA", new Coordinates(-34.5770, -58.4121)),
-                    new LocationData("Teatro Colón, Cerrito 628, CABA", new Coordinates(-34.6010, -58.3831)),
-                    new LocationData("Puente de la Mujer, Puerto Madero, CABA", new Coordinates(-34.6094, -58.3640))
-            );
+// Crear productos si no existían aún
+			if (productRepository.count() == 0) {
+				List<Product> products = new ArrayList<>();
+				for (int i = 0; i < 20; i++) {
+					products.add(Product.builder()
+									.name("Producto " + i)
+									.description("Descripción producto " + i)
+									.price(BigDecimal.valueOf(ThreadLocalRandom.current().nextDouble(10, 500)))
+									.build());
+				}
+				productRepository.saveAll(products);
+				System.out.println("✅ Productos creados.");
+			}
 
-            List<Route> routes = new ArrayList<>();
-            List<User> hardcodedUsers = List.of(user1, user2); // Solo asignamos a los admins
+			List<Product> allProducts = productRepository.findAll();
+			List<Product> someProducts = allProducts.subList(0, Math.min(3, allProducts.size()));
 
-            for (int i = 0; i < 15; i++) {
-                // Seleccionamos una ubicación de la lista de forma cíclica
-                LocationData location = cabaLocations.get(i % cabaLocations.size());
+// Entregas completadas para user1
+			Delivery delivered1 = Delivery.builder()
+							.status(DeliveryStatus.DELIVERED)
+							.destination("Palermo")
+							.packageLocation("Sector A - Estante 2")
+							.createdDate(Timestamp.valueOf(LocalDateTime.now().minusDays(3)))
+							.deliveryStartDate(Timestamp.valueOf(LocalDateTime.now().minusDays(2)))
+							.deliveryEndDate(Timestamp.valueOf(LocalDateTime.now().minusDays(1)))
+							.pin("1234")
+							.route(savedRoutes.get(1))
+							.products(someProducts)
+							.build();
 
-                // Tu lógica original para asignar usuario y estado
-                User assignedUser = hardcodedUsers.get(ThreadLocalRandom.current().nextInt(hardcodedUsers.size()));
-                RouteStatus routeStatus = RouteStatus.PENDING;
-                if (i % 3 == 0) routeStatus = RouteStatus.INITIATED;
-                else if (i % 3 == 1) routeStatus = RouteStatus.COMPLETED;
+			Delivery delivered2 = Delivery.builder()
+							.status(DeliveryStatus.DELIVERED)
+							.destination("Villa Urquiza")
+							.packageLocation("Sector B - Estante 1")
+							.createdDate(Timestamp.valueOf(LocalDateTime.now().minusDays(4)))
+							.deliveryStartDate(Timestamp.valueOf(LocalDateTime.now().minusDays(3)))
+							.deliveryEndDate(Timestamp.valueOf(LocalDateTime.now().minusDays(2)))
+							.pin("5678")
+							.route(savedRoutes.get(2))
+							.products(someProducts)
+							.build();
 
-                LocalDateTime completedAt = (routeStatus == RouteStatus.COMPLETED)
-                        ? LocalDateTime.now().minusDays(ThreadLocalRandom.current().nextInt(1, 10)) : null;
+// Delivery disponible con ID = 1
+			Delivery deliveryAvailable = Delivery.builder()
+							.status(DeliveryStatus.NOT_DELIVERED)
+							.destination("Villa Crespo")
+							.packageLocation("Sector C - Estante 1")
+							.createdDate(Timestamp.valueOf(LocalDateTime.now().minusDays(1)))
+							.deliveryStartDate(null)
+							.deliveryEndDate(null)
+							.pin("9516")
+							.route(savedRoutes.get(0))
+							.products(someProducts)
+							.build();
 
-                routes.add(Route.builder()
-                        .description(location.getAddress()) // Usamos la descripción textual
-                        .destination(location.getCoords())  // Usamos el objeto Coordinates
-                        .status(routeStatus)
-                        .assignedTo(assignedUser)
-                        .completedAt(completedAt != null ? Timestamp.valueOf(completedAt) : null)
-                        .build());
-            }
-            routeRepository.saveAll(routes);
-            System.out.println("✅ Rutas realistas creadas y asignadas.");
+      List<Delivery> savedDeliveries = deliveryRepository.saveAll(List.of(deliveryAvailable, delivered1, delivered2));
 
+// Generar códigos QR
+			for (Delivery d : savedDeliveries) {
+				String qr = QRCodeGenerator.generateQRCodeBase64(d.getId());
+				d.setQrCode(qr);
+			}
+			deliveryRepository.saveAll(savedDeliveries);
 
-            // 5. Crear entregas (con una pequeña mejora para mayor coherencia)
-            DeliveryStatus[] estados = DeliveryStatus.values();
-            List<Delivery> deliveries = new ArrayList<>();
-            String[] sectores = {"Sector A", "Sector B", "Sector C", "Sector D", "Sector E"};
-            Random random = new Random();
-            int routeIndex = 0;
+			System.out.println("✅ Se configuraron los casos de uso de login, entregas completadas y entrega disponible.");
 
-            for (int i = 0; i < 15; i++) {
-                Route route = routes.get(routeIndex);
-                routeIndex = (routeIndex + 1) % routes.size();
+			// ➕ Crear 6 usuarios adicionales: user2@test.com hasta user7@test.com
+			List<User> extraUsers = new ArrayList<>();
+			for (int i = 2; i <= 7; i++) {
+				User user = User.builder()
+								.firstname("Test")
+								.lastname("User" + i)
+								.email("user" + i + "@test.com")
+								.password(encoder.encode("pwd" + i))
+								.isEmailVerified(true)
+								.build();
+				extraUsers.add(user);
+			}
+			List<User> savedExtraUsers = userRepository.saveAll(extraUsers);
+			System.out.println("✅ Usuarios extra creados: " + savedExtraUsers.size());
 
-                List<Product> randomProducts = ThreadLocalRandom.current().ints(3, 0, products.size())
-                        .distinct()
-                        .mapToObj(products::get)
-                        .toList();
+// ➕ Crear 10 rutas nuevas (algunas completadas, otras PENDING sin usuario asignado)
+			List<Route> newRoutes = new ArrayList<>();
+			List<Route> completedRoutes = new ArrayList<>();
+			List<Route> pendingRoutes = new ArrayList<>();
 
-                DeliveryStatus estado = estados[i % estados.length];
-                Timestamp createdDate = Timestamp.valueOf(LocalDateTime.now().minusDays(i));
-                Timestamp deliveryStartDate = Timestamp.valueOf(LocalDateTime.now().minusDays(i + 1));
-                Timestamp deliveryEndDate = estado == DeliveryStatus.DELIVERED ? Timestamp.valueOf(LocalDateTime.now()) : null;
+			List<String> addresses = List.of(
+							"Obelisco, Av. 9 de Julio s/n, CABA",
+							"Museo MALBA, Av. Figueroa Alcorta 3415, CABA",
+							"Congreso de la Nación, Av. Rivadavia 1864, CABA",
+							"Estadio Monumental, Av. Pres. Figueroa Alcorta 7597, CABA",
+							"Jardín Japonés, Av. Casares 2966, CABA",
+							"Teatro Colón, Cerrito 628, CABA",
+							"Puente de la Mujer, Puerto Madero, CABA",
+							"Caminito, La Boca, CABA",
+							"Corrientes 4150, CABA",
+							"Abasto, Corrientes 2450, CABA",
+							"Malabia 1300, CABA"
+			);
 
-                String sector = sectores[random.nextInt(sectores.length)];
-                int estante = 1 + random.nextInt(5);
-                String location = sector + " - Estante " + estante;
+			for (int i = 0; i < 10; i++) {
+				boolean isCompleted = i % 2 == 0;
+				Route.RouteBuilder builder = Route.builder()
+								.description(addresses.get(i))
+								.destination(new Coordinates(-34.55 + i * 0.01, -58.45 + i * 0.01))
+								.status(isCompleted ? RouteStatus.COMPLETED : RouteStatus.PENDING);
 
-                // <<< MEJORA >>> Hacemos que el destino de la entrega sea coherente con la ruta
-                String deliveryDestination = "Oficina/Depto " + (i+1) + " en " + route.getDescription();
+				if (isCompleted) {
+					User assignedUser = savedExtraUsers.get(i % savedExtraUsers.size());
+					builder.assignedTo(assignedUser)
+									.startedAt(Timestamp.valueOf(LocalDateTime.now().minusDays(10 - i)))
+									.completedAt(Timestamp.valueOf(LocalDateTime.now().minusDays(9 - i)));
+				}
+				Route route = builder.build();
+				newRoutes.add(route);
+				if (isCompleted) {
+					completedRoutes.add(route);
+				} else {
+					pendingRoutes.add(route);
+				}
+			}
+			List<Route> savedNewRoutes = routeRepository.saveAll(newRoutes);
+			System.out.println("✅ Rutas nuevas creadas: " + savedNewRoutes.size());
 
-                Delivery delivery = Delivery.builder()
-                        .status(estado)
-                        .destination(deliveryDestination) // Usamos el destino mejorado
-                        .packageLocation(location)
-                        .createdDate(createdDate)
-                        .deliveryStartDate(deliveryStartDate)
-                        .deliveryEndDate(deliveryEndDate)
-                        .pin(String.format("%04d", ThreadLocalRandom.current().nextInt(10000)))
-                        .products(randomProducts)
-                        .route(route)
-                        .build();
+// ➕ Asociar productos ya existentes
+			List<Product> baseProducts = productRepository.findAll();
+			List<Product> selectedProducts = baseProducts.subList(0, Math.min(3, baseProducts.size()));
 
-                deliveries.add(delivery);
-            }
+// ➕ Crear 10 entregas, cada una con una de las nuevas rutas
+			List<Delivery> newDeliveries = new ArrayList<>();
+			for (int i = 0; i < savedNewRoutes.size(); i++) {
+				Route route = savedNewRoutes.get(i);
+				boolean isDelivered = route.getStatus() == RouteStatus.COMPLETED;
 
-            deliveryRepository.saveAll(deliveries);
+				Delivery.DeliveryBuilder deliveryBuilder = Delivery.builder()
+								.destination("Destino " + (i + 1))
+								.packageLocation("Sector A - Estante " + (i))
+								.createdDate(Timestamp.valueOf(LocalDateTime.now().minusDays(5 - i)))
+								.deliveryStartDate(isDelivered ? Timestamp.valueOf(LocalDateTime.now().minusDays(4 - i)) : null)
+								.deliveryEndDate(isDelivered ? Timestamp.valueOf(LocalDateTime.now().minusDays(3 - i)) : null)
+								.status(isDelivered ? DeliveryStatus.DELIVERED : DeliveryStatus.NOT_DELIVERED)
+								.pin(String.valueOf(1000 + i))
+								.route(route)
+								.products(selectedProducts);
 
+				newDeliveries.add(deliveryBuilder.build());
+			}
+			List<Delivery> savedNewDeliveries = deliveryRepository.saveAll(newDeliveries);
 
-            for (Delivery delivery : deliveries) {
-                String qrCodeBase64 = QRCodeGenerator.generateQRCodeBase64(delivery.getId());
-                delivery.setQrCode(qrCodeBase64);
-            }
+// ➕ Generar QR codes para las nuevas entregas
+			for (Delivery d : savedNewDeliveries) {
+				String qr = QRCodeGenerator.generateQRCodeBase64(d.getId());
+				d.setQrCode(qr);
+			}
+			deliveryRepository.saveAll(newDeliveries);
 
-            deliveryRepository.saveAll(deliveries);
-            System.out.println("✅ Entregas creadas: " + deliveries.size());
-
-            Map<DeliveryStatus, Long> cantidadPorEstado = deliveries.stream()
-                    .collect(Collectors.groupingBy(Delivery::getStatus, Collectors.counting()));
-
-            System.out.println("\n📦 Resumen de entregas por estado:");
-            cantidadPorEstado.forEach((estado, cantidad) ->
-                    System.out.println(" - " + estado + ": " + cantidad + " entregas"));
-        };
-    }
+			System.out.println("✅ Entregas nuevas creadas y asociadas a rutas nuevas.");
+		};
+	}
 }
