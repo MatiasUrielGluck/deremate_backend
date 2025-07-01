@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/push")
+@RequestMapping(value = "${base-path-v1}/notification")
 public class FirebaseNotificationController {
 
     private final FirebaseNotificationService firebaseNotificationService;
