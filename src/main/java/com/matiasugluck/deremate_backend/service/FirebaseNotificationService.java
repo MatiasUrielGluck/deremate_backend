@@ -6,6 +6,7 @@ import com.matiasugluck.deremate_backend.entity.User;
 import org.springframework.http.ResponseEntity;
 
 public interface FirebaseNotificationService {
-    ResponseEntity<GenericResponseDTO<String>> linkUser(String expoPushToken, User user);
+    ResponseEntity<GenericResponseDTO<String>> linkUser(String firebaseDeviceToken, User user);
+    ResponseEntity<GenericResponseDTO<String>> unlinkUser(String firebaseDeviceToken, User user);
     String sendNotification(NotificationMessage notificationMessage);
 }

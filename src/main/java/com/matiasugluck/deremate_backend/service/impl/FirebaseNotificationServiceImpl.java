@@ -9,9 +9,11 @@ import com.matiasugluck.deremate_backend.repository.DeviceRepository;
 import com.matiasugluck.deremate_backend.service.FirebaseNotificationService;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class FirebaseNotificationServiceImpl implements FirebaseNotificationService {
+
     final DeviceRepository deviceRepository;
     final FirebaseMessaging firebaseMessaging;
 
@@ -30,6 +32,7 @@ public class FirebaseNotificationServiceImpl implements FirebaseNotificationServ
     }
 
     @Override
+    @Transactional
     public String sendNotification(NotificationMessage notificationMessage) {
         Notification notification = Notification.builder()
                 .setTitle(notificationMessage.getTitle())
@@ -48,13 +51,21 @@ public class FirebaseNotificationServiceImpl implements FirebaseNotificationServ
             return "Success";
         } catch (FirebaseMessagingException e) {
             if (e.getMessagingErrorCode() == MessagingErrorCode.UNREGISTERED) {
-                // 🔥 Token inválido: eliminar de la base de datos
                 System.out.println("Token inválido, eliminando de la base: " + notificationMessage.getRecipientToken());
-                deviceRepository.deleteByDeviceId(notificationMessage.getRecipientToken());
+                deviceRepository.deleteAllByDeviceId(notificationMessage.getRecipientToken());
             } else {
                 System.out.println("Error al enviar notificación: " + e.getMessage());
             }
             return "Failure";
         }
+    }
+
+    @Override
+    @Transactional
+    public ResponseEntity<GenericResponseDTO<String>> unlinkUser(String firebaseDeviceToken, User user) {
+        deviceRepository.deleteAllByDeviceIdAndUser(firebaseDeviceToken, user);
+        GenericResponseDTO<String> response = new GenericResponseDTO<>();
+        response.setData("Dispositivo desvinculado con éxito");
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

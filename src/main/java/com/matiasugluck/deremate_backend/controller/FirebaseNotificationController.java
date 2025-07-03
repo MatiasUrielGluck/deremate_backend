@@ -1,14 +1,13 @@
 package com.matiasugluck.deremate_backend.controller;
 
 import com.matiasugluck.deremate_backend.dto.notification.NotificationLinkRequest;
+import com.matiasugluck.deremate_backend.dto.notification.NotificationUnlinkRequest;
 import com.matiasugluck.deremate_backend.entity.NotificationMessage;
 import com.matiasugluck.deremate_backend.entity.User;
 import com.matiasugluck.deremate_backend.service.AuthService;
 import com.matiasugluck.deremate_backend.service.FirebaseNotificationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping(value = "${base-path-v1}/notification")
@@ -29,10 +28,15 @@ public class FirebaseNotificationController {
     }
 
     @PostMapping("/link-device")
-    public  ResponseEntity<?> linkDevice(@RequestBody NotificationLinkRequest notificationLinkRequest) {
+    public ResponseEntity<?> linkDevice(@RequestBody NotificationLinkRequest notificationLinkRequest) {
         User user = authService.getAuthenticatedUser();
-        return firebaseNotificationService.linkUser(notificationLinkRequest.getFirebaseDeviceId(),user);
+        return firebaseNotificationService.linkUser(notificationLinkRequest.getFirebaseDeviceId(), user);
     }
 
-
+    @PostMapping("/unlink-device")
+    public ResponseEntity<?> unlinkDevice(@RequestBody NotificationUnlinkRequest notificationUnlinkRequest) {
+        User user = authService.getAuthenticatedUser();
+        firebaseNotificationService.unlinkUser(notificationUnlinkRequest.getFirebaseDeviceId(), user);
+        return ResponseEntity.ok("Dispositivo desvinculado correctamente");
+    }
 }
