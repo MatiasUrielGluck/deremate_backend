@@ -25,7 +25,15 @@ public class FirebaseNotificationServiceImpl implements FirebaseNotificationServ
         Device newDevice = Device.builder().user(user).deviceId(firebaseDeviceToken).build();
         deviceRepository.save(newDevice);
         GenericResponseDTO<String> response = new GenericResponseDTO<>();
-        response.setData("Success");
+        response.setData("Device linked successfully");
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<GenericResponseDTO<String>> unlinkUser(String firebaseDeviceToken, User user) {
+        deviceRepository.deleteByUserAndDeviceId(user, firebaseDeviceToken);
+        GenericResponseDTO<String> response = new GenericResponseDTO<>();
+        response.setData("Device unlinked successfully");
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -48,7 +56,6 @@ public class FirebaseNotificationServiceImpl implements FirebaseNotificationServ
             return "Success";
         } catch (FirebaseMessagingException e) {
             if (e.getMessagingErrorCode() == MessagingErrorCode.UNREGISTERED) {
-                // 🔥 Token inválido: eliminar de la base de datos
                 System.out.println("Token inválido, eliminando de la base: " + notificationMessage.getRecipientToken());
                 deviceRepository.deleteByDeviceId(notificationMessage.getRecipientToken());
             } else {
