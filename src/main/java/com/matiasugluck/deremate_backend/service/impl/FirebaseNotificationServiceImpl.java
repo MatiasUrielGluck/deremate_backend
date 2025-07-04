@@ -7,6 +7,7 @@ import com.matiasugluck.deremate_backend.entity.NotificationMessage;
 import com.matiasugluck.deremate_backend.entity.User;
 import com.matiasugluck.deremate_backend.repository.DeviceRepository;
 import com.matiasugluck.deremate_backend.service.FirebaseNotificationService;
+import jakarta.transaction.Transactional;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,7 @@ public class FirebaseNotificationServiceImpl implements FirebaseNotificationServ
     }
 
     @Override
+    @Transactional
     public ResponseEntity<GenericResponseDTO<String>> unlinkUser(String firebaseDeviceToken, User user) {
         deviceRepository.deleteByUserAndDeviceId(user, firebaseDeviceToken);
         GenericResponseDTO<String> response = new GenericResponseDTO<>();
