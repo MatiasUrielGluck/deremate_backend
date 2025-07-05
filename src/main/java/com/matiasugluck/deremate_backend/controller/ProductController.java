@@ -2,6 +2,7 @@ package com.matiasugluck.deremate_backend.controller;
 
 import com.matiasugluck.deremate_backend.dto.GenericResponseDTO;
 import com.matiasugluck.deremate_backend.dto.product.ProductDTO;
+import com.matiasugluck.deremate_backend.dto.product.ProductListResponseDTO;
 import com.matiasugluck.deremate_backend.exception.ApiError;
 import com.matiasugluck.deremate_backend.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -35,7 +36,7 @@ public class ProductController {
     }
 
     @Operation(summary = "Obtener todos los productos", description = "Devuelve una lista de todos los productos registrados.")
-    @ApiResponse(responseCode = "200", description = "Lista de productos obtenida exitosamente", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GenericResponseDTO.class)))
+    @ApiResponse(responseCode = "200", description = "Lista de productos obtenida exitosamente", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ProductListResponseDTO.class)))
     @GetMapping
     public ResponseEntity<GenericResponseDTO<List<ProductDTO>>> getAllProducts() {
         return ResponseEntity.ok(productService.getProducts());
