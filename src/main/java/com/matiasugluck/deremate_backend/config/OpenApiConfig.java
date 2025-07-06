@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Configuration;
                 description = "Documentación de la API para Deremate Backend"
         ),
         servers = {
-                @Server(url = "http://localhost:8080", description = "Servidor Local"),
+                @Server(url = "http://localhost:4002", description = "Servidor Local"),
                 @Server(url = "https://sebastian-zafra.com", description = "Servidor de Producción")
         },
         security = @SecurityRequirement(name = "bearerAuth") // Aplica la seguridad globalmente

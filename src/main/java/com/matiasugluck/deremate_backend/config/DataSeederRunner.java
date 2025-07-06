@@ -83,6 +83,7 @@ public class DataSeederRunner {
 							.description("Plaza de Mayo, Bolívar 65, CABA")
 							.destination(new Coordinates(-34.62, -58.40))
 							.status(RouteStatus.PENDING)
+							.assignedTo(user1)
 							.build();
 
 			List<Route> savedRoutes = routeRepository.saveAll(List.of(availableRoute, completedRoute1, completedRoute2));

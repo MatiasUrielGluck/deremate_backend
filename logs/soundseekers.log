@@ -1,24 +1,24 @@
-2025-07-02T18:59:18.263-03:00  INFO 20956 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 23 with PID 20956 (C:\Users\lucas\IdeaProjects\deremate_backend\target\classes started by lucas in C:\Users\lucas\IdeaProjects\deremate_backend)
-2025-07-02T18:59:18.267-03:00  INFO 20956 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-07-02T18:59:18.324-03:00  INFO 20956 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-07-02T18:59:18.325-03:00  INFO 20956 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-07-02T18:59:19.550-03:00  INFO 20956 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-02T18:59:19.661-03:00  INFO 20956 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100 ms. Found 6 JPA repository interfaces.
-2025-07-02T18:59:20.393-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-07-02T18:59:20.408-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-02T18:59:20.409-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-07-02T18:59:20.484-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-02T18:59:20.484-03:00  INFO 20956 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2159 ms
-2025-07-02T18:59:20.625-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-07-02T18:59:20.707-03:00  INFO 20956 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-07-02T18:59:20.749-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-07-02T18:59:21.065-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-07-02T18:59:21.103-03:00  INFO 20956 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-02T18:59:21.502-03:00  INFO 20956 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7efb50de
-2025-07-02T18:59:21.504-03:00  INFO 20956 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-02T18:59:21.554-03:00  WARN 20956 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-07-02T18:59:21.555-03:00  WARN 20956 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-07-02T18:59:21.576-03:00  INFO 20956 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-07-05T18:34:49.152-03:00  INFO 3588 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 3588 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T18:34:49.156-03:00  INFO 3588 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T18:34:49.195-03:00  INFO 3588 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T18:34:49.196-03:00  INFO 3588 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T18:34:51.437-03:00  INFO 3588 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T18:34:51.523-03:00  INFO 3588 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 6 JPA repository interfaces.
+2025-07-05T18:34:52.721-03:00  INFO 3588 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T18:34:52.737-03:00  INFO 3588 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T18:34:52.738-03:00  INFO 3588 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T18:34:52.823-03:00  INFO 3588 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T18:34:52.823-03:00  INFO 3588 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3627 ms
+2025-07-05T18:34:53.014-03:00  INFO 3588 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T18:34:53.138-03:00  INFO 3588 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T18:34:53.177-03:00  INFO 3588 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T18:34:53.513-03:00  INFO 3588 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T18:34:53.543-03:00  INFO 3588 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T18:34:54.955-03:00  INFO 3588 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42aa02e
+2025-07-05T18:34:54.957-03:00  INFO 3588 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T18:34:55.023-03:00  WARN 3588 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T18:34:55.023-03:00  WARN 3588 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T18:34:55.041-03:00  INFO 3588 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -26,103 +26,44 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-07-02T18:59:22.712-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-07-02T18:59:23.318-03:00  INFO 20956 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-07-02T18:59:23.718-03:00  WARN 20956 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-07-02T18:59:23.924-03:00  INFO 20956 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2025-07-02T18:59:23.925-03:00  WARN 20956 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-07-02T18:59:24.037-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-07-02T18:59:25.699-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-07-02T18:59:25.729-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-07-02T18:59:25.740-03:00  INFO 20956 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.953 seconds (process running for 8.915)
-2025-07-02T19:01:42.154-03:00  INFO 20956 --- [deremate_backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-07-02T19:01:42.155-03:00  INFO 20956 --- [deremate_backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-07-02T19:01:42.156-03:00  INFO 20956 --- [deremate_backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-07-02T19:01:42.264-03:00  WARN 20956 --- [deremate_backend] [http-nio-8080-exec-1] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-02T01:05:15Z. Current time: 2025-07-02T22:01:42Z, a difference of 75387262 milliseconds.  Allowed clock skew: 0 milliseconds.
-2025-07-02T19:01:42.270-03:00  WARN 20956 --- [deremate_backend] [http-nio-8080-exec-1] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
-2025-07-02T19:01:42.336-03:00  WARN 20956 --- [deremate_backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
-2025-07-02T19:01:42.337-03:00 ERROR 20956 --- [deremate_backend] [http-nio-8080-exec-1] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
-2025-07-02T19:01:42.338-03:00  WARN 20956 --- [deremate_backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
-2025-07-02T19:48:27.750-03:00  INFO 20956 --- [deremate_backend] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
-2025-07-02T19:48:27.761-03:00  INFO 20956 --- [deremate_backend] [Thread-5] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-07-02T19:48:27.773-03:00  INFO 20956 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-07-02T19:48:27.780-03:00  INFO 20956 --- [deremate_backend] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-07-02T19:48:27.785-03:00  INFO 20956 --- [deremate_backend] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-07-02T19:48:27.797-03:00  INFO 20956 --- [deremate_backend] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-07-02T19:48:27.922-03:00  INFO 20956 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 23 with PID 20956 (C:\Users\lucas\IdeaProjects\deremate_backend\target\classes started by lucas in C:\Users\lucas\IdeaProjects\deremate_backend)
-2025-07-02T19:48:27.922-03:00  INFO 20956 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-07-02T19:48:28.232-03:00  INFO 20956 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-02T19:48:28.267-03:00  INFO 20956 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 6 JPA repository interfaces.
-2025-07-02T19:48:28.401-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-07-02T19:48:28.404-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-02T19:48:28.404-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-07-02T19:48:28.456-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-02T19:48:28.457-03:00  INFO 20956 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 533 ms
-2025-07-02T19:48:28.508-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-07-02T19:48:28.512-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-07-02T19:48:28.523-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-07-02T19:48:28.524-03:00  INFO 20956 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2025-07-02T19:48:28.548-03:00  INFO 20956 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b870c28
-2025-07-02T19:48:28.548-03:00  INFO 20956 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2025-07-02T19:48:28.549-03:00  WARN 20956 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-07-02T19:48:28.549-03:00  WARN 20956 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-07-02T19:48:28.550-03:00  INFO 20956 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
-	Database driver: undefined/unknown
-	Database version: 8.0
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-07-02T19:48:28.689-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-07-02T19:48:29.404-03:00  INFO 20956 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-07-02T19:48:29.479-03:00  WARN 20956 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-07-02T19:48:29.548-03:00  INFO 20956 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2025-07-02T19:48:29.548-03:00  WARN 20956 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-07-02T19:48:29.634-03:00  WARN 20956 --- [deremate_backend] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'firebaseNotificationController' defined in file [C:\Users\lucas\IdeaProjects\deremate_backend\target\classes\com\matiasugluck\deremate_backend\controller\FirebaseNotificationController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.matiasugluck.deremate_backend.service.FirebaseNotificationService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2025-07-02T19:48:29.635-03:00  INFO 20956 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-07-02T19:48:29.636-03:00  INFO 20956 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2025-07-02T19:48:29.645-03:00  INFO 20956 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2025-07-02T19:48:29.645-03:00  INFO 20956 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-07-02T19:48:29.650-03:00  INFO 20956 --- [deremate_backend] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-07-02T19:48:29.672-03:00 ERROR 20956 --- [deremate_backend] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 0 of constructor in com.matiasugluck.deremate_backend.controller.FirebaseNotificationController required a bean of type 'com.matiasugluck.deremate_backend.service.FirebaseNotificationService' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'com.matiasugluck.deremate_backend.service.FirebaseNotificationService' in your configuration.
-
-2025-07-03T20:15:23.284-03:00  INFO 13548 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 23 with PID 13548 (C:\Users\lucas\IdeaProjects\deremate_backend\target\classes started by lucas in C:\Users\lucas\IdeaProjects\deremate_backend)
-2025-07-03T20:15:23.285-03:00  INFO 13548 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-07-03T20:15:23.350-03:00  INFO 13548 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-07-03T20:15:23.350-03:00  INFO 13548 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-07-03T20:15:24.652-03:00  INFO 13548 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-03T20:15:24.754-03:00  INFO 13548 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 6 JPA repository interfaces.
-2025-07-03T20:15:25.566-03:00  INFO 13548 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-07-03T20:15:25.581-03:00  INFO 13548 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-03T20:15:25.581-03:00  INFO 13548 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-07-03T20:15:25.687-03:00  INFO 13548 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-03T20:15:25.688-03:00  INFO 13548 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2338 ms
-2025-07-03T20:15:25.865-03:00  INFO 13548 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-07-03T20:15:25.969-03:00  INFO 13548 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-07-03T20:15:26.025-03:00  INFO 13548 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-07-03T20:15:26.410-03:00  INFO 13548 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-07-03T20:15:26.453-03:00  INFO 13548 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-03T20:15:26.893-03:00  INFO 13548 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@43e9f471
-2025-07-03T20:15:26.895-03:00  INFO 13548 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-03T20:15:26.950-03:00  WARN 13548 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-07-03T20:15:26.950-03:00  WARN 13548 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-07-03T20:15:26.971-03:00  INFO 13548 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-07-05T18:34:56.066-03:00  INFO 3588 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T18:34:57.218-03:00  INFO 3588 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T18:34:57.728-03:00  WARN 3588 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T18:34:57.966-03:00  INFO 3588 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T18:34:57.967-03:00  WARN 3588 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T18:34:58.085-03:00  INFO 3588 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T18:34:59.896-03:00  INFO 3588 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T18:34:59.924-03:00  INFO 3588 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T18:34:59.933-03:00  INFO 3588 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 11.277 seconds (process running for 18.458)
+2025-07-05T18:35:14.623-03:00  INFO 3588 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T18:35:14.624-03:00  INFO 3588 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T18:35:14.625-03:00  INFO 3588 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-05T18:36:43.784-03:00  INFO 3588 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T18:36:43.789-03:00  INFO 3588 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T18:36:43.793-03:00  INFO 3588 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T18:36:43.796-03:00  INFO 3588 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T18:36:43.805-03:00  INFO 3588 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T18:36:48.242-03:00  INFO 24396 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 24396 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T18:36:48.244-03:00  INFO 24396 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T18:36:48.289-03:00  INFO 24396 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T18:36:48.290-03:00  INFO 24396 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T18:36:49.227-03:00  INFO 24396 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T18:36:49.295-03:00  INFO 24396 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 6 JPA repository interfaces.
+2025-07-05T18:36:50.269-03:00  INFO 24396 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T18:36:50.296-03:00  INFO 24396 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T18:36:50.297-03:00  INFO 24396 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T18:36:50.427-03:00  INFO 24396 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T18:36:50.427-03:00  INFO 24396 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2137 ms
+2025-07-05T18:36:50.659-03:00  INFO 24396 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T18:36:50.738-03:00  INFO 24396 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T18:36:50.774-03:00  INFO 24396 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T18:36:51.089-03:00  INFO 24396 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T18:36:51.114-03:00  INFO 24396 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T18:36:51.362-03:00  INFO 24396 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69e924b1
+2025-07-05T18:36:51.364-03:00  INFO 24396 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T18:36:51.400-03:00  WARN 24396 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T18:36:51.401-03:00  WARN 24396 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T18:36:51.417-03:00  INFO 24396 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -130,50 +71,45 @@ Consider defining a bean of type 'com.matiasugluck.deremate_backend.service.Fire
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-07-03T20:15:28.177-03:00  INFO 13548 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-07-03T20:15:28.813-03:00  INFO 13548 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-07-03T20:15:29.245-03:00  WARN 13548 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-07-03T20:15:29.519-03:00  INFO 13548 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2025-07-03T20:15:29.520-03:00  WARN 13548 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-07-03T20:15:29.651-03:00  INFO 13548 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-07-03T20:15:31.359-03:00  INFO 13548 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-07-03T20:15:31.400-03:00  INFO 13548 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-07-03T20:15:31.415-03:00  INFO 13548 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 8.647 seconds (process running for 11.074)
-2025-07-03T20:18:43.136-03:00  INFO 13548 --- [deremate_backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-07-03T20:18:43.138-03:00  INFO 13548 --- [deremate_backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-07-03T20:18:43.139-03:00  INFO 13548 --- [deremate_backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-07-03T20:18:43.249-03:00  WARN 13548 --- [deremate_backend] [http-nio-8080-exec-1] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-03T04:18:12Z. Current time: 2025-07-03T23:18:43Z, a difference of 68431247 milliseconds.  Allowed clock skew: 0 milliseconds.
-2025-07-03T20:18:43.255-03:00  WARN 13548 --- [deremate_backend] [http-nio-8080-exec-1] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
-2025-07-03T20:18:43.307-03:00  WARN 13548 --- [deremate_backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
-2025-07-03T20:18:43.309-03:00 ERROR 13548 --- [deremate_backend] [http-nio-8080-exec-1] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
-2025-07-03T20:18:43.309-03:00  WARN 13548 --- [deremate_backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
-2025-07-03T20:27:48.120-03:00  INFO 13548 --- [deremate_backend] [http-nio-8080-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 494 ms
-2025-07-03T20:52:33.966-03:00  INFO 13548 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-07-03T20:52:33.982-03:00  INFO 13548 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-07-03T20:52:33.988-03:00  INFO 13548 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-07-03T20:52:33.991-03:00  INFO 13548 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-07-03T20:52:34.002-03:00  INFO 13548 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-07-03T21:11:34.043-03:00  INFO 40984 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 23 with PID 40984 (C:\Users\lucas\IdeaProjects\deremate_backend\target\classes started by lucas in C:\Users\lucas\IdeaProjects\deremate_backend)
-2025-07-03T21:11:34.045-03:00  INFO 40984 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-07-03T21:11:34.110-03:00  INFO 40984 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-07-03T21:11:34.110-03:00  INFO 40984 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-07-03T21:11:34.957-03:00  INFO 40984 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-03T21:11:35.042-03:00  INFO 40984 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 6 JPA repository interfaces.
-2025-07-03T21:11:35.620-03:00  INFO 40984 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-07-03T21:11:35.631-03:00  INFO 40984 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-03T21:11:35.632-03:00  INFO 40984 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-07-03T21:11:35.702-03:00  INFO 40984 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-03T21:11:35.702-03:00  INFO 40984 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1591 ms
-2025-07-03T21:11:35.832-03:00  INFO 40984 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-07-03T21:11:35.891-03:00  INFO 40984 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-07-03T21:11:35.932-03:00  INFO 40984 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-07-03T21:11:36.198-03:00  INFO 40984 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-07-03T21:11:36.232-03:00  INFO 40984 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-03T21:11:36.544-03:00  INFO 40984 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@62197c4d
-2025-07-03T21:11:36.546-03:00  INFO 40984 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-03T21:11:36.600-03:00  WARN 40984 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-07-03T21:11:36.601-03:00  WARN 40984 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-07-03T21:11:36.618-03:00  INFO 40984 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-07-05T18:36:52.261-03:00  INFO 24396 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T18:36:53.877-03:00  INFO 24396 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T18:36:54.191-03:00  WARN 24396 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T18:36:54.425-03:00  INFO 24396 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T18:36:54.425-03:00  WARN 24396 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T18:36:54.563-03:00  INFO 24396 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T18:36:56.012-03:00  INFO 24396 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T18:36:56.030-03:00  INFO 24396 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T18:36:56.039-03:00  INFO 24396 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 8.238 seconds (process running for 8.854)
+2025-07-05T18:37:39.009-03:00  INFO 24396 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T18:37:39.009-03:00  INFO 24396 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T18:37:39.010-03:00  INFO 24396 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-05T19:36:32.173-03:00  INFO 24396 --- [deremate_backend] [http-nio-4002-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1258 ms
+2025-07-05T19:40:39.582-03:00  INFO 24396 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T19:40:39.586-03:00  INFO 24396 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T19:40:39.591-03:00  INFO 24396 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T19:40:39.598-03:00  INFO 24396 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T19:40:39.605-03:00  INFO 24396 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T19:40:50.203-03:00  INFO 30484 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 30484 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T19:40:50.205-03:00  INFO 30484 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T19:40:50.254-03:00  INFO 30484 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T19:40:50.254-03:00  INFO 30484 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T19:40:51.150-03:00  INFO 30484 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T19:40:51.220-03:00  INFO 30484 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 6 JPA repository interfaces.
+2025-07-05T19:40:51.964-03:00  INFO 30484 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T19:40:51.991-03:00  INFO 30484 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T19:40:51.991-03:00  INFO 30484 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T19:40:52.053-03:00  INFO 30484 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T19:40:52.053-03:00  INFO 30484 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1798 ms
+2025-07-05T19:40:52.316-03:00  INFO 30484 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T19:40:52.371-03:00  INFO 30484 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T19:40:52.404-03:00  INFO 30484 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T19:40:52.665-03:00  INFO 30484 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T19:40:52.691-03:00  INFO 30484 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T19:40:52.950-03:00  INFO 30484 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@686c0056
+2025-07-05T19:40:52.951-03:00  INFO 30484 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T19:40:52.983-03:00  WARN 30484 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T19:40:52.984-03:00  WARN 30484 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T19:40:52.997-03:00  INFO 30484 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -181,46 +117,44 @@ Consider defining a bean of type 'com.matiasugluck.deremate_backend.service.Fire
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-07-03T21:11:37.673-03:00  INFO 40984 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-07-03T21:11:38.392-03:00  INFO 40984 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-07-03T21:11:38.737-03:00  WARN 40984 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-07-03T21:11:38.928-03:00  INFO 40984 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2025-07-03T21:11:38.929-03:00  WARN 40984 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-07-03T21:11:39.035-03:00  INFO 40984 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-07-03T21:11:40.332-03:00  INFO 40984 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-07-03T21:11:40.360-03:00  INFO 40984 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-07-03T21:11:40.371-03:00  INFO 40984 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 6.851 seconds (process running for 7.874)
-2025-07-03T21:13:41.178-03:00  INFO 40984 --- [deremate_backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-07-03T21:13:41.178-03:00  INFO 40984 --- [deremate_backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-07-03T21:13:41.179-03:00  INFO 40984 --- [deremate_backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-07-03T21:15:14.402-03:00 ERROR 40984 --- [deremate_backend] [http-nio-8080-exec-7] c.m.d.config.ControllerExceptionHandler  : Internal error with status code 500: No EntityManager with actual transaction available for current thread - cannot reliably process 'remove' call
-2025-07-03T21:15:14.407-03:00  WARN 40984 --- [deremate_backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessApiUsageException: No EntityManager with actual transaction available for current thread - cannot reliably process 'remove' call]
-2025-07-03T21:17:14.911-03:00  INFO 40984 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-07-03T21:17:14.927-03:00  INFO 40984 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-07-03T21:17:14.932-03:00  INFO 40984 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-07-03T21:17:14.934-03:00  INFO 40984 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-07-03T21:17:14.946-03:00  INFO 40984 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-07-03T21:17:20.867-03:00  INFO 63636 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 23 with PID 63636 (C:\Users\lucas\IdeaProjects\deremate_backend\target\classes started by lucas in C:\Users\lucas\IdeaProjects\deremate_backend)
-2025-07-03T21:17:20.869-03:00  INFO 63636 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-07-03T21:17:20.935-03:00  INFO 63636 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-07-03T21:17:20.935-03:00  INFO 63636 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-07-03T21:17:21.855-03:00  INFO 63636 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-03T21:17:21.943-03:00  INFO 63636 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 6 JPA repository interfaces.
-2025-07-03T21:17:22.543-03:00  INFO 63636 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-07-03T21:17:22.555-03:00  INFO 63636 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-03T21:17:22.555-03:00  INFO 63636 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-07-03T21:17:22.626-03:00  INFO 63636 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-03T21:17:22.626-03:00  INFO 63636 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1691 ms
-2025-07-03T21:17:22.768-03:00  INFO 63636 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-07-03T21:17:22.831-03:00  INFO 63636 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-07-03T21:17:22.865-03:00  INFO 63636 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-07-03T21:17:23.150-03:00  INFO 63636 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-07-03T21:17:23.181-03:00  INFO 63636 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-03T21:17:23.496-03:00  INFO 63636 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@767b2cf
-2025-07-03T21:17:23.499-03:00  INFO 63636 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-03T21:17:23.545-03:00  WARN 63636 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-07-03T21:17:23.546-03:00  WARN 63636 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-07-03T21:17:23.566-03:00  INFO 63636 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-07-05T19:40:53.859-03:00  INFO 30484 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T19:40:54.877-03:00  INFO 30484 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T19:40:55.191-03:00  WARN 30484 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T19:40:55.389-03:00  INFO 30484 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T19:40:55.390-03:00  WARN 30484 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T19:40:55.513-03:00  INFO 30484 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T19:40:57.115-03:00  INFO 30484 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T19:40:57.142-03:00  INFO 30484 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T19:40:57.154-03:00  INFO 30484 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.364 seconds (process running for 8.788)
+2025-07-05T19:41:04.770-03:00  INFO 30484 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T19:41:04.770-03:00  INFO 30484 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T19:41:04.771-03:00  INFO 30484 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-05T20:05:13.370-03:00  INFO 30484 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T20:05:13.374-03:00  INFO 30484 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T20:05:13.378-03:00  INFO 30484 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:05:13.380-03:00  INFO 30484 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T20:05:13.388-03:00  INFO 30484 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T20:05:15.268-03:00  INFO 32196 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 32196 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T20:05:15.270-03:00  INFO 32196 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T20:05:15.312-03:00  INFO 32196 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T20:05:15.313-03:00  INFO 32196 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T20:05:16.265-03:00  INFO 32196 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T20:05:16.332-03:00  INFO 32196 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 6 JPA repository interfaces.
+2025-07-05T20:05:17.138-03:00  INFO 32196 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T20:05:17.169-03:00  INFO 32196 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T20:05:17.170-03:00  INFO 32196 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T20:05:17.255-03:00  INFO 32196 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T20:05:17.255-03:00  INFO 32196 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1942 ms
+2025-07-05T20:05:17.598-03:00  INFO 32196 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T20:05:17.694-03:00  INFO 32196 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T20:05:17.736-03:00  INFO 32196 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T20:05:17.992-03:00  INFO 32196 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T20:05:18.015-03:00  INFO 32196 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T20:05:18.270-03:00  INFO 32196 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5bc99551
+2025-07-05T20:05:18.271-03:00  INFO 32196 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T20:05:18.304-03:00  WARN 32196 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T20:05:18.305-03:00  WARN 32196 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T20:05:18.320-03:00  INFO 32196 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -228,20 +162,642 @@ Consider defining a bean of type 'com.matiasugluck.deremate_backend.service.Fire
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-07-03T21:17:24.647-03:00  INFO 63636 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-07-03T21:17:25.370-03:00  INFO 63636 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-07-03T21:17:25.715-03:00  WARN 63636 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-07-03T21:17:25.901-03:00  INFO 63636 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2025-07-03T21:17:25.902-03:00  WARN 63636 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-07-03T21:17:26.009-03:00  INFO 63636 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-07-03T21:17:27.298-03:00  INFO 63636 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-07-03T21:17:27.330-03:00  INFO 63636 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-07-03T21:17:27.343-03:00  INFO 63636 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 6.954 seconds (process running for 7.848)
-2025-07-03T21:18:56.604-03:00  INFO 63636 --- [deremate_backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-07-03T21:18:56.605-03:00  INFO 63636 --- [deremate_backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-07-03T21:18:56.607-03:00  INFO 63636 --- [deremate_backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2025-07-03T21:25:12.325-03:00  INFO 63636 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-07-03T21:25:12.341-03:00  INFO 63636 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-07-03T21:25:12.345-03:00  INFO 63636 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-07-03T21:25:12.348-03:00  INFO 63636 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-07-03T21:25:12.360-03:00  INFO 63636 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T20:05:19.177-03:00  INFO 32196 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T20:05:20.390-03:00  INFO 32196 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:05:20.690-03:00  WARN 32196 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T20:05:20.886-03:00  INFO 32196 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T20:05:20.886-03:00  WARN 32196 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T20:05:21.054-03:00  INFO 32196 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T20:05:22.670-03:00  INFO 32196 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T20:05:22.689-03:00  INFO 32196 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T20:05:22.705-03:00  INFO 32196 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.865 seconds (process running for 8.436)
+2025-07-05T20:05:31.791-03:00  INFO 32196 --- [deremate_backend] [http-nio-4002-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T20:05:31.791-03:00  INFO 32196 --- [deremate_backend] [http-nio-4002-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T20:05:31.792-03:00  INFO 32196 --- [deremate_backend] [http-nio-4002-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-05T20:42:08.294-03:00  INFO 32196 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T20:42:08.298-03:00  INFO 32196 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T20:42:08.302-03:00  INFO 32196 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:42:08.304-03:00  INFO 32196 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T20:42:08.312-03:00  INFO 32196 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T20:42:12.223-03:00  INFO 14368 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 14368 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T20:42:12.225-03:00  INFO 14368 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T20:42:12.267-03:00  INFO 14368 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T20:42:12.267-03:00  INFO 14368 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T20:42:13.204-03:00  INFO 14368 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T20:42:13.267-03:00  INFO 14368 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 6 JPA repository interfaces.
+2025-07-05T20:42:14.027-03:00  INFO 14368 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T20:42:14.050-03:00  INFO 14368 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T20:42:14.050-03:00  INFO 14368 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T20:42:14.127-03:00  INFO 14368 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T20:42:14.128-03:00  INFO 14368 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1861 ms
+2025-07-05T20:42:14.417-03:00  INFO 14368 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T20:42:14.477-03:00  INFO 14368 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T20:42:14.506-03:00  INFO 14368 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T20:42:14.767-03:00  INFO 14368 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T20:42:14.801-03:00  INFO 14368 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T20:42:15.077-03:00  INFO 14368 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b79993
+2025-07-05T20:42:15.079-03:00  INFO 14368 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T20:42:15.111-03:00  WARN 14368 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T20:42:15.111-03:00  WARN 14368 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T20:42:15.127-03:00  INFO 14368 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T20:42:16.052-03:00  INFO 14368 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T20:42:17.181-03:00  INFO 14368 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:42:17.480-03:00  WARN 14368 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T20:42:17.656-03:00  INFO 14368 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T20:42:17.656-03:00  WARN 14368 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T20:42:17.765-03:00  INFO 14368 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T20:42:19.347-03:00  INFO 14368 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T20:42:19.367-03:00  INFO 14368 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T20:42:19.378-03:00  INFO 14368 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.561 seconds (process running for 8.123)
+2025-07-05T20:44:10.634-03:00  INFO 14368 --- [deremate_backend] [http-nio-4002-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T20:44:10.634-03:00  INFO 14368 --- [deremate_backend] [http-nio-4002-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T20:44:10.635-03:00  INFO 14368 --- [deremate_backend] [http-nio-4002-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-05T20:47:23.789-03:00  INFO 14368 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T20:47:23.793-03:00  INFO 14368 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T20:47:23.797-03:00  INFO 14368 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:47:23.799-03:00  INFO 14368 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T20:47:23.808-03:00  INFO 14368 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T20:47:25.939-03:00  INFO 32476 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 32476 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T20:47:25.940-03:00  INFO 32476 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T20:47:25.994-03:00  INFO 32476 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T20:47:25.995-03:00  INFO 32476 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T20:47:26.930-03:00  INFO 32476 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T20:47:26.997-03:00  INFO 32476 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 6 JPA repository interfaces.
+2025-07-05T20:47:27.767-03:00  INFO 32476 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T20:47:27.770-03:00  INFO 32476 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T20:47:27.770-03:00  INFO 32476 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T20:47:27.844-03:00  INFO 32476 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T20:47:27.844-03:00  INFO 32476 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1849 ms
+2025-07-05T20:47:28.090-03:00  INFO 32476 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T20:47:28.192-03:00  INFO 32476 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T20:47:28.244-03:00  INFO 32476 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T20:47:28.504-03:00  INFO 32476 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T20:47:28.521-03:00  INFO 32476 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T20:47:28.798-03:00  INFO 32476 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c3ae984
+2025-07-05T20:47:28.800-03:00  INFO 32476 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T20:47:28.831-03:00  WARN 32476 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T20:47:28.832-03:00  WARN 32476 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T20:47:28.845-03:00  INFO 32476 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T20:47:29.705-03:00  INFO 32476 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T20:47:30.777-03:00  INFO 32476 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:47:31.097-03:00  WARN 32476 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T20:47:31.355-03:00  INFO 32476 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T20:47:31.355-03:00  WARN 32476 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T20:47:31.489-03:00  INFO 32476 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T20:47:33.072-03:00  INFO 32476 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T20:47:33.089-03:00  INFO 32476 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T20:47:33.097-03:00  INFO 32476 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.637 seconds (process running for 8.273)
+2025-07-05T20:47:45.126-03:00  INFO 32476 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T20:47:45.126-03:00  INFO 32476 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T20:47:45.127-03:00  INFO 32476 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-05T20:48:14.814-03:00  INFO 32476 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T20:48:14.818-03:00  INFO 32476 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T20:48:14.822-03:00  INFO 32476 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:48:14.824-03:00  INFO 32476 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T20:48:14.832-03:00  INFO 32476 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T20:48:16.684-03:00  INFO 31376 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 31376 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T20:48:16.686-03:00  INFO 31376 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T20:48:16.724-03:00  INFO 31376 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T20:48:16.724-03:00  INFO 31376 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T20:48:17.643-03:00  INFO 31376 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T20:48:17.713-03:00  INFO 31376 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 6 JPA repository interfaces.
+2025-07-05T20:48:18.526-03:00  INFO 31376 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T20:48:18.548-03:00  INFO 31376 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T20:48:18.548-03:00  INFO 31376 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T20:48:18.612-03:00  INFO 31376 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T20:48:18.612-03:00  INFO 31376 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1887 ms
+2025-07-05T20:48:18.904-03:00  INFO 31376 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T20:48:18.988-03:00  INFO 31376 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T20:48:19.024-03:00  INFO 31376 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T20:48:19.297-03:00  INFO 31376 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T20:48:19.319-03:00  INFO 31376 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T20:48:19.559-03:00  INFO 31376 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5bc99551
+2025-07-05T20:48:19.561-03:00  INFO 31376 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T20:48:19.593-03:00  WARN 31376 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T20:48:19.594-03:00  WARN 31376 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T20:48:19.606-03:00  INFO 31376 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T20:48:20.393-03:00  INFO 31376 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T20:48:21.495-03:00  INFO 31376 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:48:21.780-03:00  WARN 31376 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T20:48:22.066-03:00  INFO 31376 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T20:48:22.066-03:00  WARN 31376 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T20:48:22.264-03:00  INFO 31376 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T20:48:23.852-03:00  INFO 31376 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T20:48:23.878-03:00  INFO 31376 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T20:48:23.893-03:00  INFO 31376 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.61 seconds (process running for 8.159)
+2025-07-05T20:48:24.078-03:00  INFO 31376 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T20:48:24.079-03:00  INFO 31376 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T20:48:24.080-03:00  INFO 31376 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-05T20:48:34.606-03:00 ERROR 31376 --- [deremate_backend] [http-nio-4002-exec-4] c.m.d.config.ControllerExceptionHandler  : Internal error with status code 500: Cannot invoke "java.util.Map.size()" because "m" is null
+2025-07-05T20:48:34.608-03:00  WARN 31376 --- [deremate_backend] [http-nio-4002-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException: Cannot invoke "java.util.Map.size()" because "m" is null]
+2025-07-05T20:51:20.308-03:00  INFO 31376 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T20:51:20.308-03:00  INFO 31376 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T20:51:20.317-03:00  INFO 31376 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:51:20.317-03:00  INFO 31376 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T20:51:20.327-03:00  INFO 31376 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T20:51:24.418-03:00  INFO 9084 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 9084 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T20:51:24.420-03:00  INFO 9084 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T20:51:24.454-03:00  INFO 9084 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T20:51:24.454-03:00  INFO 9084 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T20:51:25.342-03:00  INFO 9084 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T20:51:25.408-03:00  INFO 9084 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 6 JPA repository interfaces.
+2025-07-05T20:51:26.128-03:00  INFO 9084 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T20:51:26.140-03:00  INFO 9084 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T20:51:26.140-03:00  INFO 9084 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T20:51:26.207-03:00  INFO 9084 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T20:51:26.208-03:00  INFO 9084 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1753 ms
+2025-07-05T20:51:26.560-03:00  INFO 9084 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T20:51:26.696-03:00  INFO 9084 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T20:51:26.743-03:00  INFO 9084 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T20:51:27.023-03:00  INFO 9084 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T20:51:27.051-03:00  INFO 9084 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T20:51:27.300-03:00  INFO 9084 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@14f61edb
+2025-07-05T20:51:27.301-03:00  INFO 9084 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T20:51:27.332-03:00  WARN 9084 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T20:51:27.332-03:00  WARN 9084 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T20:51:27.345-03:00  INFO 9084 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T20:51:28.182-03:00  INFO 9084 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T20:51:29.089-03:00  INFO 9084 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:51:29.420-03:00  WARN 9084 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T20:51:29.663-03:00  INFO 9084 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T20:51:29.663-03:00  WARN 9084 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T20:51:29.814-03:00  INFO 9084 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T20:51:31.440-03:00  INFO 9084 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T20:51:31.479-03:00  INFO 9084 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T20:51:31.487-03:00  INFO 9084 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.467 seconds (process running for 7.994)
+2025-07-05T20:51:40.284-03:00  INFO 9084 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T20:51:40.284-03:00  INFO 9084 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T20:51:40.284-03:00  INFO 9084 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-07-05T20:53:00.257-03:00  INFO 9084 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T20:53:00.261-03:00  INFO 9084 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T20:53:00.265-03:00  INFO 9084 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:53:00.267-03:00  INFO 9084 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T20:53:00.275-03:00  INFO 9084 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T20:53:02.284-03:00  INFO 31080 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 31080 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T20:53:02.286-03:00  INFO 31080 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T20:53:02.325-03:00  INFO 31080 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T20:53:02.325-03:00  INFO 31080 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T20:53:03.329-03:00  INFO 31080 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T20:53:03.396-03:00  INFO 31080 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 6 JPA repository interfaces.
+2025-07-05T20:53:04.255-03:00  INFO 31080 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T20:53:04.278-03:00  INFO 31080 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T20:53:04.278-03:00  INFO 31080 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T20:53:04.378-03:00  INFO 31080 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T20:53:04.378-03:00  INFO 31080 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2052 ms
+2025-07-05T20:53:04.705-03:00  INFO 31080 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T20:53:04.789-03:00  INFO 31080 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T20:53:04.828-03:00  INFO 31080 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T20:53:05.115-03:00  INFO 31080 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T20:53:05.139-03:00  INFO 31080 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T20:53:05.393-03:00  INFO 31080 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@de06cf2
+2025-07-05T20:53:05.395-03:00  INFO 31080 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T20:53:05.433-03:00  WARN 31080 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T20:53:05.433-03:00  WARN 31080 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T20:53:05.450-03:00  INFO 31080 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T20:53:06.329-03:00  INFO 31080 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T20:53:07.687-03:00  INFO 31080 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:53:08.013-03:00  WARN 31080 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T20:53:08.204-03:00  INFO 31080 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T20:53:08.205-03:00  WARN 31080 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T20:53:08.344-03:00  INFO 31080 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T20:53:09.946-03:00  INFO 31080 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T20:53:09.966-03:00  INFO 31080 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T20:53:09.975-03:00  INFO 31080 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 8.11 seconds (process running for 8.676)
+2025-07-05T20:53:31.456-03:00  INFO 31080 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T20:53:31.456-03:00  INFO 31080 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T20:53:31.457-03:00  INFO 31080 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-05T20:55:17.089-03:00  INFO 31080 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T20:55:17.094-03:00  INFO 31080 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T20:55:17.097-03:00  INFO 31080 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:55:17.099-03:00  INFO 31080 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T20:55:17.108-03:00  INFO 31080 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T20:55:19.128-03:00  INFO 30728 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 30728 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T20:55:19.130-03:00  INFO 30728 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T20:55:19.173-03:00  INFO 30728 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T20:55:19.173-03:00  INFO 30728 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T20:55:20.091-03:00  INFO 30728 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T20:55:20.164-03:00  INFO 30728 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 6 JPA repository interfaces.
+2025-07-05T20:55:21.040-03:00  INFO 30728 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T20:55:21.061-03:00  INFO 30728 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T20:55:21.061-03:00  INFO 30728 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T20:55:21.127-03:00  INFO 30728 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T20:55:21.127-03:00  INFO 30728 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1954 ms
+2025-07-05T20:55:21.318-03:00  INFO 30728 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T20:55:21.416-03:00  INFO 30728 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T20:55:21.476-03:00  INFO 30728 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T20:55:21.831-03:00  INFO 30728 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T20:55:21.872-03:00  INFO 30728 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T20:55:22.153-03:00  INFO 30728 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7a17d145
+2025-07-05T20:55:22.154-03:00  INFO 30728 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T20:55:22.191-03:00  WARN 30728 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T20:55:22.191-03:00  WARN 30728 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T20:55:22.205-03:00  INFO 30728 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T20:55:23.075-03:00  INFO 30728 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T20:55:24.017-03:00  INFO 30728 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T20:55:24.303-03:00  WARN 30728 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T20:55:24.503-03:00  INFO 30728 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T20:55:24.503-03:00  WARN 30728 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T20:55:24.607-03:00  INFO 30728 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T20:55:26.208-03:00  INFO 30728 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T20:55:26.226-03:00  INFO 30728 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T20:55:26.236-03:00  INFO 30728 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.506 seconds (process running for 8.067)
+2025-07-05T20:55:29.516-03:00  INFO 30728 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T20:55:29.516-03:00  INFO 30728 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T20:55:29.517-03:00  INFO 30728 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-05T21:19:21.263-03:00  INFO 30728 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T21:19:21.269-03:00  INFO 30728 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T21:19:21.272-03:00  INFO 30728 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:19:21.275-03:00  INFO 30728 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T21:19:21.284-03:00  INFO 30728 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T21:19:23.270-03:00  INFO 22696 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 22696 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T21:19:23.272-03:00  INFO 22696 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T21:19:23.313-03:00  INFO 22696 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T21:19:23.313-03:00  INFO 22696 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T21:19:24.169-03:00  INFO 22696 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T21:19:24.235-03:00  INFO 22696 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 6 JPA repository interfaces.
+2025-07-05T21:19:25.103-03:00  INFO 22696 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T21:19:25.128-03:00  INFO 22696 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T21:19:25.128-03:00  INFO 22696 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T21:19:25.210-03:00  INFO 22696 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T21:19:25.211-03:00  INFO 22696 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1897 ms
+2025-07-05T21:19:25.500-03:00  INFO 22696 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T21:19:25.571-03:00  INFO 22696 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T21:19:25.613-03:00  INFO 22696 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T21:19:25.858-03:00  INFO 22696 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T21:19:25.884-03:00  INFO 22696 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T21:19:26.130-03:00  INFO 22696 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@24f2b083
+2025-07-05T21:19:26.131-03:00  INFO 22696 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T21:19:26.165-03:00  WARN 22696 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T21:19:26.166-03:00  WARN 22696 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T21:19:26.180-03:00  INFO 22696 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T21:19:27.040-03:00  INFO 22696 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T21:19:28.134-03:00  INFO 22696 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:19:28.469-03:00  WARN 22696 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T21:19:28.709-03:00  INFO 22696 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T21:19:28.710-03:00  WARN 22696 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T21:19:28.853-03:00  INFO 22696 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T21:19:30.408-03:00  INFO 22696 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T21:19:30.424-03:00  INFO 22696 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T21:19:30.433-03:00  INFO 22696 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.552 seconds (process running for 8.162)
+2025-07-05T21:22:41.644-03:00  INFO 22696 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T21:22:41.644-03:00  INFO 22696 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T21:22:41.645-03:00  INFO 22696 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-05T21:23:26.490-03:00  INFO 22696 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T21:23:26.495-03:00  INFO 22696 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T21:23:26.499-03:00  INFO 22696 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:23:26.501-03:00  INFO 22696 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T21:23:26.510-03:00  INFO 22696 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T21:23:28.606-03:00  INFO 20916 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 20916 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T21:23:28.609-03:00  INFO 20916 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T21:23:28.653-03:00  INFO 20916 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T21:23:28.653-03:00  INFO 20916 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T21:23:29.622-03:00  INFO 20916 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T21:23:29.713-03:00  INFO 20916 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 6 JPA repository interfaces.
+2025-07-05T21:23:30.530-03:00  INFO 20916 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T21:23:30.548-03:00  INFO 20916 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T21:23:30.548-03:00  INFO 20916 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T21:23:30.611-03:00  INFO 20916 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T21:23:30.611-03:00  INFO 20916 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1957 ms
+2025-07-05T21:23:30.812-03:00  INFO 20916 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T21:23:30.871-03:00  INFO 20916 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T21:23:30.897-03:00  INFO 20916 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T21:23:31.129-03:00  INFO 20916 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T21:23:31.152-03:00  INFO 20916 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T21:23:31.399-03:00  INFO 20916 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5eebc7e7
+2025-07-05T21:23:31.401-03:00  INFO 20916 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T21:23:31.433-03:00  WARN 20916 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T21:23:31.435-03:00  WARN 20916 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T21:23:31.448-03:00  INFO 20916 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T21:23:32.297-03:00  INFO 20916 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T21:23:33.205-03:00  INFO 20916 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:23:33.521-03:00  WARN 20916 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T21:23:33.698-03:00  INFO 20916 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T21:23:33.698-03:00  WARN 20916 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T21:23:33.812-03:00  INFO 20916 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T21:23:35.326-03:00  INFO 20916 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T21:23:35.344-03:00  INFO 20916 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T21:23:35.355-03:00  INFO 20916 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.201 seconds (process running for 7.849)
+2025-07-05T21:23:38.552-03:00  INFO 20916 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T21:23:38.552-03:00  INFO 20916 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T21:23:38.553-03:00  INFO 20916 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-07-05T21:24:14.226-03:00  INFO 20916 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T21:24:14.230-03:00  INFO 20916 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T21:24:14.234-03:00  INFO 20916 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:24:14.236-03:00  INFO 20916 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T21:24:14.244-03:00  INFO 20916 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T21:24:17.620-03:00  INFO 32040 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 32040 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T21:24:17.625-03:00  INFO 32040 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T21:24:17.678-03:00  INFO 32040 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T21:24:17.678-03:00  INFO 32040 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T21:24:18.697-03:00  INFO 32040 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T21:24:18.776-03:00  INFO 32040 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 6 JPA repository interfaces.
+2025-07-05T21:24:19.513-03:00  INFO 32040 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T21:24:19.538-03:00  INFO 32040 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T21:24:19.538-03:00  INFO 32040 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T21:24:19.594-03:00  INFO 32040 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T21:24:19.595-03:00  INFO 32040 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1916 ms
+2025-07-05T21:24:19.852-03:00  INFO 32040 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T21:24:19.987-03:00  INFO 32040 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T21:24:20.055-03:00  INFO 32040 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T21:24:20.321-03:00  INFO 32040 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T21:24:20.346-03:00  INFO 32040 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T21:24:20.589-03:00  INFO 32040 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5bc99551
+2025-07-05T21:24:20.590-03:00  INFO 32040 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T21:24:20.622-03:00  WARN 32040 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T21:24:20.623-03:00  WARN 32040 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T21:24:20.636-03:00  INFO 32040 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T21:24:21.479-03:00  INFO 32040 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T21:24:22.526-03:00  INFO 32040 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:24:22.806-03:00  WARN 32040 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T21:24:22.975-03:00  INFO 32040 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T21:24:22.975-03:00  WARN 32040 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T21:24:23.077-03:00  INFO 32040 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T21:24:24.798-03:00  INFO 32040 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T21:24:24.817-03:00  INFO 32040 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T21:24:24.829-03:00  INFO 32040 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.659 seconds (process running for 8.223)
+2025-07-05T21:31:41.416-03:00  INFO 32040 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T21:31:41.417-03:00  INFO 32040 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T21:31:41.418-03:00  INFO 32040 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-05T21:31:41.496-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-2] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:31:41Z, a difference of 1569495 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:31:41.500-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-2] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:31:41.530-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:31:41.531-03:00 ERROR 32040 --- [deremate_backend] [http-nio-4002-exec-2] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:31:41.531-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:31:42.550-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-3] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:31:42Z, a difference of 1570550 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:31:42.550-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-3] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:31:42.551-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:31:42.551-03:00 ERROR 32040 --- [deremate_backend] [http-nio-4002-exec-3] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:31:42.551-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:31:44.570-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-4] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:31:44Z, a difference of 1572570 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:31:44.571-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-4] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:31:44.571-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:31:44.571-03:00 ERROR 32040 --- [deremate_backend] [http-nio-4002-exec-4] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:31:44.572-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:34:05.990-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-8] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:34:05Z, a difference of 1713990 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:34:05.991-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-8] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:34:05.991-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:34:05.991-03:00 ERROR 32040 --- [deremate_backend] [http-nio-4002-exec-8] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:34:05.992-03:00  WARN 32040 --- [deremate_backend] [http-nio-4002-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:36:05.193-03:00  INFO 32040 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T21:36:05.196-03:00  INFO 32040 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T21:36:05.200-03:00  INFO 32040 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:36:05.203-03:00  INFO 32040 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T21:36:05.212-03:00  INFO 32040 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T21:36:08.549-03:00  INFO 24868 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 24868 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T21:36:08.551-03:00  INFO 24868 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T21:36:08.590-03:00  INFO 24868 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T21:36:08.590-03:00  INFO 24868 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T21:36:09.450-03:00  INFO 24868 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T21:36:09.514-03:00  INFO 24868 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 6 JPA repository interfaces.
+2025-07-05T21:36:10.283-03:00  INFO 24868 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T21:36:10.298-03:00  INFO 24868 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T21:36:10.298-03:00  INFO 24868 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T21:36:10.386-03:00  INFO 24868 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T21:36:10.386-03:00  INFO 24868 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1796 ms
+2025-07-05T21:36:10.627-03:00  INFO 24868 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T21:36:10.679-03:00  INFO 24868 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T21:36:10.753-03:00  INFO 24868 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T21:36:11.045-03:00  INFO 24868 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T21:36:11.076-03:00  INFO 24868 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T21:36:11.329-03:00  INFO 24868 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@67624b5f
+2025-07-05T21:36:11.331-03:00  INFO 24868 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T21:36:11.363-03:00  WARN 24868 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T21:36:11.363-03:00  WARN 24868 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T21:36:11.378-03:00  INFO 24868 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T21:36:12.224-03:00  INFO 24868 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T21:36:13.186-03:00  INFO 24868 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:36:13.471-03:00  WARN 24868 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T21:36:13.758-03:00  INFO 24868 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T21:36:13.758-03:00  WARN 24868 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T21:36:13.954-03:00  INFO 24868 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T21:36:15.588-03:00  INFO 24868 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T21:36:15.610-03:00  INFO 24868 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T21:36:15.618-03:00  INFO 24868 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.466 seconds (process running for 8.039)
+2025-07-05T21:36:15.955-03:00  INFO 24868 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T21:36:15.955-03:00  INFO 24868 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T21:36:15.956-03:00  INFO 24868 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-07-05T21:36:16.024-03:00  WARN 24868 --- [deremate_backend] [http-nio-4002-exec-1] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:28:43Z. Current time: 2025-07-06T00:36:16Z, a difference of 453023 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:36:16.030-03:00  WARN 24868 --- [deremate_backend] [http-nio-4002-exec-1] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:36:16.071-03:00  WARN 24868 --- [deremate_backend] [http-nio-4002-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:36:16.071-03:00 ERROR 24868 --- [deremate_backend] [http-nio-4002-exec-1] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:36:16.072-03:00  WARN 24868 --- [deremate_backend] [http-nio-4002-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:38:49.640-03:00  INFO 24868 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T21:38:49.644-03:00  INFO 24868 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T21:38:49.648-03:00  INFO 24868 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:38:49.650-03:00  INFO 24868 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T21:38:49.659-03:00  INFO 24868 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T21:38:53.025-03:00  INFO 22084 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 22084 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T21:38:53.027-03:00  INFO 22084 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T21:38:53.067-03:00  INFO 22084 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T21:38:53.067-03:00  INFO 22084 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T21:38:53.973-03:00  INFO 22084 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T21:38:54.036-03:00  INFO 22084 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 6 JPA repository interfaces.
+2025-07-05T21:38:54.819-03:00  INFO 22084 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T21:38:54.845-03:00  INFO 22084 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T21:38:54.845-03:00  INFO 22084 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T21:38:54.907-03:00  INFO 22084 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T21:38:54.907-03:00  INFO 22084 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1840 ms
+2025-07-05T21:38:55.201-03:00  INFO 22084 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T21:38:55.303-03:00  INFO 22084 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T21:38:55.397-03:00  INFO 22084 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T21:38:55.682-03:00  INFO 22084 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T21:38:55.706-03:00  INFO 22084 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T21:38:55.962-03:00  INFO 22084 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6255b609
+2025-07-05T21:38:55.964-03:00  INFO 22084 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T21:38:55.999-03:00  WARN 22084 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T21:38:56.000-03:00  WARN 22084 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T21:38:56.014-03:00  INFO 22084 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T21:38:56.858-03:00  INFO 22084 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T21:38:57.934-03:00  INFO 22084 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:38:58.263-03:00  WARN 22084 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T21:38:58.593-03:00  INFO 22084 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T21:38:58.594-03:00  WARN 22084 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T21:38:58.768-03:00  INFO 22084 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T21:39:00.365-03:00  INFO 22084 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T21:39:00.388-03:00  INFO 22084 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T21:39:00.407-03:00  INFO 22084 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.807 seconds (process running for 8.384)
+2025-07-05T21:39:20.524-03:00  INFO 22084 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T21:39:20.524-03:00  INFO 22084 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T21:39:20.525-03:00  INFO 22084 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-07-05T21:40:04.726-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-6] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:04Z, a difference of 2072725 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:04.727-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-6] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:04.730-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:04.730-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-6] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:04.730-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:40:05.738-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-7] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:05Z, a difference of 2073738 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:05.739-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-7] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:05.739-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:05.740-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-7] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:05.740-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:40:07.748-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-8] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:07Z, a difference of 2075748 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:07.748-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-8] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:07.749-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:07.749-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-8] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:07.749-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:40:11.531-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-10] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:11Z, a difference of 2079531 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:11.531-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-10] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:11.532-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:11.532-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-10] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:11.532-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:40:11.763-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-2] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:11Z, a difference of 2079763 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:11.764-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-2] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:11.764-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:11.764-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-2] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:11.764-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:40:17.687-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-4] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:17Z, a difference of 2085687 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:17.687-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-4] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:17.688-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:17.688-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-4] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:17.689-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:40:18.730-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-5] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:18Z, a difference of 2086729 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:18.730-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-5] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:18.730-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:18.731-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-5] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:18.731-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:40:20.800-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-6] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:20Z, a difference of 2088800 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:20.800-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-6] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:20.801-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:20.801-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-6] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:20.801-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:40:24.812-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-8] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:24Z, a difference of 2092812 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:24.812-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-8] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:24.813-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:24.813-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-8] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:24.813-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:40:28.832-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-9] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:28Z, a difference of 2096832 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:28.833-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-9] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:28.833-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:28.834-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-9] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:28.834-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:40:29.922-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-2] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:29Z, a difference of 2097922 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:29.922-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-2] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:29.923-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:29.923-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-2] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:29.923-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:40:31.942-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-3] c.m.d.config.JwtAuthenticationFilter     : io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-07-06T00:05:32Z. Current time: 2025-07-06T00:40:31Z, a difference of 2099942 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-07-05T21:40:31.943-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-3] c.m.d.config.ControllerExceptionHandler  : Api warn with status code: 401
+2025-07-05T21:40:31.943-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Session expired.]
+2025-07-05T21:40:31.943-03:00 ERROR 22084 --- [deremate_backend] [http-nio-4002-exec-3] c.m.d.config.ControllerExceptionHandler  : Api error with status code: Internal error
+2025-07-05T21:40:31.944-03:00  WARN 22084 --- [deremate_backend] [http-nio-4002-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.matiasugluck.deremate_backend.exception.ApiException: Internal error]
+2025-07-05T21:42:22.178-03:00  INFO 22084 --- [deremate_backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-05T21:42:22.182-03:00  INFO 22084 --- [deremate_backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-05T21:42:22.186-03:00  INFO 22084 --- [deremate_backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:42:22.188-03:00  INFO 22084 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-05T21:42:22.196-03:00  INFO 22084 --- [deremate_backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-05T21:42:24.021-03:00  INFO 30292 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Starting DeremateBackendApplication using Java 21.0.4 with PID 30292 (C:\Users\Toto\deremate_backend\target\classes started by Toto in C:\Users\Toto\deremate_backend)
+2025-07-05T21:42:24.024-03:00  INFO 30292 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-07-05T21:42:24.064-03:00  INFO 30292 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-05T21:42:24.064-03:00  INFO 30292 --- [deremate_backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-05T21:42:24.959-03:00  INFO 30292 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-05T21:42:25.035-03:00  INFO 30292 --- [deremate_backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 6 JPA repository interfaces.
+2025-07-05T21:42:25.895-03:00  INFO 30292 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4002 (http)
+2025-07-05T21:42:25.917-03:00  INFO 30292 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-05T21:42:25.917-03:00  INFO 30292 --- [deremate_backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-05T21:42:26.031-03:00  INFO 30292 --- [deremate_backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-05T21:42:26.031-03:00  INFO 30292 --- [deremate_backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1967 ms
+2025-07-05T21:42:26.234-03:00  INFO 30292 --- [deremate_backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-05T21:42:26.299-03:00  INFO 30292 --- [deremate_backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-05T21:42:26.336-03:00  INFO 30292 --- [deremate_backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-05T21:42:26.623-03:00  INFO 30292 --- [deremate_backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-05T21:42:26.645-03:00  INFO 30292 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-05T21:42:26.890-03:00  INFO 30292 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a8a63ac
+2025-07-05T21:42:26.892-03:00  INFO 30292 --- [deremate_backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-05T21:42:26.928-03:00  WARN 30292 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-05T21:42:26.929-03:00  WARN 30292 --- [deremate_backend] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-05T21:42:26.942-03:00  INFO 30292 --- [deremate_backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-05T21:42:27.800-03:00  INFO 30292 --- [deremate_backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-05T21:42:28.822-03:00  INFO 30292 --- [deremate_backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05T21:42:29.120-03:00  WARN 30292 --- [deremate_backend] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-05T21:42:29.294-03:00  INFO 30292 --- [deremate_backend] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-07-05T21:42:29.295-03:00  WARN 30292 --- [deremate_backend] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-07-05T21:42:29.411-03:00  INFO 30292 --- [deremate_backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-05T21:42:31.080-03:00  INFO 30292 --- [deremate_backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-05T21:42:31.097-03:00  INFO 30292 --- [deremate_backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4002 (http) with context path '/'
+2025-07-05T21:42:31.112-03:00  INFO 30292 --- [deremate_backend] [restartedMain] c.m.d.DeremateBackendApplication         : Started DeremateBackendApplication in 7.494 seconds (process running for 8.109)
+2025-07-05T21:42:31.429-03:00  INFO 30292 --- [deremate_backend] [http-nio-4002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-05T21:42:31.429-03:00  INFO 30292 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-05T21:42:31.430-03:00  INFO 30292 --- [deremate_backend] [http-nio-4002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

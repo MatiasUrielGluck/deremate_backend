@@ -1,20 +1,20 @@
 package com.matiasugluck.deremate_backend.service.impl;
 
+import com.google.firebase.messaging.Notification;
 import com.matiasugluck.deremate_backend.constants.DeliveryApiMessages;
 import com.matiasugluck.deremate_backend.dto.delivery.CreateDeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.DeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.PackageInWarehouseDTO;
-import com.matiasugluck.deremate_backend.entity.Coordinates;
-import com.matiasugluck.deremate_backend.entity.Delivery;
-import com.matiasugluck.deremate_backend.entity.Product;
-import com.matiasugluck.deremate_backend.entity.Route;
+import com.matiasugluck.deremate_backend.entity.*;
 import com.matiasugluck.deremate_backend.enums.DeliveryStatus;
 import com.matiasugluck.deremate_backend.enums.RouteStatus;
 import com.matiasugluck.deremate_backend.exception.ApiException;
 import com.matiasugluck.deremate_backend.repository.DeliveryRepository;
+import com.matiasugluck.deremate_backend.repository.DeviceRepository;
 import com.matiasugluck.deremate_backend.repository.ProductRepository;
 import com.matiasugluck.deremate_backend.repository.RouteRepository;
 import com.matiasugluck.deremate_backend.service.DeliveryService;
+import com.matiasugluck.deremate_backend.service.FirebaseNotificationService;
 import com.matiasugluck.deremate_backend.utils.PinGenerator;
 import com.matiasugluck.deremate_backend.utils.QRCodeGenerator;
 import jakarta.transaction.Transactional;
@@ -26,6 +26,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,6 +35,8 @@ public class DeliveryServiceImpl implements DeliveryService {
     private final DeliveryRepository deliveryRepository;
     private final ProductRepository productRepository;
     private final RouteRepository routeRepository;
+    private final FirebaseNotificationService firebaseNotificationService;
+    private final DeviceRepository deviceRepository;
 
     @Override
     @Transactional
@@ -69,6 +72,20 @@ public class DeliveryServiceImpl implements DeliveryService {
             savedDelivery.setQrCode(QRCodeGenerator.generateQRCodeBase64(savedDelivery.getId()));
             Delivery resultDelivery = deliveryRepository.save(savedDelivery);
 
+
+            List<Device> allDevices = deviceRepository.findAll();
+
+
+            for (Device device : allDevices) {
+                NotificationMessage notification = NotificationMessage.builder()
+                        .title("Nueva entrega disponible")
+                        .body("Hay un nuevo paquete en " + resultDelivery.getPackageLocation() + " listo para ser retirado.")
+                        .recipientToken(device.getDeviceId())
+                        .build();
+                firebaseNotificationService.sendNotification(notification);
+            }
+
+
             return resultDelivery.toDto();
         } catch (Exception e) {
             throw new ApiException(
@@ -98,6 +115,31 @@ public class DeliveryServiceImpl implements DeliveryService {
     public void cancelDelivery(Long id) {
         Delivery delivery = findDeliveryById(id);
         delivery.setStatus(DeliveryStatus.REJECTED);
+        Route route = delivery.getRoute();
+        if (route != null) {
+            // --- Notification Logic Starts ---
+            User assignedUser = route.getAssignedTo();
+            if (assignedUser != null) {
+                // Find all linked devices for this user
+                List<Device> userDevices = deviceRepository.findByUser(assignedUser);
+
+                // Send a notification to each linked device
+                for (Device device : userDevices) {
+                    NotificationMessage notification = NotificationMessage.builder()
+                            .title("Entrega Cancelada")
+                            .body("La entrega #" + delivery.getId() +" con destino a: "+ delivery.getRoute().getDescription()+ " fue cancelada y se ha quitado de tu ruta.")
+                            .recipientToken(device.getDeviceId())
+                            .build();
+                    firebaseNotificationService.sendNotification(notification);
+                }
+            }
+
+            route.setStatus(RouteStatus.CANCELLED);
+            route.setCompletedAt(Timestamp.from(Instant.now()));
+            routeRepository.save(route);
+        }
+
+        deliveryRepository.save(delivery);
     }
 
     @Override

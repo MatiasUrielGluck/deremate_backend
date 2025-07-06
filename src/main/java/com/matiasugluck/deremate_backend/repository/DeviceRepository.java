@@ -5,8 +5,11 @@ import com.matiasugluck.deremate_backend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface DeviceRepository extends JpaRepository<Device, Long> {
     void deleteByDeviceId(String deviceId);
     void deleteByUserAndDeviceId(User user, String deviceId);
+    List<Device> findByUser(User user);
 }
