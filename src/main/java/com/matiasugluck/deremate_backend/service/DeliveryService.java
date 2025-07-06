@@ -14,4 +14,5 @@ public interface DeliveryService {
     DeliveryDTO getDeliveryById(Long id);
     List<PackageInWarehouseDTO> getPackagesInWarehouse();
     List<DeliveryDTO> getDeliveriesByUserId(Long userId);
+    List<DeliveryDTO> getAssignedAndNotDelivered();
 }

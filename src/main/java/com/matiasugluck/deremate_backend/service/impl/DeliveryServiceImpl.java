@@ -181,4 +181,18 @@ public class DeliveryServiceImpl implements DeliveryService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<DeliveryDTO> getAssignedAndNotDelivered() {
+        List<Delivery> deliveries = deliveryRepository.findAssignedAndNotDelivered(DeliveryStatus.NOT_DELIVERED);
+        return deliveries.stream()
+                .map(delivery -> {
+                    DeliveryDTO dto = delivery.toDto();
+                    if (delivery.getRoute() != null) {
+                        dto.setRoute(delivery.getRoute().toDto());
+                    }
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
+
 }

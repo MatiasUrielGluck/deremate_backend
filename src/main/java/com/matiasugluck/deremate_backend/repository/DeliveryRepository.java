@@ -23,4 +23,7 @@ public interface DeliveryRepository extends JpaRepository<Delivery, Long> {
     @Query("SELECT d from Delivery d join d.route r where r.assignedTo IS null AND d.status = :excludedStatus")
     List<Delivery> findUnassignedDeliveries(@Param("excludedStatus") DeliveryStatus excludedStatus);
 
+    @Query("SELECT d FROM Delivery d JOIN d.route r WHERE d.status = :status AND r.assignedTo IS NOT NULL")
+    List<Delivery> findAssignedAndNotDelivered(@Param("status") DeliveryStatus status);
+
 }
