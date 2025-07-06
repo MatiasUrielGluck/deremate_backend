@@ -49,10 +49,6 @@ public class AuthServiceImpl implements AuthService {
 
         User user = optionalUser.get();
 
-        if (!user.isEmailVerified()) {
-            return new GenericResponseDTO<>(AuthApiMessages.EMAIL_NOT_VERIFIED, HttpStatus.UNAUTHORIZED.value());
-        }
-
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(email, password)
@@ -61,6 +57,10 @@ public class AuthServiceImpl implements AuthService {
             return new GenericResponseDTO<>(AuthApiMessages.INVALID_CREDENTIALS, HttpStatus.UNAUTHORIZED.value());
         } catch (DisabledException e) {
             return new GenericResponseDTO<>(AuthApiMessages.USER_DISABLED, HttpStatus.UNAUTHORIZED.value());
+        }
+
+        if (!user.isEmailVerified()) {
+            return new GenericResponseDTO<>(AuthApiMessages.EMAIL_NOT_VERIFIED, HttpStatus.UNAUTHORIZED.value());
         }
 
         // Generar token para el usuario autenticado
