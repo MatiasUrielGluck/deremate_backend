@@ -81,7 +81,7 @@ public class DeliveryController {
 
     @Operation(summary = "Obtener entregas asignadas y no completadas", description = "Devuelve una lista de todas las entregas que tienen un repartidor asignado pero que aún no han sido marcadas como entregadas.")
     @ApiResponse(responseCode = "200", description = "Lista de entregas asignadas", content = @Content(mediaType = "application/json", schema = @Schema(implementation = DeliveryDTO.class)))
-    @GetMapping("/assigned")
+    @GetMapping("/cancellable")
     public ResponseEntity<List<DeliveryDTO>> getAssignedAndNotDelivered() {
         return ResponseEntity.ok(deliveryService.getAssignedAndNotDelivered());
     }
