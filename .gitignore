@@ -40,7 +40,7 @@ build/
 .env.prod
 .DS_Store
 *.log
-logs/soundseekers.log
+logs/soundseekers**.**
 src/main/java/com/matiasugluck/deremate_backend/config/DataSeederRunner.java
 src/main/java/com/matiasugluck/deremate_backend/config/DataSeederRunner.java
 src/main/resources/firebase-service-account.json
