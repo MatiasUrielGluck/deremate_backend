@@ -106,6 +106,7 @@ public class DeliveryServiceImpl implements DeliveryService {
                     HttpStatus.BAD_REQUEST.value()
             );
         }
+        delivery.getRoute().setStatus(RouteStatus.COMPLETED);
         delivery.setStatus(DeliveryStatus.DELIVERED);
         delivery.getRoute().setCompletedAt(Timestamp.from(Instant.now()));
         deliveryRepository.save(delivery);
