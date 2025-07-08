@@ -9,6 +9,7 @@ import com.matiasugluck.deremate_backend.entity.*;
 import com.matiasugluck.deremate_backend.enums.DeliveryStatus;
 import com.matiasugluck.deremate_backend.enums.RouteStatus;
 import com.matiasugluck.deremate_backend.exception.ApiException;
+import com.matiasugluck.deremate_backend.graphql.input.DeliveryFilterInput;
 import com.matiasugluck.deremate_backend.repository.DeliveryRepository;
 import com.matiasugluck.deremate_backend.repository.DeviceRepository;
 import com.matiasugluck.deremate_backend.repository.ProductRepository;
@@ -194,6 +195,14 @@ public class DeliveryServiceImpl implements DeliveryService {
                     return dto;
                 })
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Delivery> findDeliveriesByFilter(DeliveryFilterInput filter) {
+        if (filter == null) {
+            return deliveryRepository.findAll();
+        }
+        return deliveryRepository.findDeliveriesByFilter(filter);
     }
 
 }

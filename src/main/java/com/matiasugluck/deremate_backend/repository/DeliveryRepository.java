@@ -3,6 +3,7 @@ package com.matiasugluck.deremate_backend.repository;
 import com.matiasugluck.deremate_backend.dto.delivery.DeliveryDTO;
 import com.matiasugluck.deremate_backend.entity.Delivery;
 import com.matiasugluck.deremate_backend.enums.DeliveryStatus;
+import com.matiasugluck.deremate_backend.graphql.input.DeliveryFilterInput;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface DeliveryRepository extends JpaRepository<Delivery, Long> {
+public interface DeliveryRepository extends JpaRepository<Delivery, Long>, DeliveryRepositoryCustom {
 
     @Query("SELECT d FROM Delivery d JOIN d.route r WHERE r.assignedTo.id = :userId ORDER BY r.lastUpdatedAt DESC")
     List<Delivery> findByUserId(@Param("userId") Long userId);

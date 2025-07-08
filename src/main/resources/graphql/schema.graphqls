@@ -1,0 +1,77 @@
+type Query {
+    deliveries(filter: DeliveryFilterInput): [Delivery!]
+}
+
+
+type Delivery {
+    id: ID!
+    status: DeliveryStatus!
+    destination: String!
+    packageLocation: String
+    createdDate: String!
+    deliveryStartDate: String
+    deliveryEndDate: String
+    qrCode: String
+    pin: String!
+    route: Route!
+    products: [Product!]
+}
+
+
+type Route {
+    id: ID!
+    description: String
+    destination: Coordinates
+    status: RouteStatus!
+    startedAt: String
+    completedAt: String
+    lastUpdatedAt: String
+    assignedTo: User
+}
+
+
+type User {
+    id: ID!
+    points: Int!
+    level: Int!
+    firstname: String
+    lastname: String
+    email: String!
+    isEmailVerified: Boolean!
+    createdTime: String!
+}
+
+
+type Product {
+    id: ID!
+    name: String
+    description: String
+    price: Float
+}
+
+
+type Coordinates {
+    latitude: Float!
+    longitude: Float!
+}
+
+enum DeliveryStatus {
+    NOT_DELIVERED,
+    DELIVERED,
+    REJECTED
+}
+
+
+enum RouteStatus {
+    PENDING,
+    INITIATED,
+    COMPLETED,
+    CANCELLED
+}
+
+
+input DeliveryFilterInput {
+    status: DeliveryStatus
+    assignedToUserId: ID
+    isAssigned: Boolean
+}

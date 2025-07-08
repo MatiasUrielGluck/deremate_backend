@@ -4,6 +4,7 @@ import com.matiasugluck.deremate_backend.dto.delivery.CreateDeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.DeliveryDTO;
 import com.matiasugluck.deremate_backend.dto.delivery.PackageInWarehouseDTO;
 import com.matiasugluck.deremate_backend.entity.Delivery;
+import com.matiasugluck.deremate_backend.graphql.input.DeliveryFilterInput;
 
 import java.util.List;
 
@@ -15,4 +16,5 @@ public interface DeliveryService {
     List<PackageInWarehouseDTO> getPackagesInWarehouse();
     List<DeliveryDTO> getDeliveriesByUserId(Long userId);
     List<DeliveryDTO> getAssignedAndNotDelivered();
+    List<Delivery> findDeliveriesByFilter(DeliveryFilterInput filter);
 }
